@@ -3,7 +3,7 @@
 **Avant la séance (15 min, une seule fois) :**
 
 1. Crée un compte **GitHub** (github.com, gratuit) et un compte **Cloudflare** (cloudflare.com, gratuit).
-2. Ouvre le modèle du coaching sur GitHub → **Use this template → Create a new repository** → nom : `mon-business`, **Private**.
+2. Ouvre **github.com/MZBELAID/coaching-burden-hunt** → **Use this template → Create a new repository** → nom : `mon-business`, **Private**.
 3. Dans **Cloudflare → Workers & Pages → Create → Import a repository** : connecte GitHub, choisis `mon-business`.
    - Project name : **mon-site**
    - Root directory : **site**
