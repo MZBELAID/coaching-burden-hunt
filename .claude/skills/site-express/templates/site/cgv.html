@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conditions générales de vente · {{MARQUE}}</title>
+<!-- MODÈLE À REMPLIR avec les vraies conditions validées dans la mini-offre. Claude n'est pas juriste : en cas de doute, faire relire.
+     Si le client vend seulement à des professionnels : supprimer les blocs « clients particuliers » (rétractation, médiation). -->
+<script>window.SITE_CONFIG = { brand: "{{MARQUE}}", email: "{{EMAIL}}", metaPixelId: "{{META_PIXEL_ID}}" };</script>
+<script defer src="/consent.js"></script>
+<style>
+  :root { --bg: {{TOKEN_BG}}; --ink: {{TOKEN_INK}}; --accent: {{TOKEN_ACCENT}}; --cta: {{TOKEN_CTA}};
+          --muted: color-mix(in srgb, var(--ink) 62%, var(--bg)); --cc-bg: var(--bg); --cc-ink: var(--ink); --cc-sub: var(--muted); --cc-accent: var(--cta); }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 32px 18px 80px; }
+  a { color: inherit; } .back { font-size: 14px; color: var(--muted); }
+  h1 { font-size: clamp(28px, 6vw, 40px); line-height: 1.15; margin: 18px 0 8px; } h2 { font-size: 19px; margin: 28px 0 6px; }
+  .intro { color: var(--muted); } .maj { font-size: 13px; color: var(--muted); margin-top: 40px; }
+  blockquote { margin: 10px 0; padding: 12px 14px; border-left: 3px solid var(--accent); background: color-mix(in srgb, var(--bg) 85%, #fff); font-size: 15px; }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="/">← Retour au site</a>
+  <h1>Conditions générales de vente</h1>
+  <p class="intro">Comment ça marche entre vous et moi, sans détour.</p>
+
+  <h2>Qui vend</h2>
+  <p>{{NOM_LEGAL}}, {{FORME_JURIDIQUE}}, SIRET {{SIRET}}, {{ADRESSE}}, {{PAYS}}. Contact : <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</p>
+
+  <h2>Ce que je vends</h2>
+  <p>{{NOM_MINI_OFFRE}} : {{DESCRIPTION_MINI_OFFRE}}. Vous recevez : {{LIVRABLES}}. Ce qu'il me faut de votre part : {{CE_QU_IL_FAUT}}.</p>
+
+  <h2>Le prix</h2>
+  <p>Prix : {{PRIX}}. {{TVA_MENTION}} Le prix payé est celui affiché au moment de la commande.</p>
+
+  <h2>Commande et paiement</h2>
+  <p>Le paiement passe par Stripe. Je ne vois jamais votre numéro de carte et je ne le stocke jamais.</p>
+  <p>Deux façons de payer :</p>
+  <p>— <b>Réserver avec un acompte</b> de {{ACOMPTE}}, déduit du prix. Le solde de {{SOLDE}} se paie après la livraison, par un lien de paiement que je vous envoie avec la livraison.<br>
+  — <b>Tout payer maintenant</b> : {{PRIX_TOUT}} au lieu de {{PRIX}} (−20&nbsp;%).</p>
+  <p>Votre paiement valide votre commande.</p>
+
+  <h2>Délai et livraison</h2>
+  <p>Je livre {{CE_QUE_JE_LIVRE}} sous {{DELAI}}, à partir du moment où j'ai reçu tout ce qu'il me faut (le formulaire envoyé après la réservation). La livraison se fait par {{CANAL_LIVRAISON}}.</p>
+
+  <h2>La garantie : je livre d'abord, vous payez le reste après</h2>
+  <p>Vous ne payez le solde qu'une fois que j'ai livré tout ce qui est promis ci-dessus. S'il manque quelque chose, je le corrige avant que vous payiez. {{REGLE_ACOMPTE}}</p>
+  <p>Je ne garantis pas un résultat qui dépend de choses que je ne contrôle pas (vos ventes, vos clients, les plateformes). Je garantis ce que je livre.</p>
+
+  <!-- SI: clients particuliers -->
+  <h2>Droit de rétractation (clients particuliers)</h2>
+  <p>Si vous achetez en tant que particulier, vous avez 14 jours à partir de la commande pour vous rétracter, sans donner de raison. Il suffit de m'écrire à <a href="mailto:{{EMAIL}}">{{EMAIL}}</a> (vous pouvez utiliser le modèle ci-dessous). Je vous rembourse sous 14 jours, avec le même moyen de paiement.</p>
+  <p>Si vous me demandez de commencer le travail avant la fin de ces 14 jours et que vous vous rétractez ensuite, vous payez seulement la part du service déjà fournie. Si le service est entièrement livré avant la fin des 14 jours, à votre demande expresse et après avoir reconnu que vous perdez alors votre droit de rétractation, ce droit ne s'applique plus.</p>
+  <blockquote>Modèle : « À l'attention de {{NOM_LEGAL}}, {{ADRESSE}}, {{EMAIL}}. Je vous notifie par la présente ma rétractation du contrat portant sur le service ci-dessous : [service], commandé le [date]. Nom : [votre nom]. Adresse : [votre adresse]. Date : [date]. »</blockquote>
+
+  <h2>Médiation (clients particuliers)</h2>
+  <p>En cas de litige, écrivez-moi d'abord : on trouve presque toujours une solution. Si ça ne suffit pas, vous pouvez saisir gratuitement le médiateur de la consommation : {{MEDIATEUR_NOM_ET_SITE}}.</p>
+  <!-- /SI -->
+
+  <h2>Propriété</h2>
+  <p>Ce que je livre est pour votre usage. {{REGLE_PROPRIETE_LIVRABLES}}</p>
+
+  <h2>Droit applicable</h2>
+  <p>Ces conditions sont soumises au droit français.</p>
+
+  <h2>Nous contacter</h2>
+  <p>Une question, un souci&nbsp;? Écrivez à <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>. Je réponds.</p>
+
+  <p class="maj">Mise à jour : {{DATE_MAJ}}</p>
+</main>
+</body>
+</html>

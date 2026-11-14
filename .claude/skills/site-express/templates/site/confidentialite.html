@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confidentialité · {{MARQUE}}</title>
+<!-- MODÈLE À REMPLIR. Ne lister que les outils que le site utilise vraiment (par défaut : Stripe, Meta, Cloudflare).
+     Claude n'est pas juriste : en cas de doute, faire relire. -->
+<script>window.SITE_CONFIG = { brand: "{{MARQUE}}", email: "{{EMAIL}}", metaPixelId: "{{META_PIXEL_ID}}" };</script>
+<script defer src="/consent.js"></script>
+<style>
+  :root { --bg: {{TOKEN_BG}}; --ink: {{TOKEN_INK}}; --accent: {{TOKEN_ACCENT}}; --cta: {{TOKEN_CTA}};
+          --muted: color-mix(in srgb, var(--ink) 62%, var(--bg)); --cc-bg: var(--bg); --cc-ink: var(--ink); --cc-sub: var(--muted); --cc-accent: var(--cta); }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 32px 18px 80px; }
+  a { color: inherit; } .back { font-size: 14px; color: var(--muted); }
+  h1 { font-size: clamp(28px, 6vw, 40px); line-height: 1.15; margin: 18px 0 8px; } h2 { font-size: 19px; margin: 28px 0 6px; }
+  .intro { color: var(--muted); } .maj { font-size: 13px; color: var(--muted); margin-top: 40px; }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="/">← Retour au site</a>
+  <h1>Confidentialité</h1>
+  <p class="intro">Ce que je collecte, pourquoi, et ce que vous pouvez en faire. Pas de jargon, pas de pièges.</p>
+
+  <h2>Qui est responsable</h2>
+  <p>{{NOM_LEGAL}}, {{ADRESSE}}, {{PAYS}}. Contact : <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</p>
+
+  <h2>Ce que je collecte</h2>
+  <p>Votre email<!-- SI: téléphone collecté -->, votre numéro de téléphone<!-- /SI --> et vos réponses au formulaire, quand vous me les envoyez. Vos infos d'achat, via Stripe : je ne vois jamais et je ne stocke jamais votre numéro de carte. Et, seulement avec votre accord dans les pays où il est demandé, des données de navigation via le pixel Meta.</p>
+
+  <h2>Pourquoi je les utilise</h2>
+  <p>Pour traiter votre commande et vous livrer (c'est nécessaire au contrat), vous recontacter au sujet de votre demande, respecter mes obligations comptables, et mesurer mes publicités (seulement avec votre accord quand il est demandé).</p>
+
+  <h2>Avec qui je les partage</h2>
+  <p>Seulement avec les outils qui font tourner le site : Stripe (paiement), Meta (mesure des publicités), Cloudflare (hébergement). Je ne vends jamais vos données.</p>
+
+  <h2>Pays et transferts</h2>
+  <p>Plusieurs de ces outils sont aux États-Unis. Les transferts s'appuient sur le cadre EU-US Data Privacy Framework et/ou les clauses contractuelles types.</p>
+
+  <h2>Combien de temps</h2>
+  <p>Demande sans achat : 3 ans après notre dernier échange. Client : le temps de notre relation, puis ce que la loi impose pour les pièces comptables (10 ans pour les factures). Vous voulez qu'on efface ce qui peut l'être&nbsp;? Un message suffit.</p>
+
+  <h2>Vos droits</h2>
+  <p>Accès, rectification, suppression, portabilité, opposition, limitation. Écrivez à <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>, je m'en occupe. Vous pouvez aussi adresser une réclamation à la CNIL (cnil.fr).</p>
+
+  <h2>Cookies</h2>
+  <p>Tout est expliqué sur la page <a href="/cookies">Cookies</a>. Vous gardez la main via « <a href="/gerer-mes-cookies">Gérer mes cookies</a> ».</p>
+
+  <p class="maj">Mise à jour : {{DATE_MAJ}}</p>
+</main>
+</body>
+</html>

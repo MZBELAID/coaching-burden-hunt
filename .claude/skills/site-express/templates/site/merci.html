@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Merci · {{MARQUE}}</title>
+<script>
+  window.SITE_CONFIG = {
+    brand: "{{MARQUE}}",
+    email: "{{EMAIL}}",
+    metaPixelId: "{{META_PIXEL_ID}}",
+    currency: "EUR",
+    offers: {
+      acompte: { value: {{MONTANT_ACOMPTE_NOMBRE}} },
+      tout:    { value: {{MONTANT_TOUT_NOMBRE}} },
+      solde:   { value: {{MONTANT_SOLDE_NOMBRE}} }
+    }
+  };
+</script>
+<script defer src="/consent.js"></script>
+<style>
+  :root { --bg: {{TOKEN_BG}}; --ink: {{TOKEN_INK}}; --accent: {{TOKEN_ACCENT}}; --cta: {{TOKEN_CTA}}; --radius: {{TOKEN_RADIUS}}px;
+          --muted: color-mix(in srgb, var(--ink) 62%, var(--bg));
+          --cc-bg: var(--bg); --cc-ink: var(--ink); --cc-sub: var(--muted); --cc-accent: var(--cta); }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .topbar { font-size: 13px; text-align: center; padding: 8px 16px; background: var(--ink); color: var(--bg); }
+  .topbar a { color: var(--bg); font-weight: 600; }
+  main { max-width: 640px; margin: 0 auto; padding: 40px 18px 80px; }
+  h1 { font-size: clamp(28px, 6vw, 44px); line-height: 1.1; margin: 0 0 12px; }
+  .first { font-size: 18px; font-weight: 600; border-left: 4px solid var(--accent); padding-left: 12px; }
+  ol { padding-left: 20px; } li { margin-bottom: 10px; }
+  .card { border: 2px dashed var(--accent); border-radius: var(--radius); padding: 18px; margin-top: 24px; }
+  .field { display: block; margin: 0 0 12px; }
+  .field span { display: block; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .field input, .field textarea { width: 100%; font: 400 16px system-ui, sans-serif; padding: 12px; border-radius: var(--radius); border: 1px solid color-mix(in srgb, var(--ink) 30%, transparent); background: #fff; color: #111; }
+  .cta { display: block; width: 100%; border: 0; border-radius: var(--radius); background: var(--cta); color: #fff; font: 600 16px system-ui, sans-serif; padding: 15px; cursor: pointer; text-transform: uppercase; letter-spacing: .05em; }
+  .muted { color: var(--muted); font-size: 14px; }
+  .foot { font-size: 13px; text-align: center; padding: 20px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="topbar">Une question&nbsp;? <a href="mailto:{{EMAIL}}">{{EMAIL}}</a></div>
+<main>
+  <h1>Merci&nbsp;!</h1>
+
+  <!-- Après un paiement Stripe (ECOM) : la 1re ligne = la livraison -->
+  <div id="merci-paid" hidden>
+    <p class="first">C'est réservé. {{PHRASE_LIVRAISON}}</p>
+    <p>Ce qui se passe maintenant :</p>
+    <ol>
+      <li>Vous recevez le reçu de Stripe par email (regardez aussi les spams).</li>
+      <li>Vous remplissez le formulaire ci-dessous : c'est tout ce qu'il me faut pour commencer.</li>
+      <li>Je livre {{CE_QUE_JE_LIVRE}} sous {{DELAI}}. {{PHRASE_SOLDE}}</li>
+    </ol>
+
+    <!-- Le formulaire de la mini-offre (« ce qu'il faut de leur part »). Une question = un champ. Seulement des faits que le client a déjà. -->
+    <form id="intake" class="card" novalidate>
+      <p><b>Le formulaire (2 minutes)</b></p>
+      <label class="field"><span>Votre email</span><input type="email" name="email" autocomplete="email" required></label>
+      <label class="field"><span>{{INTAKE_Q1}}</span><textarea name="q1" rows="2" placeholder="{{INTAKE_Q1_EXEMPLE}}"></textarea></label>
+      <label class="field"><span>{{INTAKE_Q2}}</span><textarea name="q2" rows="2" placeholder="{{INTAKE_Q2_EXEMPLE}}"></textarea></label>
+      <!-- SI: 3e question --><label class="field"><span>{{INTAKE_Q3}}</span><textarea name="q3" rows="2" placeholder="{{INTAKE_Q3_EXEMPLE}}"></textarea></label><!-- /SI -->
+      <button class="cta" type="submit">Envoyer</button>
+      <p class="muted" id="intake-ok" hidden>✓ Bien reçu. Je m'y mets.</p>
+    </form>
+  </div>
+
+  <!-- Après le formulaire LEAD -->
+  <div id="merci-lead" hidden>
+    <p class="first">C'est noté. Je vous recontacte sous {{DELAI_RAPPEL}}, par {{CANAL_RAPPEL}}.</p>
+    <p>D'ici là : enregistrez mon adresse <a href="mailto:{{EMAIL}}">{{EMAIL}}</a> pour ne pas rater ma réponse.</p>
+  </div>
+
+  <!-- Visite directe sans paiement ni formulaire -->
+  <div id="merci-other" hidden>
+    <p class="first">Une question sur votre commande&nbsp;? Écrivez-moi à <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</p>
+  </div>
+
+  <p class="muted" style="margin-top:28px">{{SIGNATURE}}</p>
+</main>
+<footer class="foot">
+  {{NOM_LEGAL}} · {{PAYS}} · <a href="/mentions-legales">Mentions légales</a> · <a href="/cgv">CGV</a> · <a href="/confidentialite">Confidentialité</a> · <a href="#" onclick="if(window.bhOpenCookiePreferences){window.bhOpenCookiePreferences();}return false;">Gérer mes cookies</a>
+</footer>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var offer = q.get('offre'), session = q.get('session_id');
+  var paid = !!(offer && session);
+  document.getElementById(paid ? 'merci-paid' : (q.get('lead') ? 'merci-lead' : 'merci-other')).hidden = false;
+
+  /* Achat Meta, une seule fois par paiement, seulement avec le consentement marketing.
+     Le pixel arrive après la décision de consentement : on attend jusqu'à 15 s. */
+  if (paid) {
+    var key = 'px_purchase_' + session, sent = false;
+    try { sent = !!localStorage.getItem(key); } catch (e) {}
+    if (!sent) {
+      var o = (window.SITE_CONFIG.offers || {})[offer] || {}, tries = 0;
+      (function wait() {
+        if (window.sitePx && window.__bhMarketingOK && window.fbq) {
+          window.sitePx('Purchase', { value: o.value, currency: window.SITE_CONFIG.currency }, { eventID: session });
+          try { localStorage.setItem(key, '1'); } catch (e) {}
+        } else if (tries++ < 30) { setTimeout(wait, 500); }
+      })();
+    }
+  }
+
+  /* Le formulaire : enregistré dans le KV si le site tourne sur le Worker, sinon email pré-rempli. */
+  var form = document.getElementById('intake');
+  if (form) form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var data = { email: form.email.value.trim(), q1: form.q1.value, q2: form.q2.value, q3: form.q3 ? form.q3.value : '', session: session || '', offre: offer || '' };
+    var text = 'Email : ' + data.email + '\n\n{{INTAKE_Q1}}\n' + data.q1 + '\n\n{{INTAKE_Q2}}\n' + data.q2 + (form.q3 ? '\n\n{{INTAKE_Q3}}\n' + data.q3 : '');
+    fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: data.email, reponse: 'intake', page: '/merci', details: data }) })
+      .then(function (r) { if (!r.ok) throw new Error('x'); document.getElementById('intake-ok').hidden = false; form.querySelector('button').disabled = true; })
+      .catch(function () { location.href = 'mailto:{{EMAIL}}?subject=' + encodeURIComponent('Formulaire : {{NOM_MINI_OFFRE}}') + '&body=' + encodeURIComponent(text); });
+  });
+})();
+</script>
+</body>
+</html>

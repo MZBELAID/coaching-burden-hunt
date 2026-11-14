@@ -1,0 +1,23 @@
+// Site Express — configuration Wrangler (chemin principal : `npx wrangler deploy`).
+// Dossier du site dans le dossier de travail du client :
+//   site/
+//   ├── wrangler.jsonc     ← ce fichier
+//   ├── src/worker.js      ← /api/geo, /api/lead, /api/track, le reste = fichiers statiques
+//   └── public/            ← index.html, merci.html, les 6 pages légales, consent.js, pixels.js, 404.html (facultatif)
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "{{NOM_WORKER}}",               // minuscules et tirets, ex. "atelier-julie" → https://atelier-julie.<sous-domaine>.workers.dev
+  "main": "src/worker.js",
+  "compatibility_date": "2025-01-01",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash", // /cgv sert cgv.html
+    "not_found_handling": "404-page"        // sert 404.html s'il existe
+  }
+  // Mode LEAD seulement : après `npx wrangler kv namespace create LEADS`, décommenter et coller l'id :
+  // ,"kv_namespaces": [{ "binding": "LEADS", "id": "{{ID_KV_LEADS}}" }]
+  // Domaine du client géré dans son Cloudflare (facultatif) :
+  // ,"routes": [{ "pattern": "{{DOMAINE}}", "custom_domain": true }]
+}
