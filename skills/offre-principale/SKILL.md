@@ -11,7 +11,8 @@ Le but, en une phrase : **un service bien payé, que la personne fait elle-même
 
 ## Ce que tu récupères (ne le redemande jamais)
 
-- La target : le montant par mois, sa devise, et s'il est provisoire.
+- La target : le montant par mois, sa devise, s'il est provisoire, la langue et les pays visés.
+- Le prix de ce que vend l'avatar (et sa marge si elle a une source), trouvé au Katana.
 - Le bloc `# Ton Katana Est Forgé ⚔️` : le Ki, les Techniques gardées, le 🎯 Bearer, le 💢 Burden, la phrase Katana, la signature.
 
 Traite-les comme validés. Si le Burden est flou, déduis-le du Katana. Ne relance pas la forge.
@@ -24,7 +25,7 @@ Avant de montrer quoi que ce soit, fais une vraie recherche web. Ne l'annonce pa
 
 Tu cherches :
 
-1. **Qui vend déjà un service récurrent à ce Bearer, pour ce Burden.** Des vendeurs nommés (freelances, agences, indépendants, plateformes de services), leur prix par mois, le lien de la page où tu as lu le prix. Vise au moins 3 vendeurs. Sources françaises d'abord si le client vend en France.
+1. **Qui vend déjà un service récurrent à ce Bearer, pour ce Burden.** Des vendeurs nommés (freelances, agences, indépendants, plateformes de services), leur prix par mois, le lien de la page où tu as lu le prix. Vise au moins 3 vendeurs. Sources des pays visés d'abord.
 2. **Ce que le Bearer paie déjà** pour ce problème, chaque mois.
 3. **Si le Burden revient** : est-ce que le problème repousse chaque mois (ou chaque saison) ? Tu le déduis, tu ne le demandes pas. C'est ce qui rend un paiement mensuel naturel.
 4. **L'ENDGAME** : l'état que le Bearer veut vraiment atteindre une fois le Burden battu, dans ses mots à lui.
@@ -48,13 +49,41 @@ Règles de la recherche :
 - **Écrit dans les mots du Bearer.** Un dentiste veut des patients, pas de la « génération de leads ».
 - **Le prix vient du marché.** Tu recommandes un prix à l'intérieur de la fourchette des vendeurs trouvés, et tu dis en une ligne pourquoi ce prix-là.
 
-## Étape 1 : la carte de l'offre
+## Étape 1 : les 4 cadrans (méthode Hormozi)
 
-Annonce en une phrase ce que tu montres, puis montre **une seule** offre, la plus forte :
+On construit l'offre en 4 décisions, une question à la fois. À chaque question : 3 propositions tirées de la recherche, la meilleure marquée « recommandé » en premier. Il tape un numéro ou écrit la sienne. Un numéro tapé = validé, pas de reconfirmation.
+
+**1. Le résultat rêvé.** Ce que le Bearer veut vraiment obtenir (l'ENDGAME), dans ses mots, chiffré quand c'est possible.
+
+> 👑 **Qu'est-ce que ton client veut obtenir, au fond ?**
+>
+> 1. [RÉSULTAT 1] (recommandé)
+>
+> 2. [RÉSULTAT 2]
+>
+> 3. [RÉSULTAT 3]
+>
+> ✍️ Ou écris le tien.
+
+**2. En combien de temps.** Quand il voit le résultat (ou son premier signe). Court et tenable : en jours ou en semaines, jamais « dans quelques mois », sauf si le coach a dit autrement.
+
+**3. Sans quel effort.** Ce qu'il n'a plus à faire, les corvées qu'il déteste (trouvées dans la recherche, dans ses mots), ou la dépendance dont il sort (par exemple « sans dépendre de plateformes comme [NOM RÉEL] »).
+
+**4. Avec quel risque en moins.** La garantie : ce que le client promet sur ce qu'il contrôle (par exemple « le mois suivant offert s'il n'y a aucune demande »). Jamais « sans risque », jamais un résultat ou une vente garantis.
+
+## Étape 2 : la carte de l'offre
+
+Assemble les 4 cadrans en **une phrase d'offre précise**, sur ce modèle :
+
+> « [RÉSULTAT RÊVÉ], [SANS QUEL EFFORT], en [DÉLAI], [AVEC LA GARANTIE]. »
+
+Exemple de forme : « Obtenez des demandes de voyage en direct grâce aux pubs, sans dépendre de plateformes comme [NOM], en 30 jours, avec le mois suivant offert si aucune demande n'arrive. »
+
+Puis montre **une seule** carte, la plus forte :
 
 > 👑 **Ton offre principale**
 >
-> **J'aide [BEARER] à [RÉSULTAT DE L'ENDGAME], chaque mois.**
+> **« [PHRASE D'OFFRE] »**
 >
 > Ce que tu fais pour eux chaque mois :
 >
@@ -65,6 +94,8 @@ Annonce en une phrase ce que tu montres, puis montre **une seule** offre, la plu
 > — [LIVRABLE 3]
 >
 > 💰 **[PRIX] / mois** · engagement : [DURÉE ou « sans engagement »]
+>
+> 📈 **Pourquoi ce prix se rembourse :** [LE CALCUL, avec le prix de l'avatar trouvé au Katana. Ex. « Un voyage vendu leur laisse ≈ [MARGE] ([SOURCE]). [N] voyage(s) par mois remboursent ton service. »]
 >
 > 🎯 Pour atteindre ta target de [TARGET] / mois, il te faut **[N] clients**.
 >
@@ -78,27 +109,25 @@ Annonce en une phrase ce que tu montres, puis montre **une seule** offre, la plu
 >
 > 1. C'est mon offre
 >
-> 2. Montre-m'en une autre
->
-> 3. Je veux changer quelque chose
->
-> Tape seulement le numéro.
+> 2. Je veux changer quelque chose
 
-Si 2 : montre la deuxième meilleure, avec ses propres preuves. Garde les précédentes : il peut revenir à une offre déjà vue. Trois offres au maximum.
+Si le calcul du remboursement n'a pas de source pour la marge de l'avatar, marque-le HYPOTHÈSE avec sa raison. Ne l'invente jamais.
 
-Si 3 : demande ce qu'il veut changer (le prix, ce qu'il fait chaque mois, le Bearer, la durée), change seulement ça, revérifie le nombre de clients et les preuves, remontre la carte.
+Si 2 : demande ce qu'il veut changer (un des 4 cadrans, le prix, ce qu'il fait chaque mois, la durée), change seulement ça, revérifie le nombre de clients, le calcul et les preuves, remontre la carte.
 
 Si ce que le client veut changer casse une règle (plus de 10 clients, un prix que personne ne pratique, une Technique qu'il n'a pas), dis-le en une phrase et propose la correction la plus proche. Puis respecte sa décision.
 
-## Étape 2 : le bloc de clôture
+## Étape 3 : le bloc de clôture
 
-Quand il valide, termine par :
+Quand il valide, écris ce bloc dans la Carte de séance (en séance de coaching, il ne s'affiche pas dans le chat) :
 
 > # Ton Offre Principale Est Forgée ⚔️
 >
 > ## Ton offre
 >
-> **J'aide [BEARER] à [RÉSULTAT], chaque mois.**
+> **« [PHRASE D'OFFRE] »**
+>
+> **Les 4 cadrans :** résultat [RÉSULTAT] · délai [DÉLAI] · sans [EFFORT] · garantie [GARANTIE]
 >
 > **Chaque mois :** [LIVRABLES]
 >
@@ -107,6 +136,8 @@ Quand il valide, termine par :
 > **Marge par client :** [MARGE] / mois [« = prix, coûts inconnus » si c'est le cas]
 >
 > **Clients nécessaires :** [N] pour [TARGET] / mois
+>
+> **Pourquoi ce prix se rembourse :** [LE CALCUL + SOURCE ou HYPOTHÈSE]
 >
 > ## Ce sur quoi elle tient
 >

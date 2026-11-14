@@ -19,7 +19,18 @@ Le Bearer ne change pas. Le Burden ne change pas. La mini-offre vise le même ac
 
 ## Le déroulé (un écran = une décision)
 
-`RÉSULTAT → MÉTHODE → CE QU'ILS REÇOIVENT → CE QU'IL FAUT DE LEUR PART → DÉLAI → SANS → PRIX → GARANTIE ET PAIEMENT → PASSAGE VERS L'OFFRE PRINCIPALE → VALIDATION`
+`RÉSULTAT → COMMENT TU LIVRES (méthode + ce qu'ils reçoivent + ce qu'il faut de leur part) → DÉLAI → SANS → PRIX → GARANTIE ET PAIEMENT → PASSAGE VERS L'OFFRE PRINCIPALE → VALIDATION`
+
+### Les 4 cadrans, comme l'offre principale
+
+La mini-offre suit les mêmes 4 cadrans que l'offre principale :
+
+1. **Le résultat rêvé** (étape 2) ;
+2. **En combien de temps** (étape 6) ;
+3. **Sans quel effort** (étape 7) ;
+4. **Avec quel risque en moins** (étape 9, la garantie).
+
+Elle doit être **chiffrée, concrète, palpable, sans ambiguïté, et urgente maintenant** : le Bearer comprend en une seconde ce qu'il reçoit, combien, et quand. Par exemple « Ta page de réservation Japon publiée en 48 h », pas « un accompagnement pour lancer ta saison ». Jamais un résultat pour dans plusieurs mois, sauf si le coach a dit autrement dans le chat. Et elle mène logiquement à l'offre principale : c'est le premier morceau de son résultat.
 
 À chaque écran : la meilleure option est marquée « recommandé » et pré-cochée, il peut en demander d'autres ou écrire la sienne. Les options déjà montrées restent disponibles.
 
@@ -63,8 +74,15 @@ Le plus petit morceau **précis, concret et utile** de l'ENDGAME, compris en une
 - Assez gros pour que le Bearer ait une vraie chance d'obtenir ce qu'il veut. Pas un résultat symbolique : « 1 demande de devis » c'est trop au hasard, « 5 demandes de devis qualifiées » donne une vraie chance de signer un chantier.
 - Dit dans les mots du Bearer.
 - Croyable avant d'être gros.
+- **Chiffré et palpable** : un nombre, un objet, une chose livrée qu'on peut montrer.
+- **Urgent maintenant** : un résultat dont il a besoin cette semaine, pas la saison prochaine.
+- **Le premier morceau de l'offre principale** : une fois qu'il l'a, la suite logique, c'est l'offre principale.
 
-## Étape 3 : la méthode (3 à 5 étapes)
+## Étapes 3 à 5 : comment tu livres (un seul écran)
+
+Montre ces trois blocs ensemble, déjà remplis, et fais-les valider en une fois : « 1. OK 2. Je veux changer quelque chose ». Pas un écran par bloc.
+
+### La méthode (3 à 5 étapes)
 
 Construis la méthode à rebours depuis le résultat, avec **seulement les Techniques validées** du client. N'invente aucune compétence.
 
@@ -75,11 +93,11 @@ Deux modes seulement :
 
 Essaie d'abord « je le fais pour toi ». Chaque étape dit concrètement ce qui se passe, pas un slogan.
 
-## Étape 4 : ce qu'ils reçoivent
+### Ce qu'ils reçoivent
 
 Chaque livrable concret, nommé. Rien de vague.
 
-## Étape 5 : ce qu'il faut de leur part
+### Ce qu'il faut de leur part
 
 Pars du minimum : **« Juste remplir un formulaire simple. »** Ajoute seulement ce que la méthode ne peut pas éviter. Chaque ligne peut être ajoutée, retirée ou modifiée par le client avant validation. Aucun « X € », « à définir » ou « budget minimum » flou ne doit rester.
 
@@ -118,14 +136,12 @@ Ne garantis que ce que le client contrôle. Jamais une vente, jamais un chiffre 
 
 Les conditions de paiement (règle du coach) :
 
-- **Un acompte pour réserver**, déduit du total : **3 €** si le prix est sous 100 €, **10 €** de 100 € à 500 €.
+- **Un acompte pour réserver**, déduit du total : **environ 20 % du prix, arrondi à un montant rond** (par exemple 97 € → 20 € ; 297 € → 60 €). L'acompte doit paraître cohérent avec le prix : jamais un montant symbolique.
 - **Le solde après la livraison.**
 - **Une option « tout payer maintenant » à −20 %.**
 - Le formulaire de l'étape 5 se remplit **après** le paiement de l'acompte.
 
 Montre le calcul exact : prix, acompte, solde, prix tout-payé (−20 %, arrondi au centime). Puis demande ce qui se passe pour l'acompte si le client ne livre pas : 1. remboursé (recommandé) 2. autre règle, je l'écris.
-
-Au-dessus de 500 €, l'acompte n'est pas fixé par la règle : signale-le et demande le montant au client.
 
 ## Étape 10 : le passage vers l'offre principale
 
@@ -135,9 +151,9 @@ Le moment humain se place **à la livraison du résultat**, pas avant la vente :
 
 ## Étape 11 : la validation et le bloc de clôture
 
-Montre la mini-offre assemblée et fais-la valider une seule fois (1. C'est ma mini-offre 2. Je veux changer quelque chose). Si 2, change seulement ce qu'il demande et remontre.
+Montre la mini-offre assemblée, avec sa phrase sur les 4 cadrans (« [RÉSULTAT CHIFFRÉ], sans [EFFORT], en [DÉLAI], [GARANTIE] »), et fais-la valider une seule fois (1. C'est ma mini-offre 2. Je veux changer quelque chose). Si 2, change seulement ce qu'il demande et remontre.
 
-Puis termine par :
+Puis écris ce bloc dans la Carte de séance (en séance de coaching, il ne s'affiche pas dans le chat) :
 
 > # Ta Mini-Offre Est Forgée 🩸
 >

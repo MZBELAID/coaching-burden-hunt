@@ -270,6 +270,8 @@ Chaque ligne nomme une vraie discipline. Chaque ligne est un business différent
 
 ### Le menu
 
+> **En séance de coaching :** ajoute en premier l'option « 0. Je les vise toutes (recommandé pour démarrer) », et ajoute la recherche du prix de l'avatar (voir le SKILL.md). Pas de « Tu pars sur … ? » après un numéro tapé.
+
 > 6. Montre-m'en 5 autres
 >
 > 7. J'ai la mienne en tête
@@ -731,6 +733,8 @@ Trois détails qui étaient faux avant et qui comptent :
 > **Pourquoi ça marche :** au Japon, chaque mangaka publié en série a un éditeur attitré qui lit chaque chapitre avant sa sortie. Ton client a ce même regard sur chaque pub, exactement ce qu'un créateur solo n'a jamais eu.
 
 ## Étape 9 — Message Skool
+
+> **En séance de coaching :** saute cette étape.
 
 Même nom, même Katana, même signature que dans la livraison. Jamais une version différente.
 

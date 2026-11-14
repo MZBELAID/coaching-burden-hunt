@@ -53,7 +53,7 @@ async function lead(request, env) {
   const email = String(data.email || "").trim().slice(0, 200);
   const tel = String(data.tel || "").replace(/[^\d+]/g, "").slice(0, 20);
   const reponse = String(data.reponse || "").slice(0, 10); // "oui", "non" ou "intake" (formulaire après paiement)
-  const telOk = reponse === "intake" || tel.replace(/\D/g, "").length >= 9;
+  const telOk = reponse === "intake" || reponse === "popup" || tel.replace(/\D/g, "").length >= 9;
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || !telOk) {
     return new Response("Bad Request", { status: 400 });
   }

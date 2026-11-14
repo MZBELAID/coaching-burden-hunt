@@ -346,6 +346,9 @@ Lâcher une Technique parce que sa lecture évidente ne colle pas, c'est un manq
 
 Cette réponse doit déterminer le type de directions recherchées dans le Fichier 4.
 
+> **En séance de coaching :** ne pose pas cette question à vide. Fais d'abord la recherche, puis recommande le meilleur format avec ses raisons chiffrées et les 2 autres choix en une ligne chacun (modèle dans le SKILL.md, « Le type de business : le Sensei recommande »).
+
+
 Demande exactement :
 
 > Quel type de business aimerais-tu construire ?
@@ -397,6 +400,8 @@ L'utilisateur choisit une option.
 S'il choisit le local, demande-lui ensuite la ville et le pays.
 
 ## Étape 4 — Langues
+
+> **En séance de coaching :** la langue et les pays sont déjà fixés par la séance. Ne pose pas cette question : enregistre-les et passe à l'étape 5, sans afficher la validation cumulée.
 
 Utilise toujours la liste suivante, classée par nombre total de locuteurs dans le monde, langue maternelle et seconde langue confondues :
 

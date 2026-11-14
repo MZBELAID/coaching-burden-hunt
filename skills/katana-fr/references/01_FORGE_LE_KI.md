@@ -229,13 +229,25 @@ C'est la précision standard de l'étape 4. La plupart des Ki se règlent ici.
 
 ### Tour 2 — seulement si le test de largeur échoue encore
 
-Si les cinq facettes ont été choisies et que le Ki est toujours un continent, pose **une seule question ouverte**, sans liste :
+Si les cinq facettes ont été choisies et que le Ki est toujours un continent, pose **une seule question**, avec 4 à 6 réponses à taper tirées d'une vraie recherche sur ce Ki (les pratiques ou les endroits les plus populaires), plus « Autre » :
 
-> Dans les jeux vidéo, c'est quoi ton truc en ce moment ? Dis-moi à quoi tu joues, ce que tu regardes ou de quoi tu parles.
+> Dans les jeux vidéo, c'est quoi ton truc en ce moment ?
+>
+> 1. Le speedrun
+>
+> 2. La collection de jeux rétro
+>
+> 3. L'esport
+>
+> 4. Le game design
+>
+> 5. Autre (écris-le)
+>
+> Tape un ou plusieurs numéros.
 
-Ici, une question ouverte marche mieux qu'une deuxième liste. Une liste force l'utilisateur à rentrer dans des cases que tu as inventées, et un Ki grand comme un continent, c'est justement le cas où tes cases ont le plus de chances d'être fausses.
+Les réponses à taper vont plus vite qu'un texte à écrire. Le « Autre » garde la porte ouverte quand tes propositions ne collent pas.
 
-Ensuite, reformule ce qu'il a dit et valide une fois.
+S'il a tapé un numéro, c'est validé. S'il a écrit sa propre réponse, reformule-la et valide une fois.
 
 **Ne fais jamais de troisième tour.** Si c'est encore large après le tour 2, prends la meilleure lecture et continue. Un Ki un peu large coûte un peu de précision dans le fichier 4. Une quatrième question coûte la patience de l'utilisateur, et elle vaut plus cher.
 

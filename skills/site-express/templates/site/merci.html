@@ -14,7 +14,8 @@
     offers: {
       acompte: { value: {{MONTANT_ACOMPTE_NOMBRE}} },
       tout:    { value: {{MONTANT_TOUT_NOMBRE}} },
-      solde:   { value: {{MONTANT_SOLDE_NOMBRE}} }
+      solde:   { value: {{MONTANT_SOLDE_NOMBRE}} },
+      reste:   { value: {{MONTANT_RESTE_NOMBRE}} }
     }
   };
 </script>
@@ -47,6 +48,11 @@
 
   <!-- Après un paiement Stripe (ECOM) : la 1re ligne = la livraison -->
   <div id="merci-paid" hidden>
+    <!-- Après l'acompte seulement : payer le reste maintenant, avec la réduction -->
+    <div id="merci-reste" hidden style="border:2px solid var(--cta);border-radius:var(--radius);padding:16px;margin:0 0 20px">
+      <p style="margin:0 0 10px"><strong>Payez le reste maintenant et économisez {{ECONOMIE}}.</strong> Le reste passe de {{SOLDE}} à {{MONTANT_RESTE}}.</p>
+      <a href="{{STRIPE_LINK_RESTE}}" style="display:inline-block;background:var(--cta);color:#fff;padding:12px 18px;border-radius:var(--radius);text-decoration:none;font-weight:700">Payer {{MONTANT_RESTE}} maintenant</a>
+    </div>
     <p class="first">C'est réservé. {{PHRASE_LIVRAISON}}</p>
     <p>Ce qui se passe maintenant :</p>
     <ol>
@@ -89,6 +95,7 @@
   var offer = q.get('offre'), session = q.get('session_id');
   var paid = !!(offer && session);
   document.getElementById(paid ? 'merci-paid' : (q.get('lead') ? 'merci-lead' : 'merci-other')).hidden = false;
+  if (paid && offer === 'acompte') document.getElementById('merci-reste').hidden = false;
 
   /* Achat Meta, une seule fois par paiement, seulement avec le consentement marketing.
      Le pixel arrive après la décision de consentement : on attend jusqu'à 15 s. */

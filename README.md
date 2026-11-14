@@ -4,7 +4,7 @@
 Crée tes comptes : **Claude Pro**, **Cloudflare**, **Stripe** (vérifié, avec ton SIRET), **Meta** (page Facebook + compte publicitaire + carte), **Canva**.
 
 ## Le jour de la séance
-1. Sur **claude.ai**, ouvre une nouvelle conversation (Paramètres → Capacités : la recherche web et l'exécution de code activées).
+1. Sur **claude.ai**, ouvre une nouvelle conversation (Paramètres → Capacités : la recherche web, l’exécution de code et les Artifacts activés).
 2. Colle ce message :
 
 > Lis https://raw.githubusercontent.com/MZBELAID/coaching-burden-hunt/main/COMMENCER.md et lance le coaching.

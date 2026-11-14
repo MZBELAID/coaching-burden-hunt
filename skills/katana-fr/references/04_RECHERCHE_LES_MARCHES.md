@@ -279,6 +279,8 @@ Si une famille n'arrive toujours pas à cinq, montre-en moins et n'en dis rien.
 
 # Étape 3 — La sortie
 
+> **En séance de coaching :** n'affiche que **3 directions**, la meilleure de chaque famille (🌸, ⚡, 🌍), numérotées 1 à 3, avec le menu « 4. Montre-m'en 3 autres · 5. J'ai la mienne en tête ». La ligne Inspiration = des concurrents du monde entier, avec un positionnement proche, pays et lien. Voir le SKILL.md.
+
 Range par famille. Ne mélange pas. Quinze directions dans un flux mélangé, c'est illisible.
 
 Donne à chaque direction un titre en langage simple, sans formule. `Le torréfacteur qui a du super café et qui n'en vend pas`, pas `Café × Meta Ads × Torréfacteur / "Burden"`.

@@ -406,7 +406,7 @@ N'annonce jamais une trouvaille quand il n'y en a pas eu. Montrer une liste vide
 
 Puis demande exactement :
 
-> Qu'est-ce que tu sais faire, ou qu'est-ce que tu as appris à faire avec le temps ? Tout.
+> Qu'est-ce que tu sais faire, ou qu'est-ce que tu as appris à faire avec le temps ?
 >
 > Pense à :
 >

@@ -10,7 +10,7 @@ Trois chemins, dans cet ordre :
 
 ---
 
-## Chemin 1 · Wrangler (principal)
+## Chemin 1 · Wrangler (seulement dans un terminal)
 
 ### 1. Préparer le dossier
 
@@ -34,9 +34,9 @@ Vérifie qu'aucun fichier de `public/` ne contient encore `{{` (cherche-le dans 
 
 ### 3. L'aperçu en local
 
-`npx wrangler dev` dans `site/` → l'aperçu tourne sur `http://localhost:8787`. Le client l'ouvre dans son navigateur (et sur son téléphone en réduisant la fenêtre). C'est l'aperçu de l'étape 7 du skill. `/api/geo` répond aussi en local.
+`npx wrangler dev` dans `site/` → l'aperçu tourne sur `http://localhost:8787`. Le client l'ouvre dans son navigateur (et sur son téléphone en réduisant la fenêtre). C'est l'aperçu de l'étape 8 du skill. `/api/geo` répond aussi en local.
 
-### 4. (Mode LEAD seulement) le stockage des demandes
+### 4. (Fenêtre e-mail ou mode LEAD) le stockage des demandes
 
 Après un oui : `npx wrangler kv namespace create LEADS`. Copie l'`id` affiché dans le bloc `kv_namespaces` de `wrangler.jsonc` (décommente-le).
 
@@ -66,15 +66,15 @@ Lis le message d'erreur, corrige une fois ce qui est évident (nom déjà pris, 
 
 ---
 
-## Chemin 2 · Le connecteur Cloudflare (secours)
+## Chemin 2 · Le connecteur Cloudflare (le chemin principal dans le chat)
 
 Le site devient **un seul script** avec les pages embarquées (pas d'assets à téléverser).
 
 1. Construis le script : `python templates/build_worker.py site/public templates/worker.js worker-unique.js` (il refuse s'il reste un `{{...}}`).
 2. Lecture : trouve l'`account_id` et le sous-domaine (`GET /accounts/{account_id}/workers/subdomain`).
-3. Mode LEAD, après un oui : `POST /accounts/{account_id}/storage/kv/namespaces` avec `{"title": "[nom]-leads"}`.
+3. Fenêtre e-mail ou mode LEAD, après un oui : `POST /accounts/{account_id}/storage/kv/namespaces` avec `{"title": "[nom]-leads"}`.
 4. Après « Oui, publie » : `PUT /accounts/{account_id}/workers/scripts/{nom}` en `multipart/form-data` :
-   - `metadata` : `{"main_module": "worker.js", "compatibility_date": "2025-01-01", "bindings": []}` (mode LEAD : `[{"type": "kv_namespace", "name": "LEADS", "namespace_id": "[id]"}]`) ;
+   - `metadata` : `{"main_module": "worker.js", "compatibility_date": "2025-01-01", "bindings": []}` (fenêtre e-mail ou mode LEAD : `[{"type": "kv_namespace", "name": "LEADS", "namespace_id": "[id]"}]`) ;
    - `worker.js` : le contenu de `worker-unique.js`, type `application/javascript+module`.
 5. `POST /accounts/{account_id}/workers/scripts/{nom}/subdomain` avec `{"enabled": true}`.
 6. Domaine du client (facultatif, oui) : `PUT /accounts/{account_id}/workers/domains` avec `{"hostname": "[domaine]", "service": "[nom]", "zone_id": "[id]", "environment": "production"}`.
@@ -91,12 +91,12 @@ Si l'outil du connecteur ne permet pas l'envoi multipart ou renvoie une erreur :
 3. Adresse : `https://[projet].pages.dev`. Pages sert `cgv.html` à l'adresse `/cgv`.
 4. Ce qui change :
    - pas de `/api/geo` : le bandeau cookies demande l'accord à tout le monde (mode prudent prévu par `consent.js`) ;
-   - pas de `/api/lead` : en mode LEAD, le formulaire ouvre un email pré-rempli vers le client.
+   - pas de `/api/lead` : en mode LEAD, le formulaire ouvre un email pré-rempli vers le client, et la fenêtre e-mail est retirée.
 5. Mets à jour la page de retour des liens Stripe vers cette adresse (avec un oui) avant de lancer les pubs.
 
 ---
 
-## Lire les demandes (mode LEAD)
+## Lire les demandes et les e-mails (fenêtre e-mail ou mode LEAD)
 
 - En ligne de commande : `npx wrangler kv key list --binding LEADS --remote`, puis `npx wrangler kv key get "[clé]" --binding LEADS --remote`.
 - Ou dans le tableau de bord : **Stockage et bases de données → KV → LEADS**.

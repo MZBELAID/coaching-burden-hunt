@@ -18,22 +18,24 @@ Trois **prix** uniques (pas d'abonnement), en euros, sur ce produit :
 
 | Prix | Montant | Libellé affiché |
 |---|---|---|
-| Acompte | 3 € (prix < 100 €) ou 10 € (100 à 500 €) | « Acompte : [mini-offre] (déduit du total) » |
+| Acompte | environ 20 % du prix, arrondi à un montant rond (ex. 97 € → 20 €) | « Acompte : [mini-offre] (déduit du total) » |
 | Tout payer | prix × 0,8, arrondi au centime | « [mini-offre] : payé en une fois (−20 %) » |
 | Solde | prix − acompte | « Solde : [mini-offre] » |
+| Reste maintenant | prix × 0,8 − acompte, arrondi au centime | « [mini-offre] : le reste payé maintenant (−20 %) » |
 
-Trois **liens de paiement**, un par prix, quantité 1, avec :
+Quatre **liens de paiement**, un par prix, quantité 1, avec :
 
 - **Après le paiement : redirection** vers
   - acompte : `https://[ADRESSE]/merci?offre=acompte&session_id={CHECKOUT_SESSION_ID}`
   - tout payer : `https://[ADRESSE]/merci?offre=tout&session_id={CHECKOUT_SESSION_ID}`
   - solde : `https://[ADRESSE]/merci?offre=solde&session_id={CHECKOUT_SESSION_ID}`
+  - reste maintenant : `https://[ADRESSE]/merci?offre=reste&session_id={CHECKOUT_SESSION_ID}`
   
   (`{CHECKOUT_SESSION_ID}` est écrit tel quel : c'est Stripe qui le remplace.)
 - **Collecte du téléphone** activée sur le lien d'acompte et le lien tout payer (le client recontacte ses acheteurs).
 - **Message sous le bouton de paiement** (texte personnalisé) sur le lien d'acompte : « Le solde de [SOLDE] se paie après la livraison. »
 
-Le lien **solde** n'est pas mis sur le site : le client l'envoie avec sa livraison (c'est le message de livraison validé dans la mini-offre).
+Le lien **reste maintenant** apparaît seulement sur la page merci, après l'acompte (« Paie le reste maintenant et économise [ÉCONOMIE] »). Le lien **solde** n'est pas mis sur le site : le client l'envoie avec sa livraison (c'est le message de livraison validé dans la mini-offre).
 
 ## Mode LEAD
 
