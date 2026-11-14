@@ -2,8 +2,8 @@
 
 Trois chemins, dans cet ordre :
 
-1. **Principal : `npx wrangler deploy`** depuis le dossier de travail (onglet Code de Claude Desktop). Un Worker avec les fichiers statiques + `/api/geo`.
-2. **Secours : le connecteur Cloudflare (MCP)**, si Wrangler ne peut pas tourner.
+1. **Principal : le connecteur Cloudflare (MCP)**, depuis la conversation Claude : un seul Worker avec toutes les pages dedans + `/api/geo` (chemin 2 ci-dessous).
+2. **Seulement si la séance tourne dans un terminal (onglet Code) : `npx wrangler deploy`** (chemin 1 ci-dessous).
 3. **Dernier recours : glisser-déposer** sur Cloudflare Pages, fait par le client.
 
 **Rien n'est publié sans le oui explicite du client, après l'aperçu.**

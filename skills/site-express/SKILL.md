@@ -1,6 +1,6 @@
 ---
 name: site-express
-description: Construit et publie le site d'une page du client pour sa mini-offre, sur le modèle de la page de vente du coach — une page + les pages légales + le bandeau cookies selon le pays + le pixel Meta du client + le paiement Stripe (liens de paiement créés avec le connecteur Stripe) — puis le met en ligne sur le Cloudflare du client avec `npx wrangler deploy` (connecteur Cloudflare en secours, glisser-déposer sur Pages en dernier recours). Propose lead gen ou paiement direct. Utilise ce skill quand quelqu'un a sa mini-offre et demande « mon site », « ma landing », « ma page de vente », « mets mon site en ligne », « publie ma page », « le lien de paiement », ou quand un bloc « # Ta Mini-Offre Est Forgée 🩸 » est dans la conversation et que la séance arrive au site. Se déclenche aussi sur un bloc « # Ton Site Est En Ligne 🏯 » (reprise).
+description: Construit et publie le site d'une page du client pour sa mini-offre, sur le modèle de la page de vente du coach — une page + les pages légales + le bandeau cookies selon le pays + le pixel Meta du client + le paiement Stripe (liens de paiement créés avec le connecteur Stripe) — puis le met en ligne sur le Cloudflare du client avec le connecteur Cloudflare (un seul Worker avec toutes les pages dedans ; glisser-déposer sur Pages en dernier recours). Propose lead gen ou paiement direct. Utilise ce skill quand quelqu'un a sa mini-offre et demande « mon site », « ma landing », « ma page de vente », « mets mon site en ligne », « publie ma page », « le lien de paiement », ou quand un bloc « # Ta Mini-Offre Est Forgée 🩸 » est dans la conversation et que la séance arrive au site. Se déclenche aussi sur un bloc « # Ton Site Est En Ligne 🏯 » (reprise).
 ---
 
 # Le site 🏯
@@ -17,10 +17,10 @@ La page ne fait **aucune nouvelle promesse**. Elle reprend la mini-offre validé
 ## Ce qu'il y a dans ce skill
 
 - `templates/site/` : la page (`index.html`), la page merci (`merci.html`), les 6 pages légales, `consent.js` (le bandeau cookies du coach, version client) et `pixels.js` (le pixel Meta du client, chargé seulement après le consentement).
-- `templates/wrangler/` : **le chemin principal**. `wrangler.jsonc` (Worker + fichiers statiques de `public/`) et `src/worker.js` (`/api/geo` avec les mêmes règles que le geo du coach, `/api/lead`). Déployé avec `npx wrangler deploy` depuis le dossier de travail.
-- `templates/worker.js` + `templates/build_worker.py` : le secours par le connecteur Cloudflare (un seul script avec les pages embarquées ; le script refuse s'il reste un champ vide).
+- `templates/wrangler/` : seulement si la séance tourne dans un terminal (onglet Code), sinon ignore-le. `wrangler.jsonc` (Worker + fichiers statiques de `public/`) et `src/worker.js` (`/api/geo` avec les mêmes règles que le geo du coach, `/api/lead`). Déployé avec `npx wrangler deploy` depuis le dossier de travail.
+- `templates/worker.js` + `templates/build_worker.py` : **le chemin principal**, par le connecteur Cloudflare (un seul script avec les pages embarquées ; le script refuse s'il reste un champ vide).
 - `references/paiement-stripe.md` : les liens de paiement. Lis-le à l'étape 5.
-- `references/publier-cloudflare.md` : la mise en ligne (Wrangler, puis connecteur, puis glisser-déposer). Lis-le à l'étape 7.
+- `references/publier-cloudflare.md` : la mise en ligne (connecteur Cloudflare, puis glisser-déposer). Lis-le à l'étape 7.
 
 Le site s'écrit **dans le dossier de travail du client**, dans `site/` (`site/public/` pour les pages). Il garde ses fichiers.
 
@@ -120,7 +120,7 @@ Remplis aussi les 6 pages légales avec les infos de l'étape 2 et les condition
 
 ## Étape 7 · L'aperçu, puis le oui
 
-1. Lis `references/publier-cloudflare.md`. Écris les fichiers dans `site/`, vérifie Node.js et la connexion Wrangler (`npx wrangler whoami` ; sinon c'est le client qui fait `npx wrangler login`), puis lance l'aperçu local `npx wrangler dev` et donne-lui l'adresse `http://localhost:8787` à ouvrir. Puis la checklist :
+1. Lis `references/publier-cloudflare.md`. Remplis les pages, puis montre-lui l'aperçu de la page d'accueil directement dans la conversation (le fichier HTML), et vérifie avec le connecteur Cloudflare que son compte répond (lecture seulement). Puis la checklist :
 
 > 🏯 Avant de publier, vérifie avec moi :
 >
@@ -146,7 +146,7 @@ Aucun `{{...}}` ne doit rester. Aucune publication sans « Oui, publie ».
 
 ## Étape 8 · La publication et la vérification
 
-Suis `references/publier-cloudflare.md` : `npx wrangler deploy` (chemin 1), puis la vérification, puis la mise à jour de la page de retour des liens Stripe. Si Wrangler échoue, passe au connecteur Cloudflare (chemin 2), puis au glisser-déposer sur Cloudflare Pages (chemin 3), et dis-le en une ligne à chaque fois.
+Suis `references/publier-cloudflare.md` : l'envoi du Worker par le connecteur Cloudflare (chemin 1), puis la vérification, puis la mise à jour de la page de retour des liens Stripe. Si le connecteur échoue, passe au glisser-déposer sur Cloudflare Pages (chemin 2), et dis-le en une ligne.
 
 Ne dis jamais « c'est en ligne » sans avoir ouvert l'adresse publique et lu la réponse.
 

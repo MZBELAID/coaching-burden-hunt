@@ -1,19 +1,14 @@
-# Installer le coaching (Claude dans le cloud + GitHub)
+# Coaching Burden Hunt — lance ton business en 2 h avec Claude
 
-**Avant la séance (15 min, une seule fois) :**
+## Avant la séance (le client)
+Crée tes comptes : **Claude Pro**, **Cloudflare**, **Stripe** (vérifié, avec ton SIRET), **Meta** (page Facebook + compte publicitaire + carte), **Canva**.
 
-1. Crée un compte **GitHub** (github.com, gratuit) et un compte **Cloudflare** (cloudflare.com, gratuit).
-2. Ouvre **github.com/MZBELAID/coaching-burden-hunt** → **Use this template → Create a new repository** → nom : `mon-business`, **Private**.
-3. Dans **Cloudflare → Workers & Pages → Create → Import a repository** : connecte GitHub, choisis `mon-business`.
-   - Project name : **mon-site**
-   - Root directory : **site**
-   - Deploy command : `npx wrangler deploy`
-   → Deploy. L'adresse du site s'affiche (`mon-site.xxx.workers.dev`).
-4. Sur **claude.ai** (compte **Pro**) → **Paramètres → Connecteurs** : connecte **Stripe**, **Meta (publicités)** et **Canva**.
+## Le jour de la séance
+1. Sur **claude.ai**, ouvre une nouvelle conversation (Paramètres → Capacités : la recherche web et l'exécution de code activées).
+2. Colle ce message :
 
-**Le jour de la séance :**
+> Lis https://raw.githubusercontent.com/MZBELAID/coaching-burden-hunt/main/COMMENCER.md et lance le coaching.
 
-5. Va sur **claude.ai/code**, connecte GitHub si on te le demande, choisis le dépôt **mon-business**.
-6. Écris : **« On commence le coaching »**. Claude pose la première question : la target.
+3. Quand Claude te le demande, connecte **Cloudflare**, **Stripe**, **Meta** et **Canva** (Paramètres → Connecteurs → Autoriser).
 
-Chaque fois que Claude enregistre le site, il se met en ligne tout seul en environ 1 minute.
+Claude fait le reste : ton offre, ton site en ligne avec le paiement, tes pubs (en pause, tu les actives toi-même) et ton business plan.
