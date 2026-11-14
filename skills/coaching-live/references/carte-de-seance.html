@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carte de séance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&family=Jersey+15&display=swap" rel="stylesheet">
+<style>
+  /* Thème Burden Hunt (page Speedrun) : papier, encre, marine, rouge, or. Ne change pas ce bloc. */
+  :root {
+    --paper: #f8f3e5; --card: #fdfcf8; --ink: #1b1a17; --ink2: #4a4842; --hair: #d9d6cf;
+    --navy: #1d295e; --crim: #c22238; --gold: #f7c12f; --gold2: #c78c22;
+    --px: 'Jersey 15', 'Courier New', monospace; --tx: 'Figtree', system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --paper: #12172f; --card: #1a2142; --ink: #eef0f8; --ink2: #b9bfdb; --hair: #2e3866; --navy: #0d1330;
+  } }
+  :root[data-theme="dark"] { --paper: #12172f; --card: #1a2142; --ink: #eef0f8; --ink2: #b9bfdb; --hair: #2e3866; --navy: #0d1330; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 15px/1.5 var(--tx); }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 20px 16px 40px; }
+  header { background: var(--navy); color: #fff; border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); padding: 14px 16px; }
+  .kicker { font: 18px/1 var(--px); letter-spacing: 2px; color: var(--gold); }
+  h1 { font: 38px/1 var(--px); margin: 6px 0 4px; letter-spacing: 1px; }
+  .idea { color: #d7dcf2; font-size: 14px; }
+  .bar { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; margin: 14px 0 4px; }
+  .seg { height: 14px; border: 2px solid #fff; background: transparent; }
+  .seg.done { background: var(--gold); }
+  .seg.now { background: var(--crim); }
+  .barlabel { font: 16px/1 var(--px); color: var(--gold); letter-spacing: 1px; }
+  .stage { background: var(--card); border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); margin-top: 16px; padding: 12px 14px; }
+  .stage.todo { opacity: .55; box-shadow: none; border-style: dashed; }
+  .stage.now { border-color: var(--crim); box-shadow: 4px 4px 0 var(--crim); }
+  .head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .num { font: 26px/1 var(--px); color: var(--crim); }
+  .name { font: 26px/1 var(--px); letter-spacing: 1px; flex: 1; min-width: 0; }
+  .chip { font: 15px/1 var(--px); letter-spacing: 1px; padding: 5px 8px 4px; border: 2px solid var(--ink); }
+  .chip.done { background: var(--gold); color: #1b1a17; }
+  .chip.now { background: var(--crim); color: #fff; border-color: var(--crim); }
+  .chip.todo { background: transparent; color: var(--ink2); }
+  ul { list-style: none; margin: 10px 0 0; padding: 0; }
+  li { padding: 6px 0; border-top: 1px solid var(--hair); overflow-wrap: anywhere; }
+  li:first-child { border-top: 0; }
+  .k { font-weight: 800; }
+  .hl { background: linear-gradient(transparent 55%, rgba(247,193,47,.55) 55%); font-weight: 800; }
+  a { color: var(--crim); }
+  footer { margin-top: 20px; font-size: 13px; color: var(--ink2); }
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+
+<!-- LES DONNÉES : c'est le seul bloc à remplir et à mettre à jour.
+     etat : "done" (fait) · "now" (en cours) · "todo" (à faire). Une étape "todo" garde lignes: [].
+     Chaque ligne : { "k": "Libellé", "v": "Valeur" } ; "fort": true pour surligner la valeur (Katana, prix, phrase d'offre). -->
+<script type="application/json" id="carte">
+{
+  "marque": "Carte de séance",
+  "idee": "",
+  "chemin": "",
+  "date": "",
+  "etapes": [
+    { "nom": "Objectif", "etat": "now", "lignes": [] },
+    { "nom": "Katana", "etat": "todo", "lignes": [] },
+    { "nom": "Offre principale", "etat": "todo", "lignes": [] },
+    { "nom": "Mini-offre", "etat": "todo", "lignes": [] },
+    { "nom": "Site", "etat": "todo", "lignes": [] },
+    { "nom": "Pubs", "etat": "todo", "lignes": [] },
+    { "nom": "Business plan", "etat": "todo", "lignes": [] },
+    { "nom": "Installation", "etat": "todo", "lignes": [] }
+  ],
+  "pas_compte": ""
+}
+</script>
+
+<script>
+(function () {
+  var d = JSON.parse(document.getElementById('carte').textContent);
+  var esc = function (t) { var e = document.createElement('span'); e.textContent = t == null ? '' : String(t); return e.innerHTML; };
+  var link = function (t) { return esc(t).replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>'); };
+  var chip = { done: 'CLEAR', now: 'EN COURS', todo: 'À VENIR' };
+  var nDone = d.etapes.filter(function (e) { return e.etat === 'done'; }).length;
+  var h = '<header><div class="kicker">QUÊTE · BURDEN HUNT</div><h1>' + esc(d.marque) + '</h1>';
+  if (d.idee) h += '<div class="idea">' + esc(d.idee) + (d.chemin ? ' · ' + esc(d.chemin) : '') + (d.date ? ' · ' + esc(d.date) : '') + '</div>';
+  h += '<div class="bar">' + d.etapes.map(function (e) { return '<div class="seg ' + e.etat + '"></div>'; }).join('') + '</div>';
+  h += '<div class="barlabel">' + nDone + ' / ' + d.etapes.length + ' ÉTAPES</div></header>';
+  d.etapes.forEach(function (e, i) {
+    h += '<section class="stage ' + e.etat + '"><div class="head"><span class="num">' + (i + 1) + '</span><span class="name">' + esc(e.nom) + '</span><span class="chip ' + e.etat + '">' + chip[e.etat] + '</span></div>';
+    if (e.lignes && e.lignes.length) {
+      h += '<ul>' + e.lignes.map(function (l) {
+        return '<li><span class="k">' + esc(l.k) + ' :</span> ' + (l.fort ? '<span class="hl">' + link(l.v) + '</span>' : link(l.v)) + '</li>';
+      }).join('') + '</ul>';
+    }
+    h += '</section>';
+  });
+  if (d.pas_compte) h += '<footer><strong>Pas compté ici :</strong> ' + esc(d.pas_compte) + '</footer>';
+  document.getElementById('app').innerHTML = h;
+})();
+</script>
+</body>
+</html>

@@ -7,7 +7,7 @@
 ```
 [marque]-business/
 ├── LISEZ-MOI.md            ← les 3 étapes d'installation + le prompt à coller
-├── carte-de-seance.md      ← la Carte de séance terminée (le business plan)
+├── carte-de-seance.html    ← la Carte de séance terminée (le business plan)
 ├── installation.json       ← toutes les valeurs dont l'installation a besoin
 ├── site/
 │   └── public/             ← les pages remplies : index.html, merci.html, les 6 pages légales,

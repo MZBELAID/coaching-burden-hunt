@@ -32,7 +32,7 @@ Lis-les au moment de l'étape, pas avant (liens dans `INSTALLER.md`) :
 
 ## Étape 0 · Ouvrir le dossier
 
-1. Décompresse le zip. Lis `installation.json` et `carte-de-seance.md`.
+1. Décompresse le zip. Lis `installation.json` et `carte-de-seance.html` (seulement son bloc de données).
 2. Cherche `{{` dans `site/public/` : seuls `{{STRIPE_LINK_ACOMPTE}}`, `{{STRIPE_LINK_TOUT}}`, `{{STRIPE_LINK_RESTE}}`, `{{META_PIXEL_ID}}` et `{{URL_SITE}}` doivent rester. S'il en reste d'autres, dis lesquels en une ligne : c'est le coach qui les complète, pas toi.
 3. Regarde quels connecteurs sont actifs : Stripe, Cloudflare, Meta.
 
@@ -113,7 +113,7 @@ Après la création, relis-la avec le connecteur : tout est en pause, le budget 
 
 ## Étape 5 · La fin
 
-Mets à jour `carte-de-seance.md` : l'adresse du site, les liens Stripe, le pixel, la campagne (en pause), la liste « à faire ». Donne-lui le fichier. Puis, seulement :
+Mets à jour `carte-de-seance.html` (seulement son bloc de données) : l'adresse du site, les liens Stripe, le pixel, la campagne (en pause), la liste « à faire ». Donne-lui le fichier. Puis, seulement :
 
 > ✅ Stripe · ✅ Pixel · ✅ Site · ✅ Pub
 >

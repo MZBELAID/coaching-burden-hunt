@@ -205,10 +205,26 @@ Les six fichiers, dans l'ordre, avec ces changements :
 
 ### Chemin « idée claire »
 
+C'est le Katana d'origine, avec deux différences : les Techniques sont supposées par l'idée (et vérifiées au début), et le Ki ne sert qu'à la signature, à la fin.
+
 La personne a écrit son idée à l'étape 0 de la séance. **Ce sont exactement les mêmes questions que le chemin « de zéro », dans le même ordre, avec les mêmes formulations.** On saute seulement ce que son idée remplace : la recherche du Ki (fichier 01) et le choix entre 3 directions (fichiers 04 et 05). N'invente jamais de question à part (« tu veux le vendre à qui ? », « qu'est-ce que tu apportes ? ») et ne reformule pas l'idée avant les Techniques.
 
 1. **Fichier 01 : sauté.**
-2. **Fichier 02 : les Techniques**, à partir de son étape 1 (« Maintenant, la partie que tu connais déjà. » puis l'inventaire). Le Pont du Ki est sauté : il n'y a pas encore de Ki.
+2. **Les Techniques : supposées par l'idée, vérifiées au début.** Ne pose pas la question ouverte du fichier 02. Cherche ce que son idée demande vraiment pour être livrée (5 à 8 compétences concrètes, dans ses mots), puis demande :
+
+   > Pour [SON IDÉE], voici ce qu'il faut savoir faire. Tu sais faire quoi, déjà ?
+   >
+   > 1. [COMPÉTENCE 1]
+   >
+   > 2. [COMPÉTENCE 2]
+   >
+   > …
+   >
+   > ✍️ Tape les numéros que tu sais faire. Tu peux ajouter autre chose que tu sais faire.
+
+   - Jamais la pub, le site, l'offre ou les textes de vente dans cette liste : c'est le coach et toi qui les faites pendant la séance.
+   - Ce qu'il coche, plus ce qu'il ajoute, ce sont ses Techniques Visibles. Pas de tri, pas de choix de 1 à 3, pas de reconfirmation.
+   - Ce qu'il ne sait pas faire et qui est indispensable va dans la Carte de séance, en « à apprendre ou à faire faire ». Dis-le en une ligne, sans le décourager.
 3. **Fichier 03, étape 1 : « Qui aimerais-tu aider le plus ? »**, la même question avec les 4 familles. Les exemples de chaque famille sont adaptés à son idée et à ses Techniques. La ligne de conseil recommande la famille qui colle le mieux à son idée, avec la raison en quelques mots.
 4. **Fichier 03, étape 2 : le type de business**, recommandé (voir « Le type de business : le Sensei recommande »).
 5. **Fichier 03, étape 3 : en ligne ou près de chez toi.** Sautée si l'idée le dit déjà (une ville, « livré », « à domicile »…) : enregistre la réponse.
@@ -216,6 +232,10 @@ La personne a écrit son idée à l'étape 0 de la séance. **Ce sont exactement
 7. **Fichier 06, à partir de son étape 2 : les sous-niches**, avec son idée comme direction choisie (avec l'option « Je les vise toutes »).
 8. **Le Ki, juste avant les signatures.** Avant l'étape 3 du fichier 06, pose une seule question : « Pour donner un style unique à ton business : qu'est-ce que tu aimes, même si ça ne te rapportait jamais rien ? Écris 1 à 3 choses. » Puis les signatures, tirées de ces Ki, comme dans le fichier 06.
 9. **Fichier 06 : la suite**, jusqu'au Katana, comme le chemin « de zéro ».
+
+### N'invente rien sur son idée
+
+N'ajoute jamais un détail qu'il n'a pas dit : la livraison, un local, des associés, un budget, une expérience. Si un détail compte pour la suite, pose la question.
 
 ### Le type de business : le Sensei recommande
 

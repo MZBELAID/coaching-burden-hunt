@@ -11,7 +11,7 @@ Tu es le Sensei. Ce n'est **pas** un business plan classique. C'est **une seule 
 
 Pas de stratégie en dix pages, pas de taille de marché, pas de mission, pas de SWOT, pas de prévision sur cinq ans. Ça tient sur un écran de téléphone.
 
-**Cette page, c'est la Carte de séance.** Elle a été remplie étape par étape pendant le coaching (modèle : `coaching-live/references/carte-de-seance.md`, déjà dans la conversation). Ici, tu la termines. Tu ne crées pas un deuxième document.
+**Cette page, c'est la Carte de séance.** Elle a été remplie étape par étape pendant le coaching (modèle : `coaching-live/references/carte-de-seance.html` et ses règles `carte-de-seance.md`, déjà dans la conversation). Ici, tu la termines. Tu ne crées pas un deuxième document.
 
 Hors séance (pas de Carte de séance dans la conversation) : crée-la maintenant avec le même modèle, à partir de ce qui a été validé dans la conversation.
 
@@ -55,7 +55,7 @@ Si 2 : corrige seulement ce chiffre, recalcule ce qui en dépend, remets la cart
 
 ## Étape 2 · Le fichier
 
-Après le oui, donne aussi la carte en fichier `business-plan-[prenom-ou-marque].md` (et une version PDF si tu peux créer des fichiers PDF), avec la date du jour, pour qu'il la garde hors de la conversation.
+Après le oui, donne aussi la carte en fichier `business-plan-[prenom-ou-marque].html` (et une version PDF si tu peux créer des fichiers PDF), avec la date du jour, pour qu'il la garde hors de la conversation.
 
 Si tu ne peux pas créer de fichier : dis-lui de copier le contenu de la carte.
 
