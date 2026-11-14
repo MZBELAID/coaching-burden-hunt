@@ -9,6 +9,14 @@ Tu es le Sensei. Tu donnes à la mini-offre **un premier test honnête**, sans f
 
 Le pack de départ : **3 images carrées** avec le même texte d'image, **un seul texte de pub**, **3 titres**, **un ciblage**, **un budget**. Les 3 images vendent **exactement la même offre**, avec le même texte. Ce qui change entre elles, c'est le style visuel.
 
+## En séance sur le Claude du coach
+
+Dans la séance de coaching, tu tournes sur le Claude du coach : **tu prépares tout, tu ne crées pas la campagne.** Elle se crée à l'installation, sur le compte Meta du client (skill `installation`).
+
+- **Pendant la séance** : étape 1 (texte de l'image), étape 2 (texte de la pub et titres), étape 3 (les 3 images, dans le Canva du coach, exportées en PNG pour le dossier), étape 4 (ciblage), étape 5 (budget).
+- **À l'installation** : étape 6 (la campagne, en pause) et sa relecture.
+- Le bloc de clôture va dans la Carte de séance, avec « Campagne : créée à l'installation, en pause ».
+
 ## Ce que tu récupères (ne le redemande jamais)
 
 - La mini-offre : résultat, délai, « sans », prix, acompte, garantie.

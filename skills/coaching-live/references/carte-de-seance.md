@@ -47,14 +47,14 @@ Chemin : [de zéro | idée claire] · [DATE]
 - Elle mène à l'offre principale : [LE PONT, EN UNE PHRASE]
 
 ## [✅|🔵|⬜] 5. Site
-- 🔗 [ADRESSE]
+- 🔗 [ADRESSE] (écrite à l'installation)
 - Funnel : [LES ÉTAPES DU FUNNEL]
 - Design : « [NOM DU DESIGN] »
 - Contact : [WhatsApp | e-mail]
 
 ## [✅|🔵|⬜] 6. Pubs
 - Les 3 images carrées et le texte prêts.
-- Campagne Meta **en pause** : [BUDGET] / jour, plafond [BUDGET 72 H] sur 72 h, sur [PAYS].
+- Campagne Meta **en pause** (créée à l'installation) : [BUDGET] / jour, plafond [BUDGET 72 H] sur 72 h, sur [PAYS].
 - Les 3 titres : [TITRE 1] · [TITRE 2] · [TITRE 3]
 
 ## [✅|🔵|⬜] 7. Les prochaines étapes

@@ -25,6 +25,17 @@ La page ne fait **aucune nouvelle promesse**. Elle reprend la mini-offre validé
 
 Les fichiers du site sont rangés dans `site/` (`site/public/` pour les pages) et donnés au client : il garde ses fichiers.
 
+## En séance sur le Claude du coach
+
+Dans la séance de coaching, tu tournes sur le Claude du coach : **tu construis le site, tu ne le publies pas.** La publication se fait à l'installation, sur le Claude du client (skill `installation`).
+
+- **Pendant la séance** : étape 1 (funnel), étape 2 (textes), étape 3 (design et maquettes), étape 4 (infos légales, coordonnées de l'hébergeur comprises), étape 6 seulement le nom du Worker, étape 7 (la page), étape 8 l'aperçu et la checklist.
+- **À l'installation** : étape 5 (pixel Meta), étape 6 les liens Stripe, étape 9 (publication et vérification).
+- Dans les pages, laisse seulement ces 5 champs tels quels : `{{STRIPE_LINK_ACOMPTE}}`, `{{STRIPE_LINK_TOUT}}`, `{{STRIPE_LINK_RESTE}}`, `{{META_PIXEL_ID}}`, `{{URL_SITE}}`. Tout le reste est rempli.
+- **L'aperçu** : dans l'onglet Code, ouvre `site/public/index.html` dans le navigateur (ou un petit serveur local), en largeur PC puis mobile ; dans claude.ai, un artifact HTML avec le bouton PC / Mobile.
+- **La checklist** de l'étape 8 garde les lignes promesse, prix, hero, infos légales et « rien d'inventé ». Les lignes Stripe et pixel se vérifient à l'installation. La question finale devient : « Ton site est prêt pour l'installation ? 1. Oui 2. Je veux changer quelque chose ».
+- Le bloc de clôture va dans la Carte de séance, avec « Adresse : à l'installation ».
+
 ## Le déroulé
 
 `FUNNEL → TEXTES DES SECTIONS → DESIGN (5 idées → maquettes) → INFOS LÉGALES → PIXEL META → ADRESSE DU SITE ET LIENS STRIPE → LA PAGE → APERÇU ET OUI → PUBLICATION → VÉRIFICATION`
