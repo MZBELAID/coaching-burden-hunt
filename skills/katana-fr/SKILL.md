@@ -205,14 +205,17 @@ Les six fichiers, dans l'ordre, avec ces changements :
 
 ### Chemin « idée claire »
 
-La personne a écrit son idée à l'étape 0 de la séance. On ne cherche pas de marché avec le Ki.
+La personne a écrit son idée à l'étape 0 de la séance. **Ce sont exactement les mêmes questions que le chemin « de zéro », dans le même ordre, avec les mêmes formulations.** On saute seulement ce que son idée remplace : la recherche du Ki (fichier 01) et le choix entre 3 directions (fichiers 04 et 05). N'invente jamais de question à part (« tu veux le vendre à qui ? », « qu'est-ce que tu apportes ? ») et ne reformule pas l'idée avant les Techniques.
 
-1. **Préciser l'idée.** Une ou deux questions à taper, seulement sur ce qui manque : pour qui exactement, et ce qu'elle leur apporte. Puis une seule reformulation à valider.
-2. **Les Techniques.** Exécute le fichier 02 à partir de son étape 1 (pas le Pont du Ki, il n'y a pas encore de Ki).
-3. **Le format.** Le Sensei recommande (voir « Le type de business »). La question « en ligne ou près de chez toi » se pose seulement si l'idée ne le dit pas déjà.
-4. **La recherche.** Une vraie recherche web sur son idée, dans les pays de la séance : le 🎯 Bearer, le 💢 Burden, les concurrents du monde entier avec un positionnement proche (avec lien), et le prix de l'avatar (plus bas). Elle ne s'affiche pas en bloc : elle nourrit l'étape suivante.
-5. **Fichier 06, à partir de son étape 2 (les sous-niches)**, avec son idée comme direction choisie.
-6. **Le Ki, juste avant les signatures.** Avant l'étape 3 du fichier 06, pose une seule question : « Pour donner un style unique à ton business : qu'est-ce que tu aimes, même si ça ne te rapportait jamais rien ? Écris 1 à 3 choses. » Puis les signatures, tirées de ces Ki, comme dans le fichier 06.
+1. **Fichier 01 : sauté.**
+2. **Fichier 02 : les Techniques**, à partir de son étape 1 (« Maintenant, la partie que tu connais déjà. » puis l'inventaire). Le Pont du Ki est sauté : il n'y a pas encore de Ki.
+3. **Fichier 03, étape 1 : « Qui aimerais-tu aider le plus ? »**, la même question avec les 4 familles. Les exemples de chaque famille sont adaptés à son idée et à ses Techniques. La ligne de conseil recommande la famille qui colle le mieux à son idée, avec la raison en quelques mots.
+4. **Fichier 03, étape 2 : le type de business**, recommandé (voir « Le type de business : le Sensei recommande »).
+5. **Fichier 03, étape 3 : en ligne ou près de chez toi.** Sautée si l'idée le dit déjà (une ville, « livré », « à domicile »…) : enregistre la réponse.
+6. **Fichiers 04 et 05 : sautés.** Son idée, précisée par la famille et le format, est la direction choisie. Fais quand même la vraie recherche en silence, dans les pays (ou la zone) de la séance : le 🎯 Bearer, le 💢 Burden, les concurrents du monde entier avec un positionnement proche (avec lien), et le prix de l'avatar (plus bas).
+7. **Fichier 06, à partir de son étape 2 : les sous-niches**, avec son idée comme direction choisie (avec l'option « Je les vise toutes »).
+8. **Le Ki, juste avant les signatures.** Avant l'étape 3 du fichier 06, pose une seule question : « Pour donner un style unique à ton business : qu'est-ce que tu aimes, même si ça ne te rapportait jamais rien ? Écris 1 à 3 choses. » Puis les signatures, tirées de ces Ki, comme dans le fichier 06.
+9. **Fichier 06 : la suite**, jusqu'au Katana, comme le chemin « de zéro ».
 
 ### Le type de business : le Sensei recommande
 

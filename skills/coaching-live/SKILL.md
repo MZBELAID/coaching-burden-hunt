@@ -110,7 +110,7 @@ Trois questions, une à la fois.
 Règles :
 
 - Ne propose aucun montant à sa place.
-- « 3k » = 3 000 seulement si la devise est connue. Si la devise manque, demande seulement la devise.
+- « 3k » = 3 000 seulement si la devise est connue. Déduis la devise quand c'est évident (une ville ou un pays dans son idée, la langue de la conversation) et écris-la sans poser de question. Demande-la seulement si tu ne peux vraiment pas la déduire.
 - S'il donne une fourchette, demande le **minimum** à partir duquel ça devient viable.
 - S'il ne veut pas passer à plein temps, respecte-le : garde le seuil qu'il donne, sans le pousser à démissionner.
 - « Je ne sais pas » : note la target comme provisoire et avance.
@@ -129,7 +129,9 @@ Règles :
 >
 > 4. Autre (écris-la)
 
-**1c. Les pays.** Propose les pays « tier 1 » de cette langue (les pays riches où la pub Facebook rapporte le plus), tous cochés par défaut :
+**1c. Les pays.** Si son idée est **locale** (une ville, une livraison, un service à domicile, un lieu physique), ne propose pas de liste de pays : propose la ville et un rayon en km, recommandé d'après ce qu'il peut vraiment livrer ou couvrir (« Strasbourg + 15 km »), et il valide ou corrige. La langue sert alors seulement au site et aux pubs.
+
+Sinon, propose les pays « tier 1 » de cette langue (les pays riches où la pub Facebook rapporte le plus), tous cochés par défaut :
 
 - **Français** : France, Belgique, Suisse, Luxembourg, Canada (seulement le Québec).
 - **Anglais** : États-Unis, Royaume-Uni, Canada, Australie, Nouvelle-Zélande, Irlande.
@@ -153,7 +155,7 @@ La langue et les pays sont **verrouillés** pour toute la séance :
 - **Katana** : l'avatar, ses prix et sa marge sont cherchés dans ces pays. Les concurrents pour l'inspiration peuvent venir du monde entier.
 - **Offres** : la devise de ces pays.
 - **Site** : cette langue, et le mode cookies selon les pays.
-- **Pubs** : le ciblage Meta sur exactement ces pays.
+- **Pubs** : le ciblage Meta sur exactement ces pays (ou cette ville et ce rayon).
 
 Aucun skill ne redemande la langue ou les pays.
 
