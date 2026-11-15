@@ -1,21 +1,21 @@
-# Coaching Burden Hunt — lance ton business en 2 h avec Claude
+# Coaching Burden Hunt : le pack de skills
 
-## Avant la séance (le client)
-Crée tes comptes : **Claude Pro**, **Cloudflare**, **Stripe** (vérifié, avec ton SIRET), **Meta** (page Facebook + compte publicitaire + carte).
+Une séance de coaching de 2 h, sur le Claude du coach, en 7 niveaux : la cible, le Katana, l'offre principale, la mini-offre qui y mène, le site, les pubs, le plan.
 
-## Pendant la séance (le coach)
-Le coach fait tout sur son Claude, en partage d'écran : ton offre, ton site, tes pubs, ton business plan. Il colle :
+## Installer les skills sur l'ordinateur du coach
+
+Copie les dossiers de `skills/` (sauf `installation`) dans le dossier des skills de Claude : `~/.claude/skills/` (sous Windows : le dossier `.claude/skills` de ton dossier utilisateur).
+
+## Lancer une séance
+
+Dans l'onglet Code de l'app Claude, ouvre le dossier où tu ranges tes clients et écris :
+
+> On commence le coaching.
+
+## Sans installation (secours)
 
 > Lis https://raw.githubusercontent.com/MZBELAID/coaching-burden-hunt/main/COMMENCER.md et lance le coaching.
 
-À la fin, il t'envoie un dossier zippé.
+## L'installation chez le client (à venir)
 
-## Les 20 dernières minutes (le client installe, avec le coach)
-1. Sur **claude.ai**, ouvre une nouvelle conversation (Paramètres → Capacités : l'exécution de code activée).
-2. Dépose le zip et colle ce message :
-
-> Lis https://raw.githubusercontent.com/MZBELAID/coaching-burden-hunt/main/INSTALLER.md et installe mon business.
-
-3. Quand ton Claude te le demande, connecte **Stripe**, **Cloudflare** et **Meta** (Paramètres → Connecteurs → Autoriser).
-
-Ton Claude crée tes liens de paiement, publie ton site et crée ta campagne **en pause**. C'est toi qui l'actives.
+Le skill `installation` et `INSTALLER.md` servent à mettre en ligne chez le client ce qui a été préparé en séance. Cette partie n'est pas encore finalisée.
