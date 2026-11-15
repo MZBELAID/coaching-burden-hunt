@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mentions légales · {{MARQUE}}</title>
+<!-- MODÈLE À REMPLIR avec les vraies infos du client. Claude n'est pas juriste : en cas de doute, faire relire. -->
+<script>window.SITE_CONFIG = { brand: "{{MARQUE}}", email: "{{EMAIL}}", metaPixelId: "{{META_PIXEL_ID}}" };</script>
+<script defer src="/consent.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- THÈME, partie 1 : les polices Google Fonts du thème (la même ligne que dans index.html) -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=DM+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="kit.css">
+<!-- THÈME, partie 2 : le bloc de variables (le même que dans index.html, voir themes.md) -->
+<style id="theme">
+  :root {
+    --bg: #f7f2e8; --bg2: #ece3d1; --card: #fffdf8;
+    --ink: #1c1b22; --ink2: #4b4856;
+    --band-dark: #1f2a44; --on-dark: #eef1f8; --on-dark2: #c2c9dc;
+    --accent: #2c6e63; --band-accent: #1d5148; --on-accent: #eaf5f2;
+    --cta: #d1442a; --cta-dk: #8f2a17; --cta-ink: #ffffff;
+    --gold: #f2b84b; --gold-ink: #1c1b22; --line: #1c1b22;
+    --font-display: "Fraunces", Georgia, serif;
+    --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --h-weight: 900; --h-lh: 1.04; --h-track: -0.015em; --h-case: none; --h-scale: 1;
+    --radius: 10px; --bw: 3px; --sh: 7px;
+  }
+</style>
+</head>
+<body class="doc">
+<header class="top"><div class="top-in">
+  <a class="logo" href="/" aria-label="Retour au site"><i aria-hidden="true"></i><span>{{MARQUE}}</span></a>
+  <div class="ask"><span class="ask-q">Une question&nbsp;?</span><a class="ask-mail" href="mailto:{{EMAIL}}" aria-label="Une question ? Écrivez-moi par e-mail"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.8 7l8.2 6.3L20.2 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>{{EMAIL}}</span></a></div>
+</div></header>
+<main>
+  <a class="back" href="/">← Retour au site</a>
+  <h1>Mentions légales</h1>
+  <p class="intro">Les informations légales du site {{DOMAINE}}. Une question&nbsp;? Écrivez-moi, je réponds.</p>
+
+  <h2>Éditeur du site</h2>
+  <p>{{NOM_LEGAL}}, {{FORME_JURIDIQUE}}.<br>
+  Adresse : {{ADRESSE}}, {{PAYS}}.<br>
+  SIRET : {{SIRET}}.<!-- SI: inscription RCS ou RM --><br>{{RCS_OU_RM}}<!-- /SI --><br>
+  {{TVA_MENTION}}</p>
+
+  <h2>Contact</h2>
+  <p>Email : <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>.<!-- SI: téléphone --><br>Téléphone : {{TELEPHONE}}.<!-- /SI --></p>
+
+  <h2>Directeur de la publication</h2>
+  <p>{{DIRECTEUR_PUBLICATION}}.</p>
+
+  <h2>Hébergement</h2>
+  <p>Le site est hébergé par {{HEBERGEUR_COORDONNEES}}.</p>
+
+  <h2>Propriété intellectuelle</h2>
+  <p>Les textes, images et contenus de ce site appartiennent à {{NOM_LEGAL}}, sauf mention contraire. Merci de ne pas les copier ni les revendre sans accord.</p>
+
+  <h2>Signalement</h2>
+  <p>Un contenu vous pose problème, ou vous avez une question légale&nbsp;? Écrivez à <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>, je regarde vite.</p>
+
+  <p class="maj">Mise à jour : {{DATE_MAJ}}</p>
+</main>
+</body>
+</html>

@@ -20,38 +20,41 @@
   };
 </script>
 <script defer src="/consent.js"></script>
-<style>
-  :root { --bg: {{TOKEN_BG}}; --ink: {{TOKEN_INK}}; --accent: {{TOKEN_ACCENT}}; --cta: {{TOKEN_CTA}}; --radius: {{TOKEN_RADIUS}}px;
-          --muted: color-mix(in srgb, var(--ink) 62%, var(--bg));
-          --cc-bg: var(--bg); --cc-ink: var(--ink); --cc-sub: var(--muted); --cc-accent: var(--cta); }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
-  .topbar { font-size: 13px; text-align: center; padding: 8px 16px; background: var(--ink); color: var(--bg); }
-  .topbar a { color: var(--bg); font-weight: 600; }
-  main { max-width: 640px; margin: 0 auto; padding: 40px 18px 80px; }
-  h1 { font-size: clamp(28px, 6vw, 44px); line-height: 1.1; margin: 0 0 12px; }
-  .first { font-size: 18px; font-weight: 600; border-left: 4px solid var(--accent); padding-left: 12px; }
-  ol { padding-left: 20px; } li { margin-bottom: 10px; }
-  .card { border: 2px dashed var(--accent); border-radius: var(--radius); padding: 18px; margin-top: 24px; }
-  .field { display: block; margin: 0 0 12px; }
-  .field span { display: block; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-  .field input, .field textarea { width: 100%; font: 400 16px system-ui, sans-serif; padding: 12px; border-radius: var(--radius); border: 1px solid color-mix(in srgb, var(--ink) 30%, transparent); background: #fff; color: #111; }
-  .cta { display: block; width: 100%; border: 0; border-radius: var(--radius); background: var(--cta); color: #fff; font: 600 16px system-ui, sans-serif; padding: 15px; cursor: pointer; text-transform: uppercase; letter-spacing: .05em; }
-  .muted { color: var(--muted); font-size: 14px; }
-  .foot { font-size: 13px; text-align: center; padding: 20px; color: var(--muted); }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- THÈME, partie 1 : les polices Google Fonts du thème (la même ligne que dans index.html) -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=DM+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="kit.css">
+<!-- THÈME, partie 2 : le bloc de variables (le même que dans index.html, voir themes.md) -->
+<style id="theme">
+  :root {
+    --bg: #f7f2e8; --bg2: #ece3d1; --card: #fffdf8;
+    --ink: #1c1b22; --ink2: #4b4856;
+    --band-dark: #1f2a44; --on-dark: #eef1f8; --on-dark2: #c2c9dc;
+    --accent: #2c6e63; --band-accent: #1d5148; --on-accent: #eaf5f2;
+    --cta: #d1442a; --cta-dk: #8f2a17; --cta-ink: #ffffff;
+    --gold: #f2b84b; --gold-ink: #1c1b22; --line: #1c1b22;
+    --font-display: "Fraunces", Georgia, serif;
+    --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --h-weight: 900; --h-lh: 1.04; --h-track: -0.015em; --h-case: none; --h-scale: 1;
+    --radius: 10px; --bw: 3px; --sh: 7px;
+  }
 </style>
 </head>
-<body>
-<div class="topbar">Une question&nbsp;? <a href="mailto:{{EMAIL}}">{{EMAIL}}</a></div>
+<body class="doc">
+<header class="top"><div class="top-in">
+  <a class="logo" href="/" aria-label="Retour au site"><i aria-hidden="true"></i><span>{{MARQUE}}</span></a>
+  <div class="ask"><span class="ask-q">Une question&nbsp;?</span><a class="ask-mail" href="mailto:{{EMAIL}}" aria-label="Une question ? Écrivez-moi par e-mail"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.8 7l8.2 6.3L20.2 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>{{EMAIL}}</span></a></div>
+</div></header>
 <main>
   <h1>Merci&nbsp;!</h1>
 
   <!-- Après un paiement Stripe (ECOM) : la 1re ligne = la livraison -->
   <div id="merci-paid" hidden>
     <!-- Après l'acompte seulement : payer le reste maintenant, avec la réduction -->
-    <div id="merci-reste" hidden style="border:2px solid var(--cta);border-radius:var(--radius);padding:16px;margin:0 0 20px">
-      <p style="margin:0 0 10px"><strong>Payez le reste maintenant et économisez {{ECONOMIE}}.</strong> Le reste passe de {{SOLDE}} à {{MONTANT_RESTE}}.</p>
-      <a href="{{STRIPE_LINK_RESTE}}" style="display:inline-block;background:var(--cta);color:#fff;padding:12px 18px;border-radius:var(--radius);text-decoration:none;font-weight:700">Payer {{MONTANT_RESTE}} maintenant</a>
+    <div id="merci-reste" class="box-cta" hidden>
+      <p><strong>Payez le reste maintenant et économisez {{ECONOMIE}}.</strong> Le reste passe de {{SOLDE}} à {{MONTANT_RESTE}}.</p>
+      <a class="btn" href="{{STRIPE_LINK_RESTE}}">Payer {{MONTANT_RESTE}} maintenant</a>
     </div>
     <p class="first">C'est réservé. {{PHRASE_LIVRAISON}}</p>
     <p>Ce qui se passe maintenant :</p>

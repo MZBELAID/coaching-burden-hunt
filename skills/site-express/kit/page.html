@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--
+  KIT SITE EXPRESS · modèle de page (7 sections, dans cet ordre) :
+    1. barre contact   2. hero (tient sans scroller)   3. témoignages (SI: avis)
+    4. comment ça marche + ce que vous recevez + délai   5. pour qui / pas pour qui
+    6. FAQ   7. bloc final + pied de page légal
+  Règles :
+  - Remplacer chaque champ entre doubles accolades. Aucun ne doit rester avant publication
+    (sauf ceux qui attendent les comptes du client : liens Stripe, pixel, adresse du site).
+  - Les blocs encadrés par les commentaires « SI: … » et « /SI » s'affichent seulement si la condition est vraie.
+    Si elle est vraie : retirer seulement les deux commentaires. Sinon : supprimer tout le bloc.
+  - Garder UN SEUL mode de bouton : ECOM (paiement Stripe) ou LEAD (question OUI/NON + formulaire). Supprimer l'autre.
+  - Zéro faux : ni avis, ni compte à rebours, ni places, ni chiffres inventés.
+  - Voix : « je » (une seule personne), « vous » pour le visiteur.
+  - Le thème (couleurs, polices, formes) : voir themes.md. Les visuels : voir illustrations.md.
+-->
+<title>{{TITRE_PAGE}}</title>
+<meta name="description" content="{{DESCRIPTION_COURTE}}">
+<meta property="og:title" content="{{TITRE_PAGE}}">
+<meta property="og:description" content="{{DESCRIPTION_COURTE}}">
+<meta property="og:type" content="website">
+<link rel="canonical" href="{{URL_SITE}}/">
+<script>
+  /* Une seule source de vérité pour le site. pixels.js et consent.js lisent cet objet. */
+  window.SITE_CONFIG = {
+    brand: "{{MARQUE}}",
+    email: "{{EMAIL}}",
+    metaPixelId: "{{META_PIXEL_ID}}",
+    currency: "EUR",
+    offers: {
+      acompte: { value: {{MONTANT_ACOMPTE_NOMBRE}}, label: "Acompte {{NOM_MINI_OFFRE}}" },
+      tout:    { value: {{MONTANT_TOUT_NOMBRE}},    label: "{{NOM_MINI_OFFRE}} (payé en une fois)" }
+    }
+  };
+</script>
+<script defer src="/consent.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- THÈME, partie 1 : les polices Google Fonts du thème (remplacer cette ligne) -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=DM+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="kit.css">
+<!-- THÈME, partie 2 : le bloc de variables (remplacer tout le contenu de cette balise, voir themes.md) -->
+<style id="theme">
+  /* Thème « Atelier » (clair). */
+  :root {
+    --bg: #f7f2e8; --bg2: #ece3d1; --card: #fffdf8;
+    --ink: #1c1b22; --ink2: #4b4856;
+    --band-dark: #1f2a44; --on-dark: #eef1f8; --on-dark2: #c2c9dc;
+    --accent: #2c6e63; --band-accent: #1d5148; --on-accent: #eaf5f2;
+    --cta: #d1442a; --cta-dk: #8f2a17; --cta-ink: #ffffff;
+    --gold: #f2b84b; --gold-ink: #1c1b22; --line: #1c1b22;
+    --font-display: "Fraunces", Georgia, serif;
+    --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --h-weight: 900; --h-lh: 1.04; --h-track: -0.015em; --h-case: none; --h-scale: 1;
+    --radius: 10px; --bw: 3px; --sh: 7px;
+  }
+</style>
+</head>
+<!-- La classe du <body> choisit le joint entre les bandes : joint-vagues | joint-crans | joint-droit -->
+<body class="joint-vagues has-sticky">
+
+<!-- ═══ 1. Barre contact : toujours. WhatsApp OU e-mail (garder un seul des deux blocs SI, ou les deux). ═══ -->
+<header class="top"><div class="top-in">
+  <a class="logo" href="/" aria-label="{{MARQUE}}, accueil"><i aria-hidden="true"></i><span>{{MARQUE}}</span></a>
+  <div class="ask"><span class="ask-q">Une question&nbsp;?</span>
+    <!-- SI: e-mail --><a class="ask-mail" href="mailto:{{EMAIL}}" aria-label="Une question ? Écrivez-moi à {{EMAIL}}"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.8 7l8.2 6.3L20.2 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>{{EMAIL}}</span></a><!-- /SI -->
+    <!-- SI: whatsapp --><a class="ask-wa" href="https://wa.me/{{WHATSAPP_NUMERO_SANS_PLUS}}" target="_blank" rel="noopener" aria-label="Une question ? Écrivez-moi sur WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/><path fill="#137a40" d="M17.2 14.3c-.3-.1-1.7-.8-1.9-.9-.3-.1-.4-.1-.6.1l-.9 1.1c-.2.2-.3.2-.6.1a7.4 7.4 0 0 1-3.6-3.2c-.3-.5.3-.4.8-1.4.1-.2 0-.3 0-.4l-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.2 5 5 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6.5-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/></svg>WhatsApp</a><!-- /SI -->
+  </div>
+</div></header>
+
+<!-- ═══ 2. Hero : POUR QUI → H1 RÉSULTAT → PHRASE EXACTE DE L'OFFRE → BOUTON AVEC PRIX → UNE LIGNE GARANTIE + illustration.
+     Doit tenir sans scroller sur PC (1440×900) et mobile (390×844) : H1 court (8 mots max), phrase de l'offre en 2 lignes sur PC. ═══ -->
+<main class="kz hero">
+  <div class="hero-in">
+    <div class="hero-txt">
+      <p class="who">Pour {{BEARER_COURT}}</p>
+      <h1>{{H1_DEBUT}} <span class="hl">{{H1_RESULTAT}}</span></h1>
+      <p class="offer">{{PHRASE_OFFRE_EXACTE}} <b>{{PRIX}}.</b></p>
+      <div class="hero-buy">
+
+        <!-- ===== MODE ECOM : réservation par acompte Stripe (garder ce bloc OU le bloc LEAD) ===== -->
+        <div id="slot-ecom" style="display:contents">
+          <a class="cta js-buy" data-offer="acompte" href="{{STRIPE_LINK_ACOMPTE}}">{{TEXTE_BOUTON}} {{ACOMPTE}}<span class="cta-sub">{{PRIX}} en tout · le solde après la livraison</span></a>
+          <p class="guar"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1.5 3.5 4.6v6.6c0 5.2 3.5 9.6 8.5 11.3 5-1.7 8.5-6.1 8.5-11.3V4.6z"/><path d="M7.6 12.2l3.1 3.1 5.7-6.4" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>{{PHRASE_GARANTIE}}</p>
+          <a class="link2 js-buy" data-offer="tout" href="{{STRIPE_LINK_TOUT}}">Ou tout payer maintenant : {{PRIX_TOUT}} au lieu de {{PRIX}} (−20&nbsp;%)</a>
+        </div>
+        <!-- ===== /MODE ECOM ===== -->
+
+        <!-- ===== MODE LEAD : question OUI/NON puis e-mail + téléphone (garder ce bloc OU le bloc ECOM) ===== -->
+        <div id="slot-lead" class="card q">
+          <div id="lead-q">
+            <p class="qt">{{QUESTION_OUI_NON}}</p>
+            <p class="hint">👇 Cliquez sur oui ou non 👇</p>
+            <div class="yn"><button type="button" data-yn="oui">OUI</button><button type="button" data-yn="non">NON</button></div>
+          </div>
+          <form id="lead-form" hidden novalidate>
+            <p class="qt">Presque fini</p>
+            <p class="hint">Entrez vos infos : je vous recontacte sous {{DELAI_RAPPEL}}.</p>
+            <label class="field"><span>Email</span><input type="email" name="email" inputmode="email" autocomplete="email" required></label>
+            <p class="err" data-err="email" hidden>Vérifiez votre email.</p>
+            <label class="field"><span>Téléphone</span><input type="tel" name="tel" inputmode="tel" autocomplete="tel" placeholder="+33 6 12 34 56 78" required></label>
+            <p class="err" data-err="tel" hidden>Entrez un numéro valide.</p>
+            <button class="cta" type="submit">Envoyer<span class="cta-sub">{{PHRASE_SOUS_BOUTON_LEAD}}</span></button>
+            <p class="consent-line">En envoyant ce formulaire, vous acceptez d'être recontacté au sujet de cette offre. Vos données : voir la page <a href="/confidentialite">Confidentialité</a>.</p>
+            <a href="#" class="link2" data-back>← revenir</a>
+          </form>
+        </div>
+        <!-- ===== /MODE LEAD ===== -->
+
+      </div>
+    </div>
+
+    <!-- L'illustration du hero : un SVG dessiné pour ce client (voir illustrations.md), viewBox 600×540,
+         ou une vraie photo du client : <img src="photo.jpg" alt="…" width="1200" height="1080">. Remplacer tout le <svg> ci-dessous. -->
+    <figure class="hero-art art" aria-label="{{ILLUSTRATION_HERO_DESCRIPTION}}">
+      <svg viewBox="0 0 600 540" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="600" height="540" style="fill:var(--bg2)"/>
+        <circle cx="430" cy="150" r="190" style="fill:var(--gold)" opacity=".55"/>
+        <g class="anim-float">
+          <rect x="128" y="158" width="344" height="250" rx="26" style="fill:var(--ink)" opacity=".2" transform="translate(10 12)"/>
+          <rect x="128" y="158" width="344" height="250" rx="26" style="fill:var(--card);stroke:var(--line)" stroke-width="6"/>
+          <rect x="160" y="196" width="150" height="26" rx="13" style="fill:var(--cta)"/>
+          <rect x="160" y="246" width="280" height="16" rx="8" style="fill:var(--ink)" opacity=".8"/>
+          <rect x="160" y="278" width="230" height="16" rx="8" style="fill:var(--ink)" opacity=".35"/>
+          <rect x="160" y="328" width="170" height="46" rx="12" style="fill:var(--accent);stroke:var(--line)" stroke-width="5"/>
+        </g>
+        <text x="300" y="486" text-anchor="middle" font-size="24" font-weight="800" style="fill:var(--ink);font-family:var(--font-body)">Illustration du hero : à dessiner</text>
+      </svg>
+    </figure>
+  </div>
+</main>
+
+<!-- ═══ 3. Témoignages ═══ -->
+<!-- Au moins un VRAI avis, attribuable. Zéro avis → supprimer toute la section. Jamais d'avis inventé. -->
+<!-- SI: avis -->
+<section class="kz kz-b" id="avis" aria-labelledby="avis-h">
+  <div class="kz-in">
+    <div class="kz-head rv">
+      <p class="eye">Ils l'ont fait</p>
+      <h2 id="avis-h">Ce qu'ils en <span class="hl">disent.</span></h2>
+    </div>
+    <div class="revs">
+      <figure class="card rev rv"><blockquote><p>« {{AVIS_1_TEXTE}} »</p></blockquote><figcaption><b>{{AVIS_1_PRENOM}}</b>{{AVIS_1_QUI}}</figcaption></figure>
+      <!-- SI: 2e avis --><figure class="card rev rv"><blockquote><p>« {{AVIS_2_TEXTE}} »</p></blockquote><figcaption><b>{{AVIS_2_PRENOM}}</b>{{AVIS_2_QUI}}</figcaption></figure><!-- /SI -->
+    </div>
+  </div>
+</section>
+<!-- /SI -->
+
+<!-- ═══ 4. Comment ça marche : 3 étapes (action → ce que je fais → ce que vous recevez) ═══ -->
+<section class="kz kz-dark" id="comment" aria-labelledby="how-h">
+  <div class="kz-in">
+    <div class="kz-head kz-center rv">
+      <p class="eye">Comment ça marche</p>
+      <h2 id="how-h">3 étapes. <span class="hl">{{TITRE_COMMENT_FIN}}</span></h2>
+    </div>
+    <ol class="steps">
+      <li class="step rv">
+        <!-- petite illustration de l'étape 1 : SVG viewBox 320×200 (voir illustrations.md) -->
+        <div class="step-art" aria-hidden="true"><svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice"><rect width="320" height="200" style="fill:var(--bg2)"/><circle cx="160" cy="100" r="56" style="fill:var(--gold);stroke:var(--line)" stroke-width="5"/></svg></div>
+        <p class="step-n"><i>1</i>Étape 1</p>
+        <h3>{{ETAPE_1_TITRE}}</h3>
+        <p>{{ETAPE_1_TEXTE}}</p>
+      </li>
+      <li class="step rv">
+        <div class="step-art" aria-hidden="true"><svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice"><rect width="320" height="200" style="fill:var(--bg2)"/><rect x="104" y="44" width="112" height="112" rx="18" style="fill:var(--accent);stroke:var(--line)" stroke-width="5"/></svg></div>
+        <p class="step-n"><i>2</i>Étape 2</p>
+        <h3>{{ETAPE_2_TITRE}}</h3>
+        <p>{{ETAPE_2_TEXTE}}</p>
+      </li>
+      <li class="step rv">
+        <div class="step-art" aria-hidden="true"><svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice"><rect width="320" height="200" style="fill:var(--bg2)"/><path d="M160 40l64 116H96z" style="fill:var(--cta);stroke:var(--line)" stroke-width="5" stroke-linejoin="round"/></svg></div>
+        <p class="step-n"><i>3</i>Étape 3</p>
+        <h3>{{ETAPE_3_TITRE}}</h3>
+        <p>{{ETAPE_3_TEXTE}}</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ═══ 4 (suite). Ce que vous recevez : UN ÉLÉMENT PAR LIGNE (la pile), puis le délai, le prix et la garantie ═══ -->
+<section class="kz kz-b" id="offre" aria-labelledby="recv-h">
+  <div class="kz-in">
+    <div class="kz-head rv">
+      <p class="eye">Ce que vous recevez</p>
+      <h2 id="recv-h">{{NOM_MINI_OFFRE_DEBUT}} <span class="hl">{{NOM_MINI_OFFRE_FIN}}</span></h2>
+    </div>
+    <div class="offer-grid">
+      <div class="card stack-card rv">
+        <div class="stack-h"><h3>Vous recevez</h3></div>
+        <ul class="stack">
+          <li><div><b>{{RECU_1_TITRE}}</b><span>{{RECU_1_DETAIL}}</span></div></li>
+          <li><div><b>{{RECU_2_TITRE}}</b><span>{{RECU_2_DETAIL}}</span></div></li>
+          <li><div><b>{{RECU_3_TITRE}}</b><span>{{RECU_3_DETAIL}}</span></div></li>
+          <!-- SI: 4e élément --><li><div><b>{{RECU_4_TITRE}}</b><span>{{RECU_4_DETAIL}}</span></div></li><!-- /SI -->
+          <!-- SI: 5e élément --><li><div><b>{{RECU_5_TITRE}}</b><span>{{RECU_5_DETAIL}}</span></div></li><!-- /SI -->
+        </ul>
+        <p class="stack-f"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 6.5V12l3.5 2.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Délai&nbsp;: {{DELAI}}, à partir du moment où j'ai tout reçu.</span></p>
+      </div>
+
+      <div class="offer-side rv">
+        <div class="card price-card">
+          <div class="price-top">
+            <p class="price"><b>{{PRIX}}</b> <span>{{PRIX_PRECISION}}</span></p>
+          </div>
+          <table class="recap">
+            <tr><th scope="row">Pour réserver (déduit du prix)</th><td>{{ACOMPTE}}</td></tr>
+            <tr><th scope="row">Après la livraison</th><td>{{SOLDE}}</td></tr>
+            <tr><th scope="row">Ou tout payer maintenant (−20&nbsp;%)</th><td>{{PRIX_TOUT}}</td></tr>
+          </table>
+          <div class="price-buy">
+            <a class="cta js-buy js-cta-repeat" data-offer="acompte" href="{{STRIPE_LINK_ACOMPTE}}">{{TEXTE_BOUTON}} {{ACOMPTE}}<span class="cta-sub">Le solde de {{SOLDE}} après la livraison</span></a>
+          </div>
+        </div>
+        <div class="seal">
+          <svg viewBox="0 0 54 54" aria-hidden="true"><path d="M27 3 7 10.4v14.8c0 12 8.2 22 20 25.8 11.8-3.8 20-13.8 20-25.8V10.4z" style="fill:var(--accent);stroke:var(--line)" stroke-width="3" stroke-linejoin="round"/><path d="M17.5 27.5l7 7 12.5-14" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><b>{{PHRASE_GARANTIE}}</b><span>Vous ne payez le solde qu'une fois que j'ai livré tout ce qui est promis. {{REGLE_ACOMPTE}}</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 5. Pour qui / pas pour qui ═══ -->
+<section class="kz kz-accent" aria-labelledby="pq-h">
+  <div class="kz-in">
+    <div class="kz-head kz-center rv">
+      <p class="eye">Pour qui</p>
+      <h2 id="pq-h">{{MARQUE}}, <span class="hl">c'est pour vous&nbsp;?</span></h2>
+    </div>
+    <div class="pq">
+      <div class="card pq-yes rv">
+        <h3><i aria-hidden="true">✓</i>Pour vous si&nbsp;:</h3>
+        <ul><li>{{POUR_QUI_1}}</li><li>{{POUR_QUI_2}}</li><li>{{POUR_QUI_3}}</li></ul>
+      </div>
+      <div class="card pq-no rv">
+        <h3><i aria-hidden="true">✕</i>Pas pour vous si&nbsp;:</h3>
+        <ul><li>{{PAS_POUR_QUI_1}}</li><li>{{PAS_POUR_QUI_2}}</li><!-- SI: 3e exclusion --><li>{{PAS_POUR_QUI_3}}</li><!-- /SI --></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 6. FAQ en accordéon. La question « Et si ça ne me convient pas ? » est obligatoire. La dernière = contact. ═══ -->
+<section class="kz" aria-labelledby="faq-h">
+  <div class="kz-in faq-grid">
+    <div class="kz-head rv">
+      <h2 id="faq-h">Questions <span class="hl">fréquentes.</span></h2>
+      <p class="lead">Une autre question&nbsp;? Écrivez-moi à <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</p>
+    </div>
+    <div class="faq rv">
+      <details open><summary><i>01</i>{{FAQ_1_Q}}</summary><p>{{FAQ_1_R}}</p></details>
+      <details><summary><i>02</i>{{FAQ_2_Q}}</summary><p>{{FAQ_2_R}}</p></details>
+      <details><summary><i>03</i>{{FAQ_3_Q}}</summary><p>{{FAQ_3_R}}</p></details>
+      <details><summary><i>04</i>Et si ça ne me convient pas&nbsp;?</summary><p>{{FAQ_REMBOURSEMENT_R}}</p></details>
+      <details><summary><i>05</i>Je peux vous poser une question avant&nbsp;?</summary><p>Bien sûr : écrivez-moi à <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>, je réponds.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7. Bloc final : le H1 répété, le bouton, puis le pied de page légal ═══ -->
+<section class="kz kz-gold kz-end" aria-labelledby="end-h">
+  <div class="kz-in kz-narrow rv">
+    <p class="flag">{{ETIQUETTE_FINALE}}</p>
+    <h2 id="end-h">{{H1_DEBUT}} {{H1_RESULTAT}}</h2>
+    <p class="lead">{{PHRASE_FINALE}}</p>
+    <a class="cta js-buy js-cta-repeat" data-offer="acompte" href="{{STRIPE_LINK_ACOMPTE}}">{{TEXTE_BOUTON}} {{ACOMPTE}}<span class="cta-sub">{{PRIX}} en tout · le solde après la livraison</span></a>
+    <p class="chips"><span>{{PHRASE_GARANTIE}}</span><span>Paiement sécurisé par Stripe</span></p>
+  </div>
+</section>
+
+<footer class="foot">
+  {{NOM_LEGAL}} · {{PAYS}} · <a href="mailto:{{EMAIL}}">{{EMAIL}}</a><br>
+  <a href="/mentions-legales">Mentions légales</a> · <a href="/cgv">CGV</a> · <a href="/livraison-retours">Livraison et remboursements</a> · <a href="/confidentialite">Confidentialité</a> · <a href="/cookies">Cookies</a> · <a href="#" onclick="if(window.bhOpenCookiePreferences){window.bhOpenCookiePreferences();}return false;">Gérer mes cookies</a>
+</footer>
+
+<!-- Bouton collant (mobile) : toujours -->
+<div class="sticky js-sticky"><a class="cta js-buy js-cta-repeat" data-offer="acompte" href="{{STRIPE_LINK_ACOMPTE}}">{{TEXTE_BOUTON}} {{ACOMPTE}}</a></div>
+
+<!-- SI: fenêtre e-mail gardée au funnel (elle demande /api/lead : la retirer si le site est déposé sans Worker) -->
+<div class="pop" id="pop" role="dialog" aria-modal="true" aria-labelledby="pop-t">
+  <div class="pop-box">
+    <button class="pop-x" type="button" aria-label="Fermer" data-close>×</button>
+    <h3 id="pop-t">{{POPUP_TITRE}}</h3>
+    <p>{{POPUP_TEXTE}}</p>
+    <form id="pop-form" novalidate>
+      <input type="email" name="email" inputmode="email" autocomplete="email" placeholder="votre@email.fr" aria-label="Votre e-mail" required>
+      <button class="cta" type="submit">{{POPUP_BOUTON}}</button>
+      <p class="consent-line">Vos données : voir la page <a href="/confidentialite">Confidentialité</a>.</p>
+    </form>
+    <p id="pop-ok" hidden><b>C'est envoyé.</b> Regardez votre boîte e-mail.</p>
+  </div>
+</div>
+<!-- /SI -->
+
+<script>
+(function () {
+  /* Attention : un champ placé dans une chaîne JavaScript entre apostrophes ne doit pas contenir d'apostrophe droite :
+     écrire \' à la place (exemple : 'Le déjeuner d\'équipe').
+     Mode LEAD : les boutons répétés remontent au formulaire du hero au lieu d'aller au paiement. */
+  var lead = document.getElementById('slot-lead');
+  if (lead) {
+    document.querySelectorAll('.js-cta-repeat').forEach(function (a) {
+      a.setAttribute('href', '#'); a.classList.remove('js-buy');
+      a.innerHTML = '{{TEXTE_CTA_LEAD}}';
+      a.addEventListener('click', function (e) { e.preventDefault(); lead.scrollIntoView({ behavior: 'smooth', block: 'center' }); });
+    });
+    var qBox = document.getElementById('lead-q'), form = document.getElementById('lead-form');
+    var answer = '';
+    lead.querySelectorAll('[data-yn]').forEach(function (b) {
+      b.addEventListener('click', function () { answer = b.getAttribute('data-yn'); qBox.hidden = true; form.hidden = false; form.email.focus(); });
+    });
+    form.querySelector('[data-back]').addEventListener('click', function (e) { e.preventDefault(); form.hidden = true; qBox.hidden = false; });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = form.email.value.trim(), tel = form.tel.value.replace(/[^\d+]/g, '');
+      var okE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email), okT = tel.replace(/\D/g, '').length >= 9;
+      form.querySelector('[data-err="email"]').hidden = okE; form.querySelector('[data-err="tel"]').hidden = okT;
+      if (!okE || !okT) return;
+      var btn = form.querySelector('button[type="submit"]'); btn.disabled = true; btn.firstChild.nodeValue = '…';
+      var body = JSON.stringify({ email: email, tel: tel, reponse: answer, page: location.pathname, utm: location.search });
+      var done = function () {
+        if (answer === 'oui' && window.sitePx) window.sitePx('Lead', {});
+        location.href = '/merci?lead=1';
+      };
+      /* Rien ne bloque jamais : même si l'envoi échoue, le visiteur continue. */
+      fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body, keepalive: true })
+        .then(function (r) { if (!r.ok) throw new Error('lead'); done(); })
+        .catch(function () {
+          /* Secours (site sans /api/lead, par exemple déposé à la main sur Cloudflare Pages) : email pré-rempli. */
+          location.href = 'mailto:{{EMAIL}}?subject=' + encodeURIComponent('Demande : {{NOM_MINI_OFFRE}}') +
+            '&body=' + encodeURIComponent('Email : ' + email + '\nTéléphone : ' + tel + '\nRéponse à la question : ' + answer);
+          setTimeout(done, 800);
+        });
+    });
+  }
+
+  /* Mode ECOM : un clic sur un lien de paiement = InitiateCheckout (seulement avec le consentement marketing). */
+  document.querySelectorAll('.js-buy').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var o = (window.SITE_CONFIG.offers || {})[a.getAttribute('data-offer')] || {};
+      if (window.sitePx) window.sitePx('InitiateCheckout', { value: o.value, currency: window.SITE_CONFIG.currency });
+    });
+  });
+
+  /* Bouton collant (mobile) : visible une fois le hero dépassé. */
+  var sticky = document.querySelector('.js-sticky'), hero = document.querySelector('.hero');
+  if (sticky && hero && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { sticky.classList.toggle('on', !es[0].isIntersecting); }).observe(hero);
+  }
+
+  /* Apparitions : seuls les blocs encore SOUS l'écran sont masqués, puis révélés à l'arrivée.
+     Sans JavaScript, ou en capture pleine page, tout reste visible. */
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.remove('rv-wait'); e.target.classList.add('rv-in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.rv').forEach(function (el) {
+      if (el.getBoundingClientRect().top > innerHeight) { el.classList.add('rv-wait'); io.observe(el); }
+    });
+  }
+
+  /* Fenêtre e-mail : une seule fois par visiteur, après 30 s sur la page ou la souris qui part vers la sortie.
+     Elle envoie {"email": …, "reponse": "popup", "page": …, "utm": …} à /api/lead. */
+  var pop = document.getElementById('pop'), pform = document.getElementById('pop-form'), seen = false;
+  if (pop && pform) {
+    try { seen = !!localStorage.getItem('site_pop'); } catch (e) {}
+    var openPop = function () { if (seen) return; seen = true; try { localStorage.setItem('site_pop', '1'); } catch (e) {} pop.classList.add('on'); pform.email.focus(); };
+    var closePop = function () { pop.classList.remove('on'); };
+    if (!seen) {
+      setTimeout(openPop, 30000);
+      document.addEventListener('mouseout', function (e) { if (!e.relatedTarget && e.clientY < 10) openPop(); });
+    }
+    pop.querySelector('[data-close]').addEventListener('click', closePop);
+    pop.addEventListener('click', function (e) { if (e.target === pop) closePop(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePop(); });
+    pform.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = pform.email.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { pform.email.focus(); return; }
+      var done = function () { pform.hidden = true; document.getElementById('pop-ok').hidden = false; if (window.sitePx) window.sitePx('Lead', {}); };
+      fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, reponse: 'popup', page: location.pathname, utm: location.search }), keepalive: true })
+        .then(function (r) { if (!r.ok) throw new Error('lead'); done(); })
+        .catch(function () { location.href = 'mailto:{{EMAIL}}?subject=' + encodeURIComponent(document.getElementById('pop-t').textContent) + '&body=' + encodeURIComponent('Email : ' + email); done(); });
+    });
+  }
+})();
+</script>
+<!-- pixels.js n'est jamais chargé ici : c'est consent.js qui le charge, seulement après la décision de consentement. -->
+</body>
+</html>

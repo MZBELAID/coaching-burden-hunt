@@ -1,6 +1,6 @@
 ---
 name: installation
-description: Installe chez le client le business préparé pendant la séance de coaching, avec SON Claude et SES connecteurs, à partir du dossier zippé (site, pubs, installation.json, Carte de séance) — crée ses liens de paiement Stripe, trouve ou crée son pixel Meta, publie son site sur son Cloudflare (un seul Worker), puis crée sa campagne Meta EN PAUSE avec les 3 images et les textes. Rien n'est créé sans son oui, la campagne n'est jamais activée par Claude. Utilise ce skill quand quelqu'un dépose un dossier « [marque]-business » ou un zip avec installation.json et dit « installe mon business », « installe mon dossier », « mets tout en ligne », ou colle le prompt d'installation du coaching.
+description: Installe chez le client le business préparé pendant la séance de coaching, avec SON Claude et SES connecteurs, à partir du dossier zippé (site, pubs, installation.json, plan de séance) — crée ses liens de paiement Stripe, trouve ou crée son pixel Meta, publie son site sur son Cloudflare (un seul Worker), puis crée sa campagne Meta EN PAUSE avec les 3 images et les textes. Rien n'est créé sans son oui, la campagne n'est jamais activée par Claude. Utilise ce skill quand quelqu'un dépose un dossier « [marque]-business » ou un zip avec installation.json et dit « installe mon business », « installe mon dossier », « mets tout en ligne », ou colle le prompt d'installation du coaching.
 ---
 
 # L'installation 📦
@@ -32,7 +32,7 @@ Lis-les au moment de l'étape, pas avant (liens dans `INSTALLER.md`) :
 
 ## Étape 0 · Ouvrir le dossier
 
-1. Décompresse le zip. Lis `installation.json` et `carte-de-seance.html` (seulement son bloc de données).
+1. Décompresse le zip. Lis `installation.json` et `plan-de-seance.html` (seulement son bloc de données).
 2. Cherche `{{` dans `site/public/` : seuls `{{STRIPE_LINK_ACOMPTE}}`, `{{STRIPE_LINK_TOUT}}`, `{{STRIPE_LINK_RESTE}}`, `{{META_PIXEL_ID}}` et `{{URL_SITE}}` doivent rester. S'il en reste d'autres, dis lesquels en une ligne : c'est le coach qui les complète, pas toi.
 3. Regarde quels connecteurs sont actifs : Stripe, Cloudflare, Meta.
 
@@ -113,11 +113,11 @@ Après la création, relis-la avec le connecteur : tout est en pause, le budget 
 
 ## Étape 5 · La fin
 
-Mets à jour `carte-de-seance.html` (seulement son bloc de données) : l'adresse du site, les liens Stripe, le pixel, la campagne (en pause), la liste « à faire ». Donne-lui le fichier. Puis, seulement :
+Mets à jour `plan-de-seance.html` (seulement son bloc de données) : l'adresse du site, les liens Stripe, le pixel, la campagne (en pause), la liste « à faire ». Donne-lui le fichier. Puis, seulement :
 
 > ✅ Stripe · ✅ Pixel · ✅ Site · ✅ Pub
 >
-> ⚔️ Ton business est installé. Tout est dans ta Carte de séance.
+> ⚔️ Ton business est installé. Tout est dans ta plan de séance.
 >
 > **Ce que tu fais toi-même, maintenant :**
 >

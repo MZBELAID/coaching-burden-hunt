@@ -182,26 +182,39 @@ Quand le Katana tourne dans la séance de coaching live (skill `coaching-live`),
 - **La langue et les pays** sont fixés à l'étape 1 de la séance. Ne pose jamais la question des langues du fichier 03 : écris directement la langue et les pays de la séance.
 - **Le chemin** est choisi à l'étape 0 de la séance : de zéro, ou idée claire.
 
+### Le format court
+
+Le coach parle déjà au client. Chaque question du Katana se pose en format court : **la question en une phrase, un exemple court dessous, les choix à taper s'il y en a**. Retire les introductions, les listes « pense à », les explications et les lignes de conseil des fichiers de référence. Garde le sens exact de la question et ses règles de classement.
+
+### Pas d'annonces
+
+En séance, la règle « annonce chaque étape avant de la lancer » ne s'applique pas : le coach l'explique à l'oral. Tu poses la question, c'est tout. Les sous-niches et les directions s'affichent en une ou deux lignes chacune.
+
 ### Pas de résumés, pas de double confirmation
 
 - Les blocs de clôture des étapes internes (`# Ton Ki Est Forgé`, `# Ton Ki et tes Techniques Sont Forgés`, `# Ton Profil de Travail Est Forgé`, `# Tes Directions Ki Sont Prêtes`, `# Tes Directions Coup de Cœur Sont Prêtes`) **ne s'affichent pas**. Garde leur contenu en mémoire de travail, puis pose directement la première question de l'étape suivante.
 - Les « validations finales cumulées » qui affichent tout le profil ne s'affichent pas non plus.
 - Quand la personne a choisi par numéro, c'est validé : ne repose jamais « C'est bien ça ? ». Tu demandes une confirmation seulement quand tu as reformulé quelque chose qu'elle a écrit librement, et une seule fois.
-- Le bloc final `# Ton Katana Est Forgé ⚔️` ne s'affiche pas dans le chat : il va dans la Carte de séance. Dans le chat, seulement le nom et la phrase du Katana, puis la ligne de progression.
+- Le bloc final `# Ton Katana Est Forgé ⚔️` ne s'affiche pas dans le chat : il va dans le plan de séance. Dans le chat, seulement le nom et la phrase du Katana, à valider.
 - Pas de message Skool (étape 9 du fichier 06).
 
-### Chemin « de zéro »
+### Chemin « de zéro » : 12 questions, pas plus
 
-Les six fichiers, dans l'ordre, avec ces changements :
+En séance, le Katana complet prend trop de temps. Tu gardes sa logique et ses règles de classement (lis toujours chaque fichier de référence au moment de son étape), mais tu poses **seulement ces questions**, en format court. Tout le reste (classements, vérifications, reformulations) se fait en silence.
 
-1. **Fichier 01, creuser le Ki (tour 2).** Ne pose pas de question ouverte. Pose la même question avec 4 à 6 réponses à taper, tirées d'une vraie recherche sur ce Ki (les pratiques ou les endroits les plus populaires), plus « Autre (écris-le) ». Par exemple, pour le voyage : « Dans le voyage, c'est quoi ton truc en ce moment ? 1. Le Japon 2. La Thaïlande 3. Les États-Unis 4. Le road trip 5. Le voyage en famille 6. Autre (écris-le) ».
-2. **Fichier 02, l'inventaire des Techniques.** La question ne finit pas par « Tout. ».
-3. **Fichier 03, le format de business.** Le Sensei recommande (voir plus bas, « Le type de business »).
-4. **Fichier 04, les directions.** Montre **3 directions**, la meilleure de chaque famille : une 🌸 Ki Market, une ⚡ Ki Technique, une 🌍 Ki World. Le balayage et les vérifications restent les mêmes (au moins trente candidats, les trois vérifications), seul l'affichage change. Si une famille ne donne rien de solide, montre-en moins et n'en dis rien.
-   - Le menu devient : « ✍️ Écris le numéro qui te donne le plus envie (1 à 3). 4. Montre-m'en 3 autres 5. J'ai la mienne en tête ». Le 4 donne 3 nouvelles directions, une par famille, jamais déjà montrées.
-   - La ligne **Inspiration** devient : des concurrents du monde entier, spécialisés dans cette niche, avec un positionnement proche (encore mieux s'ils visent la même clientèle), chacun avec son pays et son lien. Si aucun n'a un positionnement proche : « aucun équivalent direct ».
-5. **Fichier 05.** Il ne reste qu'une direction : passe directement au test de l'envie à une direction.
-6. **Fichier 06.** Voir « Les sous-niches » et « Le prix de l'avatar » plus bas.
+1. **Ce qu'il aime** (fichier 01) : « Qu'est-ce que tu aimes faire ou suivre, même si ça ne te rapportait jamais rien ? Écris tout ce qui te vient. »
+2. **Ses 1 à 3 Ki** : tu montres sa liste nettoyée, il tape ceux qu'il garde. Si un Ki gardé est trop large, **une** question à choix pour le préciser (4 à 6 réponses à taper, tirées d'une vraie recherche, plus « Autre »).
+3. **Ce qu'il sait faire** (fichier 02) : « Qu'est-ce que tu sais faire ? Tes métiers, tes études, tes loisirs, ce pour quoi on te demande de l'aide. » Le Pont du Ki se fait en silence : ajoute toi-même à sa liste les Techniques cachées évidentes de ses Ki.
+4. **Ses 1 à 3 Techniques** : tu montres la liste rendue concrète (chaque Technique = une action avec un résultat visible), il tape celles qu'il garde.
+5. **Qui il veut aider** (fichier 03) : les 4 familles en une ligne chacune avec 2 exemples, la recommandée en premier. Pas de « Choisis pour moi ».
+6. **Le type de business** : recommandé (voir plus bas).
+7. **En ligne ou près de chez lui** : seulement si ce n'est pas déjà évident.
+8. **Les 3 directions** (fichier 04) : la meilleure de chaque famille (🌸, ⚡, 🌍), **3 lignes chacune** : ce qu'il vendrait, à qui, leur problème. Menu : « Tape ton numéro · 4. Montre-m'en 3 autres · 5. J'ai la mienne ». Le balayage et les vérifications restent les mêmes.
+9. **Les sous-niches** (fichier 06) : une ligne chacune avec son problème, et en premier « 0. Je les vise toutes (recommandé pour démarrer) ».
+10. **Le thème** : l'écran « Quel thème pour ton business ? » (5 thèmes avec un nom, décrits au chemin « idée claire »), tirés de ses Ki. Il remplace les neuf signatures et les noms du fichier 06.
+11. **Le Katana** : la phrase, à valider (« 1. C'est mon Katana 2. Je change quelque chose »).
+
+Ce qui saute en séance : la validation du classement (fichier 01), les validations finales cumulées, le test de l'envie (fichier 05, il n'y a qu'une direction), les « Tu pars sur … ? », le message Skool, et toute phrase d'ouverture ou d'annonce.
 
 ### Chemin « idée claire »
 
@@ -224,14 +237,30 @@ La personne a écrit son idée à l'étape 0 de la séance. **Ce sont exactement
 
    - Jamais la pub, le site, l'offre ou les textes de vente dans cette liste : c'est le coach et toi qui les faites pendant la séance.
    - Ce qu'il coche, plus ce qu'il ajoute, ce sont ses Techniques Visibles. Pas de tri, pas de choix de 1 à 3, pas de reconfirmation.
-   - Ce qu'il ne sait pas faire et qui est indispensable va dans la Carte de séance, en « à apprendre ou à faire faire ». Dis-le en une ligne, sans le décourager.
-3. **Fichier 03, étape 1 : « Qui aimerais-tu aider le plus ? »**, la même question avec les 4 familles. Les exemples de chaque famille sont adaptés à son idée et à ses Techniques. La ligne de conseil recommande la famille qui colle le mieux à son idée, avec la raison en quelques mots.
+   - Ce qu'il ne sait pas faire et qui est indispensable va dans le plan de séance, en « à apprendre ou à faire faire ». Dis-le en une ligne, sans le décourager.
+3. **Fichier 03, étape 1 : « Qui aimerais-tu aider le plus ? »**, la même question avec les 4 familles, en format court : une ligne par famille avec 2 exemples adaptés à son idée, la famille recommandée en premier avec sa raison en quelques mots. Si son idée dit déjà à qui il vend, ne pose pas la question : enregistre la famille.
 4. **Fichier 03, étape 2 : le type de business**, recommandé (voir « Le type de business : le Sensei recommande »).
 5. **Fichier 03, étape 3 : en ligne ou près de chez toi.** Sautée si l'idée le dit déjà (une ville, « livré », « à domicile »…) : enregistre la réponse.
 6. **Fichiers 04 et 05 : sautés.** Son idée, précisée par la famille et le format, est la direction choisie. Fais quand même la vraie recherche en silence, dans les pays (ou la zone) de la séance : le 🎯 Bearer, le 💢 Burden, les concurrents du monde entier avec un positionnement proche (avec lien), et le prix de l'avatar (plus bas).
 7. **Fichier 06, à partir de son étape 2 : les sous-niches**, avec son idée comme direction choisie (avec l'option « Je les vise toutes »).
-8. **Le Ki, juste avant les signatures.** Avant l'étape 3 du fichier 06, pose une seule question : « Pour donner un style unique à ton business : qu'est-ce que tu aimes, même si ça ne te rapportait jamais rien ? Écris 1 à 3 choses. » Puis les signatures, tirées de ces Ki, comme dans le fichier 06.
+8. **Le thème, à la place de la question du Ki.** Ne pose pas de question ouverte. Propose 5 thèmes cohérents avec l'idée creusée : pour chacun, un nom de marque (un jeu de mots avec la ville, le produit ou le métier quand ça marche), l'ambiance en quelques mots, et ce que ça change concrètement (le vocabulaire, la façon de livrer, le style du site). Le meilleur en premier.
+
+   > 🎨 **Quel thème pour ton business ?**
+   >
+   > 1. **[NOM]** · [AMBIANCE] · [CE QUE ÇA CHANGE] (recommandé)
+   >
+   > 2. **[NOM]** · …
+   >
+   > 3. … 4. … 5. …
+   >
+   > ✍️ Tape un numéro, ou dis-moi le thème que tu aimes.
+
+   Le thème choisi donne la signature et le nom. S'il veut seulement un nom, donne 5 nouveaux noms dans ce sens. S'il propose son thème ou son nom, prends-le tel quel. Chaque élément culturel cité doit être vrai et vérifié (règle du fichier 06). Les étapes 3 à 6 du fichier 06 (signatures, nom) sont remplacées par cet écran.
 9. **Fichier 06 : la suite**, jusqu'au Katana, comme le chemin « de zéro ».
+
+### Vérifie si le métier est réglementé
+
+Avant de fixer le Katana, vérifie par une recherche si l'activité est réservée à une profession (comptabilité, droit, santé, placements financiers, immobilier, transport de personnes, alimentaire…). Si oui, dis en une ligne ce que le client a le droit de vendre et ce qu'il n'a pas le droit de vendre, avec la source, et construis le Katana et les offres dans ce qui est permis.
 
 ### N'invente rien sur son idée
 
@@ -245,7 +274,7 @@ Au lieu de poser la question du format à vide, fais d'abord une vraie recherche
 >
 > Pourquoi :
 >
-> — [RAISON CHIFFRÉE 1, ex. avec [TARGET] / mois visés, il te faut seulement [N] clients à [PRIX]]
+> — [RAISON 1, tirée de la recherche : ce que ces clients paient déjà pour ça, avec le vendeur et le prix]
 >
 > — [RAISON 2, tirée de la recherche, avec un vendeur ou un lien]
 >
@@ -279,4 +308,4 @@ Si la personne choisit 0, le Bearer devient le marché de la direction choisie, 
 
 Dans le fichier 06, au moment de fixer le Bearer, ajoute une recherche : **ce que vend l'avatar et combien** (son prix moyen, et sa marge si une source la donne), dans les pays de la séance. Avec le lien. Par exemple : « Un voyage sur mesure au Japon se vend environ [PRIX] ([LIEN]). » Sans source, marque-le HYPOTHÈSE.
 
-Ça sert à l'offre principale : estimer ce que ton service peut lui faire gagner, et fixer ton prix. Ça s'écrit dans la Carte de séance.
+Ça sert à l'offre principale : estimer ce que ton service peut lui faire gagner, et fixer ton prix. Ça s'écrit dans le plan de séance.

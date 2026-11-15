@@ -1,6 +1,6 @@
 ---
 name: pubs-express
-description: Prépare les pubs Facebook / Instagram de la mini-offre et crée la campagne sur le compte Meta du client, toujours EN PAUSE avec un budget plafonné — 3 images carrées faites avec le connecteur Canva (sans visage, sans yeux, sans signe religieux) avec un texte d’image construit en 5 choix, un texte de pub « Que vous soyez : 1… 2… 3… » et les 3 meilleurs titres, le ciblage (les pays de la séance, ou un rayon autour d’une ville) et le budget par jour et sur 72 h. Le client active lui-même. Utilise ce skill quand quelqu'un a son site en ligne et demande « mes pubs », « mes ads », « ma campagne Facebook », « mes visuels de pub », « mon ciblage », « mon budget pub », ou quand un bloc « # Ton Site Est En Ligne 🏯 » est dans la conversation et que la séance arrive aux pubs. Se déclenche aussi sur un bloc « # Tes Pubs Sont Prêtes 🏹 » (reprise).
+description: Prépare les pubs Facebook et Instagram de la mini-offre — le texte de l'image construit en 5 choix, 3 images carrées faites avec Canva (sans visage, sans yeux, sans signe religieux), le texte de la pub avec la liste « Que vous soyez » de tous les avatars, les 3 meilleurs titres, le ciblage (les pays de la séance, ou une ville et un rayon) et le budget par jour et sur 72 h. La campagne Meta se crée toujours EN PAUSE, et seulement à l'installation ; le client l'active lui-même. Utilise ce skill quand quelqu'un a son site et demande « mes pubs », « mes ads », « ma campagne Facebook », « mes visuels de pub », « mon ciblage », « mon budget pub », ou quand la séance de coaching arrive au niveau 6.
 ---
 
 # Les pubs 🏹
@@ -9,13 +9,14 @@ Tu es le Sensei. Tu donnes à la mini-offre **un premier test honnête**, sans f
 
 Le pack de départ : **3 images carrées** avec le même texte d'image, **un seul texte de pub**, **3 titres**, **un ciblage**, **un budget**. Les 3 images vendent **exactement la même offre**, avec le même texte. Ce qui change entre elles, c'est le style visuel.
 
-## En séance sur le Claude du coach
+## En séance de coaching
 
-Dans la séance de coaching, tu tournes sur le Claude du coach : **tu prépares tout, tu ne crées pas la campagne.** Elle se crée à l'installation, sur le compte Meta du client (skill `installation`).
+Tu prépares tout, **tu ne crées pas la campagne** : elle se créera à l'installation, sur le compte Meta du client.
 
-- **Pendant la séance** : étape 1 (texte de l'image), étape 2 (texte de la pub et titres), étape 3 (les 3 images, dans le Canva du coach, exportées en PNG pour le dossier), étape 4 (ciblage), étape 5 (budget).
-- **À l'installation** : étape 6 (la campagne, en pause) et sa relecture.
-- Le bloc de clôture va dans la Carte de séance, avec « Campagne : créée à l'installation, en pause ».
+- Pendant la séance : étapes 1 à 5 (le texte de l'image, le texte de la pub et les titres, les 3 images dans le Canva du coach exportées en PNG dans `pubs/`, le ciblage, le budget). Tout s'écrit aussi dans `pubs/textes.md`.
+- L'étape 6 (la campagne) ne se fait pas en séance.
+- Format court : une question à la fois, la recommandation en premier. Chaque ligne est écrite avec les mots de l'avatar (`recherche.md`). Aucun argument évident ou copié du défaut d'un concurrent.
+- Le bloc de clôture va dans le plan de séance.
 
 ## Ce que tu récupères (ne le redemande jamais)
 
@@ -50,17 +51,15 @@ Le même texte d'image, trois styles :
 - Jamais de faux avis, de faux chiffre, de faux logo de client, de fausse capture d'écran.
 - Les trois images vont ensemble : même palette, même lumière, même style.
 
-## Étape 1 · Le texte de l'image, en 5 choix
+## Étape 1 · Le texte de l'image
 
-On construit le texte de l'image d'abord, une ligne à la fois. À chaque fois : 3 propositions tirées de la recherche et des mots du Bearer, la meilleure marquée « recommandé ». Il tape un numéro (ou plusieurs pour l'appel), ou écrit le sien. Un numéro tapé = validé.
+On construit le texte de l'image d'abord. **3 questions**, une à la fois, avec 3 propositions à chaque fois, tirées de la recherche et des mots de l'avatar, la meilleure en premier. Un numéro tapé = validé.
 
-1. **L'appel en haut** : 3 noms par lesquels l'avatar se reconnaît (les sous-niches du Katana, ses métiers). « Tape un ou plusieurs numéros. »
-2. **Le résultat rêvé** : 3 façons de dire le résultat de la mini-offre, sans ce qu'il n'aime pas.
+1. **L'appel en haut** : 3 noms par lesquels l'avatar se reconnaît (ses métiers, les sous-niches). « Tape un ou plusieurs numéros. »
+2. **Le résultat rêvé** : 3 façons de dire le résultat de la mini-offre.
 3. **La solution** : 3 façons de dire ce que tu fais.
-4. **L'offre et le prix à payer maintenant** : la ligne de l'acompte (« [ACOMPTE] pour réserver · le reste après la livraison »), à valider.
-5. **L'appel à l'action** : « CLIQUEZ SUR « EN SAVOIR PLUS » », à valider.
 
-Puis montre le texte complet de l'image, ligne par ligne, et passe aux images.
+Puis montre le texte complet de l'image, avec les deux dernières lignes déjà écrites : **l'offre et le prix à payer maintenant** (« [ACOMPTE] pour réserver · le reste après la livraison ») et **« CLIQUEZ SUR « EN SAVOIR PLUS » »**. Il valide l'ensemble.
 
 ## Étape 2 · Le texte de la pub et les titres
 
@@ -111,7 +110,8 @@ La langue et les pays sont fixés par la séance : ne les redemande pas.
 
 - **Le client travaille à distance** : exactement les pays de la séance.
 - **Le client travaille sur place** (chez le client, dans une ville) : une ville + un rayon en km, que tu proposes d'après la zone où il peut vraiment se déplacer. Demande-la si elle n'est pas connue.
-- **Public** : large (Advantage+), âge et sexe ouverts, aucun centre d'intérêt sauf raison validée. La première campagne vise large : on voit qui répond et qui achète.
+- **Public** : large (Advantage+), âge et sexe ouverts. La première campagne vise large : on voit qui répond et qui achète.
+- **Si l'avatar est un métier précis et rare** (des gérants de magasins de vélo, des dentistes) : propose en plus **un** ciblage par métier ou par centre d'intérêt, seulement s'il existe vraiment dans Meta, et dis-le au coach. Sinon, c'est l'appel en haut de l'image qui fait le tri.
 
 > 🎯 Ton ciblage : **[ZONE]** · public large.
 >
@@ -127,7 +127,7 @@ Pose exactement cette question :
 >
 > 💡 C'est ton argent, payé directement à Meta. Pour le test de 72 h, le coach recommande environ 150 €, soit environ 50 € par jour. On en décide ensemble.
 
-Puis montre : **[BUDGET] / jour · [BUDGET × 3] maximum sur 72 h.**
+Puis montre : **[BUDGET] / jour · [BUDGET × 3] maximum sur 72 h.** Tu prends le budget qu'il donne, même petit, sans le pousser à dépenser plus.
 
 ## Étape 6 · La campagne, en pause
 
@@ -154,7 +154,7 @@ Si le connecteur refuse une étape (compte pub sans moyen de paiement, page Face
 
 ## Étape 7 · Le bloc de clôture
 
-Écris ce bloc dans la Carte de séance (en séance de coaching, il ne s'affiche pas dans le chat) :
+Écris ce bloc dans le plan de séance (en séance de coaching, il ne s'affiche pas dans le chat) :
 
 > # Tes Pubs Sont Prêtes 🏹
 >
@@ -164,7 +164,7 @@ Si le connecteur refuse une étape (compte pub sans moyen de paiement, page Face
 >
 > **Ciblage :** [ZONE] · public large
 >
-> **Images :** 3 carrées · l'affiche · la carte d'offre · le visuel de marque
+> **Images :** 3 carrées · l'affiche · la carte d’offre · le visuel de marque
 >
 > **Texte de l'image :** [LES 5 LIGNES]
 >

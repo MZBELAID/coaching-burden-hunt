@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>Aperçu mobile 390 px</title>
+<!-- Outil de capture : Chrome sans interface refuse les fenêtres de moins de 500 px de large.
+     Cette page affiche le site dans un cadre de 390 px, collé à gauche. Hauteur du cadre : ?h=844 (défaut) ou ?h=7000. -->
+<style>html,body{margin:0;background:#fff}iframe{display:block;border:0;width:390px}</style></head>
+<body><iframe id="f" src="index.html"></iframe>
+<script>var q=new URLSearchParams(location.search);var f=document.getElementById('f');f.style.height=(q.get('h')||844)+'px';if(q.get('p'))f.src=q.get("p");</script>
+</body></html>

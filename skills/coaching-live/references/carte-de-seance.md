@@ -1,77 +1,64 @@
-# La Carte de séance
+# Le plan de séance
 
-C'est une page au style Burden Hunt (comme la page Speedrun du coach) : une quête en 8 étapes, avec une barre de progression. Elle est créée au premier message, mise à jour à la fin de chaque grande étape, et terminée à l'étape 7 : elle devient alors le business plan d'une page.
+C'est l'écran de jeu de la séance, au style Burden Hunt : 7 niveaux, le niveau en cours en grand, la prochaine action toujours visible, et une carte courte pour chaque niveau gagné. À la fin du niveau 7, c'est le business plan d'une page.
 
 ## Le modèle
 
-Le modèle est `carte-de-seance.html` (lien dans `COMMENCER.md`). Copie-le **tel quel** : le style, les polices et le script ne changent jamais. Tu ne remplis et ne mets à jour **que le bloc de données** `<script type="application/json" id="carte">`.
+Le modèle est `carte-de-seance.html`. Copie-le **tel quel** : le style, les polices et le script ne changent jamais. Tu ne remplis et ne mets à jour **que le bloc de données** `<script type="application/json" id="carte">`.
 
+- Dans l'onglet Code : le fichier `plan-de-seance.html` dans le dossier du client, ouvert dans l'aperçu.
 - Dans claude.ai : un artifact HTML.
-- Dans l'onglet Code : le fichier `carte-de-seance.html` dans le dossier du client (et un artifact si l'outil Artifact est disponible).
 
 ## Les règles
 
-- `marque` : le nom de la marque dès qu'il existe (avant : « Carte de séance »).
-- `idee` : l'idée **réécrite proprement**, en quelques mots clairs (« Ouvrir un curry japonais à Strasbourg »). Jamais la phrase brute du client. Rien qu'il n'a pas dit. Chemin « de zéro » : vide jusqu'au Katana, puis le Katana en quelques mots.
-- `chemin` : « idée claire » ou « de zéro ».
-- `etat` de chaque étape : `done` (fait), `now` (en cours, une seule à la fois), `todo` (à faire, sans lignes).
-- Les réponses validées sont écrites **mot pour mot**, jamais raccourcies (Bearer, Burden, phrase Katana, phrases d'offre). `"fort": true` sur les plus importantes.
-- Chaque chiffre a son lien de source, ou il est marqué « HYPOTHÈSE : [raison] ».
-- Rien d'autre : pas de commentaire, pas de conseil ajouté.
-- Mise à jour à la fin de chaque grande étape seulement.
+- Tout est en français. Aucun mot anglais.
+- `marque` : le nom de la marque dès qu'il existe. Vide avant.
+- `idee` : l'idée **réécrite proprement**, en quelques mots (« Ouvrir un curry japonais à Strasbourg »). Jamais la phrase brute du client, rien qu'il n'a pas dit.
+- `prochaine_action` : **une seule phrase courte**, ce qu'on fait maintenant (« Choisis le résultat que ton client veut obtenir. »). Elle change à chaque mise à jour.
+- `etat` : `won` (gagné), `now` (en cours, un seul), `lock` (verrouillé).
+- Pour un niveau gagné :
+  - `resume` : l'essentiel en **une phrase courte**. C'est ce qu'on lit d'un coup d'œil.
+  - `resume2` : une deuxième ligne courte, seulement si elle aide.
+  - `lignes` : le détail et les sources, cachés derrière « Voir le détail ». Les phrases validées y sont écrites mot pour mot. Chaque chiffre a son lien, ou « HYPOTHÈSE : [raison] ».
+- Mise à jour à la fin de chaque niveau, et quand la prochaine action change de sujet. Pas à chaque question.
 
-## Les lignes de chaque étape
+## Le résumé et le détail de chaque niveau
 
-**1. Objectif**
-- Target : [MONTANT] [DEVISE] / mois [provisoire ?]
-- Langue : [LANGUE]
-- Zone : [PAYS] ou [VILLE + RAYON]
-- Clients nécessaires : [N] à [PRIX] / mois ← ajoutée à l'étape 3 seulement
+**1. La cible**
+- résumé : « [MONTANT] / mois · [ZONE] »
+- détail : target, langue, zone, puis « clients nécessaires » (ajouté au niveau 3)
 
-**2. Katana**
-- 🔥 Ki : [KI]
-- ⚔️ Techniques : [TECHNIQUES]
-- À apprendre ou à faire faire : [S'IL Y EN A]
-- 🎯 Client : [BEARER, phrase exacte]
-- 💢 Son problème : [BURDEN, phrase exacte]
-- Ce qu'il vend : [PRODUIT OU SERVICE DE L'AVATAR] ≈ [PRIX] · marge ≈ [MARGE] ([SOURCE] | HYPOTHÈSE)
-- Inspirations : [CONCURRENT · PAYS · LIEN] (une ligne par concurrent)
-- ⚔️ Katana : « [PHRASE KATANA] » (fort)
-- Signature : [NOM] · tirée de ton Ki [KI]
+**2. Le Katana**
+- résumé : la phrase Katana
+- résumé 2 : « Client : [BEARER en court] »
+- détail : Ki, Techniques, à apprendre ou à faire faire, client (phrase exacte), son problème (phrase exacte), ce qu'il paie déjà, inspirations (une ligne par concurrent, avec pays et lien), signature
 
-**3. Offre principale**
-- Offre : « [PHRASE D'OFFRE] » (fort)
-- Prix : [PRIX] / mois (fort)
-- Résultat · Délai · Effort · Risque : une ligne chacun
-- Pourquoi ce prix : [LE CALCUL]
-- Ceux qui le vendent déjà : [VENDEUR · PRIX · LIEN] (une ligne par vendeur)
+**3. L'offre**
+- résumé : la phrase d'offre
+- résumé 2 : « [PRIX] / mois · [N] clients pour ta target »
+- détail : résultat, obstacles et solutions, ce qu'il reçoit (l'empilement), garantie, urgence, pourquoi ce prix, ceux qui le vendent déjà
 
-**4. Mini-offre**
-- Offre : « [PHRASE] » (fort)
-- Prix : [PRIX] · acompte [ACOMPTE] · tout payer maintenant [PRIX −20 %]
-- Vers l'offre principale : [LE PONT, en une phrase]
+**4. La mini-offre**
+- résumé : la phrase de la mini-offre
+- résumé 2 : « [PRIX] · acompte [ACOMPTE] »
+- détail : ce qu'il reçoit, délai, garantie, tout payer maintenant, le passage vers l'offre principale
 
-**5. Site**
-- Adresse : [ADRESSE] (écrite à l'installation)
-- Funnel : [LES ÉTAPES]
-- Design : « [NOM] »
-- Contact : [WhatsApp | e-mail]
+**5. Le site**
+- résumé : « Ton site est prêt · design « [NOM] » »
+- détail : funnel, contact, adresse (écrite à l'installation)
 
-**6. Pubs**
-- Les 3 images carrées et le texte : prêts
-- Campagne : en pause, créée à l'installation · [BUDGET] / jour · plafond [BUDGET 72 H] sur 72 h · [ZONE]
-- Titres : [TITRE 1] · [TITRE 2] · [TITRE 3]
+**6. Les pubs**
+- résumé : « 3 images et tes textes sont prêts »
+- résumé 2 : « [BUDGET] / jour · [ZONE] »
+- détail : texte de l'image, titres, plafond 72 h, campagne (créée en pause à l'installation)
 
-**7. Business plan**
-- Aujourd'hui : activer la campagne (c'est toi qui le fais)
-- Pendant 72 h : répondre vite à chaque demande
-- Après 72 h : des ventes → tu continues (tu livres, tu proposes l'offre principale, tu gardes la pub) · aucune vente → peu de clics = la pub, des visites sans réservation = la page ou l'offre → tu corriges une seule chose et tu relances 72 h · bilan avec ton coach
-- Chiffres à suivre : coût par demande · mini-offres vendues · clients à [PRIX] / mois (objectif : [N])
-- Et `pas_compte` : [ex. impôts et cotisations, frais Stripe, abonnements, ton temps]
+**7. Le plan**
+- résumé : « Aujourd'hui : active ta campagne. Dans 72 h : la règle de décision. »
+- détail : la règle de décision après 72 h, les chiffres à suivre
+- et `pas_compte` : [ex. impôts et cotisations, frais Stripe, abonnements, ton temps]
 
-**8. Installation** (remplie par le Claude du client)
-- Site en ligne · paiement branché · pixel · campagne créée en pause · à faire
+À la fin : tous les niveaux en `won`, et `prochaine_action` = ce que le client fait lui-même maintenant.
 
 ## Si la conversation coupe
 
-Le coach colle le bloc de données de la carte dans une nouvelle conversation, avec le prompt de départ, et dit « on reprend ». La séance repart à la première étape qui n'est pas `done`.
+Le fichier `plan-de-seance.html` du dossier du client contient tout. Dans une nouvelle conversation, le coach lance le coaching et dit « on reprend [marque] » : la séance repart au premier niveau qui n'est pas `won`.
