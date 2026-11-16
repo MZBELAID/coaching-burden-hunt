@@ -1,6 +1,6 @@
 ---
 name: site-express
-description: Construit la page de vente magnifique du client pour sa mini-offre, avec le kit de site du coach (système de design de sa page Speedrun — bandes de couleur, typographie travaillée, cartes, illustrations dessinées en SVG, 7 sections fixes, pages légales, bandeau cookies, pixel) — d'abord le funnel, puis les textes, puis 5 idées de design montrées en maquettes, puis la page complète dans le design choisi, vérifiée sur captures PC et mobile. La mise en ligne (Stripe, pixel, Cloudflare) se fait ensuite, à l'installation. Utilise ce skill quand quelqu'un a sa mini-offre et demande « mon site », « ma landing », « ma page de vente », ou quand la séance de coaching arrive au niveau 5.
+description: Construit la page de vente magnifique du client pour sa mini-offre, avec le kit de site du coach (système de design de sa page Speedrun — bandes de couleur, typographie travaillée, cartes, illustrations dessinées en SVG, 8 sections fixes, pages légales, bandeau cookies, pixel) — d'abord le funnel, puis les textes, puis 5 idées de design montrées en maquettes, puis la page complète dans le design choisi, vérifiée sur captures PC et mobile. La mise en ligne (Stripe, pixel, Cloudflare) se fait ensuite, à l'installation. Utilise ce skill quand quelqu'un a sa mini-offre et demande « mon site », « ma landing », « ma page de vente », ou quand la séance de coaching arrive au niveau 5.
 ---
 
 # Le site 🏯
@@ -63,15 +63,16 @@ La demande de contact (une question OUI/NON, puis e-mail et téléphone) se reco
 
 ## Étape 2 · Les textes
 
-Écris tous les textes **avant** le design. Les 7 sections, toujours dans cet ordre :
+Écris tous les textes **avant** le design. Les 8 sections, toujours dans cet ordre :
 
 1. **La barre contact** : WhatsApp (recommandé) ou e-mail.
 2. **Le hero, qui tient sans défiler sur PC et sur mobile** : pour qui → le résultat (le titre, 8 mots au plus) → la phrase exacte de l'offre → le bouton avec le prix → la garantie en une ligne.
 3. **Les témoignages** : seulement de vrais avis. Aucun avis : la section est retirée.
 4. **Comment ça marche** : les 3 étapes, puis ce qu'il reçoit (un élément par ligne) et le délai.
 5. **Pour qui / pas pour qui** : 3 lignes chacun.
-6. **La FAQ** : 3 à 5 vraies objections tirées de la recherche, dont « Et si ça ne me convient pas ? », et en dernier le contact.
-7. **Le bloc final et le pied de page légal.**
+6. **Qui je suis** (ou « Qui nous sommes » s'ils sont plusieurs) : toujours présente. 3 à 6 lignes vraies, tirées de ses Techniques et de sa preuve, sa vraie photo s'il en a une, et le contact. Rien d'inventé.
+7. **La FAQ** : 3 à 5 vraies objections tirées de la recherche, dont « Et si ça ne me convient pas ? », et en dernier le contact.
+8. **Le bloc final et le pied de page légal.**
 
 Règles d'écriture :
 
@@ -94,17 +95,24 @@ Le contact s'affiche sur la page. Les vraies photos passent avant les illustrati
 
 Lis `kit/regles-design.md`, `kit/themes.md` et `kit/README.md`.
 
-**3a. Les 5 idées.** Elles partent du thème et du nom choisis au Katana, et du monde du client (son produit, sa ville, son métier). Une ligne par idée : le nom, l'ambiance, les couleurs, les 2 polices, l'idée de l'illustration.
+**3a. Les 5 idées.** Elles partent du thème et du nom choisis au Katana, et du monde du client (son produit, sa ville, son métier).
+
+Deux règles fermes :
+
+- **Fond plutôt clair, texte plutôt foncé, toujours.** C'est la lisibilité. Des bandes colorées ou foncées servent d'accents, jamais de fond principal.
+- **Les 5 idées sont vraiment différentes les unes des autres**, pas seulement par les couleurs. Chaque idée choisit une valeur pour chaque axe du design décrit dans `kit/themes.md` : la palette, les 2 polices, la mise en page du hero, le style des cartes, la barre du haut, la forme du bouton, le style des titres, les joints et le motif de fond, la disposition des sections. Deux idées n'ont jamais le même hero, le même style de cartes et la même barre. Et le design d'un client ne ressemble pas à celui du précédent.
+
+Une ligne par idée : le nom, l'ambiance, les couleurs, les 2 polices, la forme (hero, cartes, bouton), l'idée de l'illustration.
 
 > 🎨 **5 idées de design :**
 >
-> 1. **[NOM]** · [AMBIANCE] · [COULEURS] · [POLICES] · illustration : [IDÉE] (recommandé)
+> 1. **[NOM]** · [AMBIANCE] · [COULEURS] · [POLICES] · [FORME] · illustration : [IDÉE] (recommandé)
 >
 > 2. … 3. … 4. … 5. …
 >
 > ✍️ Tape les numéros à voir en maquette, ou décris ton idée.
 
-**3b. Les maquettes.** Crée `site/maquettes.html` et ouvre-le dans l'aperçu : une maquette par idée gardée, avec `kit.css`, le thème de l'idée, la barre contact, le hero et le début de « Comment ça marche », **avec les vrais textes**. Des boutons en haut pour passer de l'une à l'autre, et un bouton PC / Mobile. L'illustration du hero est une première version simple dans les couleurs du thème.
+**3b. Les maquettes.** Crée `site/maquettes.html` et ouvre-le dans l'aperçu : une maquette par idée gardée, avec `kit.css`, le thème et les variantes de l'idée (son hero, ses cartes, sa barre, son bouton), la barre contact, le hero et le début de « Comment ça marche », **avec les vrais textes**. Au premier coup d'œil, on doit voir que ce sont des designs différents. Des boutons en haut pour passer de l'une à l'autre, et un bouton PC / Mobile. L'illustration du hero est une première version simple dans les couleurs du thème.
 
 > Laquelle tu prends ?
 
@@ -129,7 +137,7 @@ Pendant que la page se construit, dis seulement : « ⏳ Je construis ton site. 
 Avant de montrer quoi que ce soit, **regarde ton propre rendu** :
 
 1. Fais les 4 captures avec Chrome sans interface (commandes dans `kit/README.md`) : le haut sur PC (1440×900), la page entière sur PC, le haut sur mobile (390×844), la page entière sur mobile.
-2. Regarde-les et relis `kit/regles-design.md`. Corrige tout ce qui déborde, ce qui est fade, vide ou mal contrasté. Le hero doit tenir en entier, bouton visible, sur PC et sur mobile.
+2. Regarde-les et relis `kit/regles-design.md`. Corrige tout ce qui déborde, ce qui est fade, vide ou mal contrasté. Le hero doit tenir en entier, bouton visible, sur PC et sur mobile. Rien ne recouvre jamais le titre.
 3. Recommence jusqu'à ce que ce soit beau. Tu ne montres jamais une page que tu n'as pas regardée.
 
 ## Étape 6 · Le oui

@@ -16,7 +16,12 @@ Une page sans image fait « modèle vide ». Ici, tous les visuels sont gratuits
 
 ### Ce qu'il faut dessiner
 
-- **1 illustration de hero** : l'objet du résultat promis, en gros plan. On doit comprendre ce qu'on achète sans lire. Format `viewBox="0 0 600 540"`, dans `<figure class="hero-art art">`.
+- **1 illustration de hero** : l'objet du résultat promis, en gros plan. On doit comprendre ce qu'on achète sans lire. Son format dépend du hero choisi (`themes.md`) :
+  - `hero-droite`, `hero-gauche` : dessin avec son fond, `viewBox="0 0 600 540"`, `preserveAspectRatio="xMidYMid slice"`, dans `<figure class="hero-art art">` (le cadre suit le style des cartes).
+  - `hero-affiche` : un objet seul, **sans fond ni cadre**, `viewBox="0 0 620 500"`, `preserveAspectRatio="xMidYMid meet"`, dans `<figure class="hero-art">`. Il se place sous le titre, jamais dessus.
+  - `hero-centre` : une frise large (une rangée d'objets, une scène), sans fond, `viewBox="0 0 1440 300"`, `slice`, dans `<figure class="hero-art">`. Sur mobile on ne voit que le milieu : l'essentiel au centre.
+  - `hero-bande` : soit un objet sans fond posé sur le panneau de couleur (`<figure class="hero-art">`, `meet`), soit un dessin haut qui remplit tout le panneau (`<figure class="hero-art plein">`, `viewBox` d'environ 600×770, `slice`).
+- **1 monogramme ou objet du métier** pour « Qui je suis » quand il n'y a pas de photo : `viewBox="0 0 400 400"`. Jamais de visage dessiné.
 - **3 petites illustrations d'étapes** : un objet par étape (ce que le visiteur fait, ce que je fais, ce qu'il reçoit). Format `viewBox="0 0 320 200"`, dans `<div class="step-art">`.
 
 Mettre `preserveAspectRatio="xMidYMid slice"` : le dessin remplit toujours son cadre. Sur mobile, le hero est plus large que haut : **garder le sujet au centre**, et ne rien mettre d'important dans les 15 % du haut et du bas.
@@ -25,7 +30,7 @@ Mettre `preserveAspectRatio="xMidYMid slice"` : le dessin remplit toujours son c
 
 - **Formes simples** : rectangles arrondis, cercles, ellipses, quelques courbes. Pas de dégradé réaliste, pas de perspective compliquée. La vue de dessus (« à plat ») est la plus facile à réussir.
 - **Aplats de couleur** pris dans le thème : le fond du dessin en `--bg2` ou un ton voisin, l'objet principal dans les couleurs du thème, **une seule touche** de la couleur du bouton.
-- **Bord épais partout** : `stroke="<la couleur --line>" stroke-width="4"` à `6`, `stroke-linejoin="round"`.
+- **Le trait suit le style des cartes** : bord épais pour `cartes-dures` et `cartes-trait` ; trait fin ou pas de trait, ombres douces en ellipse, pour `cartes-douces` et `cartes-aplat`. Avec un bord épais : `stroke="<la couleur --line>" stroke-width="4"` à `6`, `stroke-linejoin="round"`.
 - **Ombre dure** : la même forme, en dessous, décalée de 6 à 10 px, en encre à 20 % d'opacité. Jamais d'ombre floue.
 - **Des détails qui donnent envie** : 2 ou 3 textures simples (des points, des traits courts), un reflet clair, une étiquette, une pastille ronde inclinée de 8 à 12°.
 - **Le texte dans le dessin** reprend les polices du thème : `style="font-family:var(--font-display)"`.
@@ -64,7 +69,7 @@ Tout s'arrête seul si le visiteur a demandé moins d'animations. Aucun dessin n
 
 ### Un exemple complet
 
-`tests/coeurriz-v2/site/public/index.html` : une boîte de curry japonais vue de dessus (riz, katsu, légumes, étiquette au prénom, baguettes, serviette à carreaux, vapeur) et 3 étapes (le formulaire et la pièce de 20 €, la marmite, la pile de boîtes et l'horloge).
+Le même sujet dessiné de trois façons, une par design : `tests/coeurriz-v3/design-a/` (un grand bol vu de côté, sans cadre), `design-b/` (une rangée de boîtes à prénoms, en frise, sans trait), `design-c/` (la boîte vue de dessus qui remplit un panneau), avec leurs 3 étapes (le formulaire et la pièce de 20 €, la marmite, la pile de boîtes et l'horloge).
 
 ## 2. Les photos du client
 
@@ -84,36 +89,13 @@ Le cadre prévu (bord épais + ombre dure, comme les cartes) :
 
 ## 3. Les motifs de fond en CSS
 
-Un motif discret sur le hero et sur le bloc final suffit à sortir du « fond uni ». On l'écrit dans le thème (`--motif`), puis on ajoute la classe `kz-motif` sur la bande. Il doit rester à peine visible : 4 à 6 % d'encre, jamais derrière un long texte foncé.
+Un motif discret sur le hero et sur le bloc final suffit à sortir du « fond uni ». Il se choisit avec une classe sur `<body>` et s'applique aux bandes qui portent `kz-motif` :
 
-Des vagues (comme la démo) :
+- `motif-vagues` (demi-cercles, façon vagues japonaises), `motif-pois`, `motif-rayures` (fines, en biais), `motif-grille` (papier, plan, carnet), ou `motif-aucun`.
+- L'intensité se règle dans le thème : `--motif-force: 4%;` (de 3 à 7 %). Le motif doit rester à peine visible, jamais gênant derrière le texte.
+- Un motif sur mesure reste possible : définir `--motif` dans le thème avec des dégradés CSS (`radial-gradient`, `repeating-linear-gradient`) et la couleur `var(--motif-c)`.
 
-```css
---motif-c: color-mix(in srgb, var(--ink) 4.5%, transparent);
---motif: radial-gradient(circle at 50% 100%, transparent 0 10px, var(--motif-c) 10px 12px, transparent 12px 18px, var(--motif-c) 18px 20px, transparent 20px) 0 0 / 56px 28px,
-         radial-gradient(circle at 50% 100%, transparent 0 10px, var(--motif-c) 10px 12px, transparent 12px 18px, var(--motif-c) 18px 20px, transparent 20px) 28px 14px / 56px 28px;
-```
-
-Des pois :
-
-```css
---motif: radial-gradient(circle, color-mix(in srgb, var(--ink) 9%, transparent) 2px, transparent 2.5px) 0 0 / 22px 22px;
-```
-
-Des rayures fines en biais :
-
-```css
---motif: repeating-linear-gradient(135deg, color-mix(in srgb, var(--ink) 5%, transparent) 0 2px, transparent 2px 14px);
-```
-
-Un quadrillage (papier, plan, carnet) :
-
-```css
---motif: linear-gradient(color-mix(in srgb, var(--ink) 6%, transparent) 1px, transparent 1px) 0 0 / 28px 28px,
-         linear-gradient(90deg, color-mix(in srgb, var(--ink) 6%, transparent) 1px, transparent 1px) 0 0 / 28px 28px;
-```
-
-Le joint entre deux bandes fait aussi partie du décor : `joint-vagues` (festons), `joint-crans` (créneaux carrés) ou `joint-droit`, sur `<body>`.
+Le joint entre deux bandes fait aussi partie du décor : `joint-vagues` (festons), `joint-crans` (créneaux carrés), `joint-pointes` (dents de scie), `joint-biais` (grand biais) ou `joint-droit`, sur `<body>`.
 
 ## Avant de montrer la page
 
@@ -121,3 +103,4 @@ Le joint entre deux bandes fait aussi partie du décor : `joint-vagues` (festons
 - Aucun visage, aucun œil, aucun signe religieux, aucun drapeau, même par accident ?
 - Rien dans une image ne promet plus que l'offre validée ?
 - Sur mobile, le sujet du hero est entier et centré ?
+- Rien ne recouvre le titre, ni sur PC ni sur mobile ?

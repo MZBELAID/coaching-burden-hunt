@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <!--
-  KIT SITE EXPRESS · modèle de page (7 sections, dans cet ordre) :
+  KIT SITE EXPRESS · modèle de page (8 sections, dans cet ordre) :
     1. barre contact   2. hero (tient sans scroller)   3. témoignages (SI: avis)
     4. comment ça marche + ce que vous recevez + délai   5. pour qui / pas pour qui
-    6. FAQ   7. bloc final + pied de page légal
+    6. qui je suis / qui nous sommes (toujours)   7. FAQ   8. bloc final + pied de page légal
   Règles :
   - Remplacer chaque champ entre doubles accolades. Aucun ne doit rester avant publication
     (sauf ceux qui attendent les comptes du client : liens Stripe, pixel, adresse du site).
@@ -16,7 +16,9 @@
   - Garder UN SEUL mode de bouton : ECOM (paiement Stripe) ou LEAD (question OUI/NON + formulaire). Supprimer l'autre.
   - Zéro faux : ni avis, ni compte à rebours, ni places, ni chiffres inventés.
   - Voix : « je » (une seule personne), « vous » pour le visiteur.
-  - Le thème (couleurs, polices, formes) : voir themes.md. Les visuels : voir illustrations.md.
+  - Le design : un thème (couleurs, polices, formes) + une valeur par axe en classes sur <body> : voir themes.md.
+    Fond clair, texte foncé, toujours. Deux clients n'ont jamais le même hero + les mêmes cartes + la même barre.
+  - Les visuels : voir illustrations.md.
 -->
 <title>{{TITRE_PAGE}}</title>
 <meta name="description" content="{{DESCRIPTION_COURTE}}">
@@ -60,8 +62,18 @@
   }
 </style>
 </head>
-<!-- La classe du <body> choisit le joint entre les bandes : joint-vagues | joint-crans | joint-droit -->
-<body class="joint-vagues has-sticky">
+<!-- LE DESIGN, partie 3 : une valeur par axe, en classes sur <body> (liste complète dans themes.md). Garder has-sticky.
+     hero-droite | hero-gauche | hero-centre | hero-affiche | hero-bande
+     cartes-dures | cartes-douces | cartes-trait | cartes-aplat
+     barre-foncee | barre-claire | barre-accent  (+ barre-lisere-fin | barre-sans-lisere)
+     bouton-rectangle | bouton-pilule | bouton-coupe  (+ bouton-plat | bouton-doux)
+     fort-couleur | fort-souligne | fort-surligne
+     joint-vagues | joint-crans | joint-pointes | joint-biais | joint-droit
+     motif-aucun | motif-vagues | motif-pois | motif-rayures | motif-grille
+     etapes-ligne | etapes-frise | etapes-zigzag
+     pq-colonnes | pq-liste
+     Les mêmes classes de cartes, de barre et de bouton vont sur le <body class="doc …"> de merci.html et des pages légales. -->
+<body class="hero-droite cartes-dures barre-foncee bouton-rectangle fort-couleur joint-vagues motif-aucun etapes-ligne pq-colonnes has-sticky">
 
 <!-- ═══ 1. Barre contact : toujours. WhatsApp OU e-mail (garder un seul des deux blocs SI, ou les deux). ═══ -->
 <header class="top"><div class="top-in">
@@ -73,8 +85,9 @@
 </div></header>
 
 <!-- ═══ 2. Hero : POUR QUI → H1 RÉSULTAT → PHRASE EXACTE DE L'OFFRE → BOUTON AVEC PRIX → UNE LIGNE GARANTIE + illustration.
+     Rien ne recouvre jamais le titre. Le format de l'illustration dépend du hero choisi (illustrations.md).
      Doit tenir sans scroller sur PC (1440×900) et mobile (390×844) : H1 court (8 mots max), phrase de l'offre en 2 lignes sur PC. ═══ -->
-<main class="kz hero">
+<main class="kz hero kz-motif">
   <div class="hero-in">
     <div class="hero-txt">
       <p class="who">Pour {{BEARER_COURT}}</p>
@@ -245,7 +258,45 @@
   </div>
 </section>
 
-<!-- ═══ 6. FAQ en accordéon. La question « Et si ça ne me convient pas ? » est obligatoire. La dernière = contact. ═══ -->
+<!-- ═══ 6. Qui je suis / Qui nous sommes : TOUJOURS. 3 à 6 lignes vraies (ce que je sais faire, ce que j'ai déjà fait, d'où je travaille).
+     Rien d'inventé : ni diplôme, ni chiffre, ni client. Une seule personne → « Qui je suis » et « je » ; plusieurs → « Qui nous sommes » et « nous ». ═══ -->
+<section class="kz kz-b" id="qui" aria-labelledby="qui-h">
+  <div class="kz-in qui">
+    <!-- SI: photo (une VRAIE photo fournie par le client : lui, son atelier, ses mains au travail) -->
+    <figure class="art photo sq qui-art rv"><img src="{{QUI_PHOTO_FICHIER}}" alt="{{QUI_PHOTO_DESCRIPTION}}" width="800" height="800" loading="lazy"></figure>
+    <!-- /SI -->
+    <!-- SI: pas de photo (un monogramme ou un objet du métier dessiné en SVG, viewBox 400×400. Jamais de visage dessiné.) -->
+    <figure class="art photo sq qui-art rv" aria-hidden="true">
+      <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+        <rect width="400" height="400" style="fill:var(--bg2)"/>
+        <circle cx="200" cy="200" r="128" style="fill:var(--gold);stroke:var(--line)" stroke-width="6"/>
+        <circle cx="200" cy="200" r="108" fill="none" style="stroke:var(--line)" stroke-width="3" stroke-dasharray="4 9" stroke-linecap="round"/>
+        <text x="200" y="242" text-anchor="middle" font-size="120" style="fill:var(--gold-ink);font-family:var(--font-display);font-weight:var(--h-weight)">{{MONOGRAMME}}</text>
+      </svg>
+    </figure>
+    <!-- /SI -->
+    <div class="qui-txt">
+      <div class="kz-head rv">
+        <p class="eye">{{QUI_TITRE}}</p>
+        <h2 id="qui-h">{{QUI_H2_DEBUT}} <span class="hl">{{QUI_H2_FIN}}</span></h2>
+      </div>
+      <div class="qui-lines rv">
+        <p>{{QUI_1}}</p>
+        <p>{{QUI_2}}</p>
+        <p>{{QUI_3}}</p>
+        <!-- SI: 4e ligne --><p>{{QUI_4}}</p><!-- /SI -->
+        <!-- SI: 5e ligne --><p>{{QUI_5}}</p><!-- /SI -->
+        <!-- SI: 6e ligne --><p>{{QUI_6}}</p><!-- /SI -->
+      </div>
+      <p class="qui-contact rv">
+        <!-- SI: whatsapp --><a class="go" href="https://wa.me/{{WHATSAPP_NUMERO_SANS_PLUS}}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#137a40" d="M12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2z"/><path fill="#fff" d="M17.200 14.300c-.300-.100-1.700-.800-1.900-.900-.300-.100-.400-.100-.600.100l-.900 1.100c-.200.200-.300.200-.600.100a7.400 7.400 0 0 1-3.600-3.200c-.300-.500.300-.400.800-1.400.100-.200 0-.300 0-.400l-.900-2c-.200-.500-.400-.400-.600-.400h-.500c-.200 0-.500.100-.700.300a2.900 2.900 0 0 0-.900 2.200 5 5 0 0 0 1.100 2.700 11.600 11.600 0 0 0 4.400 3.900c1.600.700 2.300.800 3.100.600.500-.100 1.700-.700 1.900-1.400.200-.600.200-1.200.200-1.300-.100-.100-.300-.200-.600-.300z"/></svg>M'écrire sur WhatsApp</a><!-- /SI -->
+        <!-- SI: e-mail --><a class="go" href="mailto:{{EMAIL}}">{{EMAIL}}</a><!-- /SI -->
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7. FAQ en accordéon. La question « Et si ça ne me convient pas ? » est obligatoire. La dernière = contact. ═══ -->
 <section class="kz" aria-labelledby="faq-h">
   <div class="kz-in faq-grid">
     <div class="kz-head rv">
@@ -262,7 +313,7 @@
   </div>
 </section>
 
-<!-- ═══ 7. Bloc final : le H1 répété, le bouton, puis le pied de page légal ═══ -->
+<!-- ═══ 8. Bloc final : le H1 répété, le bouton, puis le pied de page légal ═══ -->
 <section class="kz kz-gold kz-end" aria-labelledby="end-h">
   <div class="kz-in kz-narrow rv">
     <p class="flag">{{ETIQUETTE_FINALE}}</p>

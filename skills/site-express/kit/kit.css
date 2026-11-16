@@ -4,9 +4,12 @@
    bandes de couleur, gros titres, cartes à bord épais et ombre dure,
    bouton « à enfoncer », FAQ en accordéon, apparitions au défilement.
 
-   UN THÈME = LE BLOC DE VARIABLES CI-DESSOUS.
-   Ne touchez pas au reste : collez un bloc « :root { … } » APRÈS ce fichier
-   (dans la page, voir themes.md) pour changer couleurs, polices et formes.
+   UN DESIGN = 1) LE BLOC DE VARIABLES CI-DESSOUS (couleurs, polices, formes)
+               2) UNE VALEUR PAR AXE, en classes sur <body> (hero, cartes, barre,
+                  bouton, mot fort, joint, motif, étapes, pour qui) : voir la fin
+                  de ce fichier et themes.md.
+   Ne touchez pas au reste : collez un bloc « :root { … } » APRÈS ce fichier.
+   Règle fixe : fond clair, texte foncé.
    ════════════════════════════════════════════════════════════════════════ */
 
 :root {
@@ -47,7 +50,7 @@
   --shadow-c: color-mix(in srgb, var(--ink) 24%, transparent);
   --hair: color-mix(in srgb, var(--ink) 16%, transparent);
   --gold-bg: color-mix(in srgb, var(--gold) 34%, var(--bg));
-  --ok: #1f7a3a;           /* le vert des coches « pour vous si » (à éclaircir sur un thème sombre) */
+  --ok: #1f7a3a;           /* le vert des coches « pour vous si » */
   --gutter: max(20px, env(safe-area-inset-left, 0px));
   --top-h: 60px;
   /* bandeau cookies (consent.js) */
@@ -107,7 +110,7 @@ h3 { font-size: calc(var(--h-scale) * 1.75rem); line-height: 1.08; }
   position: relative; background: var(--band); color: var(--fg); padding-block: clamp(72px, 9vw, 120px) clamp(76px, 9.4vw, 124px); }
 .kz-b { --band: var(--bg2); }
 .kz-dark { --band: var(--band-dark); --fg: var(--on-dark); --fg2: var(--on-dark2); --hl: var(--gold); --h: #fff; --eye: var(--gold); }
-.kz-accent { --band: var(--band-accent); --fg: var(--on-accent); --fg2: color-mix(in srgb, var(--on-accent) 82%, var(--band-accent)); --hl: var(--gold); --h: #fff; --eye: var(--gold); }
+.kz-accent { --band: var(--band-accent); --fg: var(--on-accent); --fg2: color-mix(in srgb, var(--on-accent) 82%, var(--band-accent)); --hl: var(--hl-accent, var(--gold)); --h: var(--on-accent); --eye: var(--hl-accent, var(--gold)); }
 .kz-gold { --band: var(--gold-bg); }
 .kz-in { position: relative; max-width: 1160px; margin-inline: auto; padding-inline: var(--gutter); }
 .kz-narrow { max-width: 46rem; }
@@ -158,10 +161,13 @@ h3 { font-size: calc(var(--h-scale) * 1.75rem); line-height: 1.08; }
 :where(.card) p { color: var(--ink2); }
 :where(.card) b, :where(.card) strong { color: var(--ink); }
 .card h3 { color: var(--ink); }
-.kz-dark .card, .kz-accent .card { --shadow-c: rgba(0, 0, 0, 0.32); }
+.kz-dark .card { --shadow-c: rgba(0, 0, 0, 0.32); }
+.kz-accent .card { --shadow-c: var(--shadow-accent, rgba(0, 0, 0, 0.32)); }
 .art { margin: 0; background: var(--card); border: var(--bw) solid var(--line); border-radius: var(--radius); box-shadow: var(--sh) var(--sh) 0 var(--shadow-c); overflow: hidden; }
 .art svg, .art img { width: 100%; height: 100%; object-fit: cover; }
-.kz-dark .art, .kz-accent .art { border-color: #fff; --shadow-c: rgba(0, 0, 0, 0.32); }
+.kz-dark .art { border-color: #fff; --shadow-c: rgba(0, 0, 0, 0.32); }
+/* bande d'accent claire : définir dans le thème --line-accent: var(--line) et --shadow-accent */
+.kz-accent .art { border-color: var(--line-accent, #fff); --shadow-c: var(--shadow-accent, rgba(0, 0, 0, 0.32)); }
 .photo { aspect-ratio: 4 / 3; }           /* cadre prévu pour une photo du client */
 .photo.sq { aspect-ratio: 1; }
 .grid2 { display: grid; gap: clamp(20px, 3vw, 36px); }
@@ -271,15 +277,17 @@ h3 { font-size: calc(var(--h-scale) * 1.75rem); line-height: 1.08; }
 /* ── 5. Pour qui / pas pour qui ───────────────────────────────────────── */
 .pq { display: grid; gap: clamp(20px, 2.6vw, 30px); align-items: start; }
 @media (min-width: 860px) { .pq { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.pq-yes { --c-line: var(--ok); } .pq-no { --c-line: var(--cta); }
-.kz-dark .pq > .card, .kz-accent .pq > .card { border-color: #fff; }
+/* --no : la couleur du « pas pour vous » (par défaut celle du bouton ; à définir si le bouton est clair) */
+.pq-yes { --c-line: var(--ok); } .pq-no { --c-line: var(--no, var(--cta)); }
+.kz-dark .pq > .card { border-color: #fff; }
+.kz-accent .pq > .card { border-color: var(--line-accent, #fff); }
 .pq h3 { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; font-size: calc(var(--h-scale) * 1.6rem); }
 .pq h3 i { flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; color: #fff; font: 800 1.125rem/1 var(--font-body); font-style: normal; }
-.pq-yes h3 i { background: var(--ok); } .pq-no h3 i { background: var(--cta); }
+.pq-yes h3 i { background: var(--ok); } .pq-no h3 i { background: var(--no, var(--cta)); }
 .pq ul { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
 .pq li { position: relative; padding-left: 28px; color: var(--ink); font-size: 1.0625rem; line-height: 1.5; }
 .pq li::before { position: absolute; left: 0; top: 0; font-weight: 800; }
-.pq-yes li::before { content: "✓"; color: var(--ok); } .pq-no li::before { content: "✕"; color: var(--cta); }
+.pq-yes li::before { content: "✓"; color: var(--ok); } .pq-no li::before { content: "✕"; color: var(--no, var(--cta)); }
 
 /* ── 6. FAQ en accordéon ──────────────────────────────────────────────── */
 .faq-grid { display: grid; gap: clamp(26px, 4vw, 72px); align-items: start; }
@@ -339,7 +347,7 @@ h3 { font-size: calc(var(--h-scale) * 1.75rem); line-height: 1.08; }
 /* ── Pages simples : merci + pages légales (<body class="doc">) ───────── */
 .doc main { max-width: 760px; margin: 0 auto; padding: clamp(28px, 5vw, 56px) var(--gutter) 90px; }
 .doc h1 { color: var(--ink); font-size: calc(var(--h-scale) * clamp(2.2rem, 7vw, 3.2rem)); margin: 16px 0 12px; }
-.doc h2 { margin: 34px 0 8px; padding-left: 12px; border-left: 6px solid var(--gold); color: var(--ink); font: 800 1.25rem/1.3 var(--font-body); letter-spacing: 0; text-transform: none; }
+.doc h2 { margin: 34px 0 8px; color: var(--ink); font: 800 1.25rem/1.3 var(--font-body); letter-spacing: 0; text-transform: none; }
 .doc main p { margin: 0 0 12px; }
 .doc main li { margin-bottom: 10px; }
 .doc .back { display: inline-block; color: var(--ink2); font: 700 0.9375rem/1 var(--font-body); text-underline-offset: 3px; }
@@ -347,13 +355,203 @@ h3 { font-size: calc(var(--h-scale) * 1.75rem); line-height: 1.08; }
 .doc .maj, .doc .muted { color: var(--ink2); font-size: 0.875rem; }
 .doc .maj { margin-top: 40px; }
 .doc blockquote { margin: 12px 0; padding: 14px 16px; border: 2px dashed var(--accent); border-radius: var(--radius); background: var(--card); font-size: 0.9375rem; }
-.doc .first { margin: 0 0 18px; padding: 14px 16px; border-left: 6px solid var(--gold); background: var(--card); color: var(--ink); font: 700 1.125rem/1.45 var(--font-body); }
+.doc .first { margin: 0 0 18px; padding: 14px 16px; border: 2px solid var(--gold); border-radius: var(--radius); background: var(--card); color: var(--ink); font: 700 1.125rem/1.45 var(--font-body); }
 .doc main .card { margin-top: 24px; }
 .doc main .card p { margin-bottom: 14px; }
 .btn { display: inline-block; margin: 6px 8px 6px 0; padding: 12px 18px; border: var(--bw) solid var(--cta-dk); border-radius: var(--radius); background: var(--cta); color: var(--cta-ink);
   font: 800 1rem/1.2 var(--font-body); text-decoration: none; cursor: pointer; box-shadow: 0 4px 0 var(--cta-dk); }
 .btn.alt { background: var(--card); color: var(--ink); border-color: var(--line); box-shadow: 0 4px 0 var(--line); }
 .box-cta { margin: 0 0 22px; padding: 18px; border: var(--bw) solid var(--cta); border-radius: var(--radius); background: var(--card); box-shadow: var(--sh) var(--sh) 0 var(--shadow-c); }
+
+/* ════════════════════════════════════════════════════════════════════════
+   LES AXES DE DESIGN
+   Chaque client a SA combinaison. On la choisit avec des classes sur <body>
+   (une valeur par axe, voir themes.md). Sans classe, c'est la 1re valeur.
+   Règle fixe : fond clair, texte foncé. Le hero est toujours clair.
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* ── Section « Qui je suis » ──────────────────────────────────────────── */
+.qui { display: grid; gap: clamp(26px, 4vw, 64px); align-items: center; }
+.qui-art { width: 100%; max-width: 250px; margin: 0; justify-self: start; }
+.qui-art svg, .qui-art img { width: 100%; height: 100%; object-fit: cover; }
+.qui-txt .kz-head { margin-bottom: 22px; }
+.qui-txt p + p { margin-top: 12px; }
+.qui-lines p { font-size: 1.125rem; line-height: 1.6; color: var(--fg); }
+.qui-contact { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 26px; }
+.qui-contact .small { flex-basis: 100%; }
+.go { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 9px 18px; border: 2px solid var(--line); border-radius: var(--radius); background: var(--card); color: var(--ink);
+  font: 800 1rem/1.2 var(--font-body); text-decoration: none; }
+.go svg { flex: none; width: 20px; height: 20px; }
+.go:hover { background: var(--gold); color: var(--gold-ink); }
+@media (min-width: 860px) { .qui { grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr); } .qui-art { max-width: 400px; justify-self: center; } }
+
+/* ── AXE 1 · Le hero : hero-droite (défaut) | hero-gauche | hero-centre | hero-affiche | hero-bande ── */
+@media (min-width: 960px) {
+  .hero-gauche .hero-art { order: -1; }
+  .hero-gauche .hero-in { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
+}
+
+/* hero-centre : tout centré, l'illustration en frise pleine largeur, collée au bas du hero (viewBox large, ex. 1440×300) */
+.hero-centre .hero { padding-bottom: 0; align-items: stretch; }
+.hero-centre .hero-in { grid-template-columns: minmax(0, 1fr); grid-template-rows: 1fr auto; max-width: none; padding-inline: 0; text-align: center; gap: clamp(14px, 2.6vh, 28px); }
+.hero-centre .hero-txt { align-content: center; justify-items: center; width: 100%; max-width: 900px; margin-inline: auto; padding-inline: var(--gutter); }
+.hero-centre .who { justify-self: center; }
+.hero-centre .hero h1 .hl { display: inline; }
+.hero-centre .offer { max-width: 40rem; }
+.hero-centre .hero-buy { justify-items: center; }
+.hero-centre .guar { justify-content: center; }
+.hero-centre .hero-art, .hero-centre .hero-art.art { order: 2; width: 100%; height: clamp(120px, 17vh, 170px); max-height: none; aspect-ratio: auto; border: 0; border-radius: 0; box-shadow: none; background: none; overflow: visible; }
+@media (min-width: 960px) {
+  .hero-centre .hero-art, .hero-centre .hero-art.art { height: clamp(170px, 28vh, 270px); }
+  .hero-centre .hero h1 { font-size: calc(var(--h-scale) * clamp(2.5rem, min(4.6vw, 8.4vh), 4.3rem)); }
+}
+
+/* hero-affiche : le titre géant sur toute la largeur, le reste dessous, l'illustration sans cadre à côté du bouton.
+   RÈGLE : rien ne recouvre jamais le titre. L'illustration reste entièrement SOUS le titre. */
+.hero-affiche .hero-txt { display: contents; }
+.hero-affiche .hero-in { grid-template-columns: minmax(0, 1fr); gap: clamp(10px, 1.8vh, 18px); }
+.hero-affiche .who { order: 1; }
+.hero-affiche .hero h1 { order: 2; font-size: calc(var(--h-scale) * clamp(2.4rem, min(12.2vw, 6.8vh), 4rem)); line-height: calc(var(--h-lh) * 0.94); }
+.hero-affiche .hero h1 .hl { display: inline; }
+.hero-affiche .hero-art svg { overflow: visible; }
+.hero-affiche .hero-art, .hero-affiche .hero-art.art { order: 3; height: clamp(100px, 16vh, 150px); border: 0; border-radius: 0; box-shadow: none; background: none; overflow: visible; }
+.hero-affiche .offer { order: 4; }
+.hero-affiche .hero-buy { order: 5; }
+@media (min-width: 960px) {
+  .hero-affiche .hero-in { grid-template-columns: minmax(0, 1fr) minmax(0, 0.86fr); grid-template-areas: "who who" "h1 h1" "offer art" "buy art"; grid-template-rows: auto auto auto 1fr; column-gap: clamp(36px, 5vw, 76px); align-items: start; }
+  .hero-affiche .who { grid-area: who; }
+  .hero-affiche .hero h1 { grid-area: h1; font-size: calc(var(--h-scale) * clamp(3.4rem, min(8.7vw, 15.4vh), 8.6rem)); }
+  .hero-affiche .offer { grid-area: offer; max-width: 34rem; font-size: clamp(1.0625rem, 2.3vh, 1.3125rem); }
+  .hero-affiche .hero-buy { grid-area: buy; }
+  .hero-affiche .hero-art, .hero-affiche .hero-art.art { grid-area: art; height: clamp(240px, 43vh, 430px); max-height: none; aspect-ratio: auto; margin-top: clamp(8px, 1.6vh, 18px); align-self: start; }
+}
+
+/* hero-bande : le texte sur fond clair, l'illustration dans un grand panneau de couleur qui touche les bords (--hero-panel) */
+.hero-bande .hero { padding-top: 0; }
+.hero-bande .hero-in { max-width: none; padding-inline: 0; }
+.hero-bande .hero-txt { padding-inline: var(--gutter); }
+.hero-bande .hero-art, .hero-bande .hero-art.art { border: 0; border-radius: 0; box-shadow: none; background: var(--hero-panel, var(--gold)); padding: 10px var(--gutter); overflow: hidden; }
+@media (min-width: 960px) {
+  .hero-bande .hero { padding-block: 0; align-items: stretch; }
+  .hero-bande .hero-in { grid-template-columns: minmax(0, 1fr) minmax(0, 0.84fr); gap: 0; align-items: stretch; }
+  .hero-bande .hero-txt { align-content: center; padding: 4vh clamp(28px, 4.6vw, 76px) 5vh max(var(--gutter), calc((100vw - 1240px) / 2 + 20px)); }
+  .hero-bande .hero-art, .hero-bande .hero-art.art { height: auto; max-height: none; aspect-ratio: auto; padding: clamp(20px, 3.4vw, 56px); display: grid; place-items: center; }
+  .hero-bande .hero-art svg, .hero-bande .hero-art img { max-height: min(70vh, 640px); }
+}
+/* .plein : l'illustration remplit tout le panneau (dessin avec son propre fond, preserveAspectRatio « slice ») */
+.hero-bande .hero-art.plein { padding: 0; }
+.hero-bande .hero-art.plein svg, .hero-bande .hero-art.plein img { max-height: none; height: 100%; }
+
+/* ── AXE 2 · Les cartes : cartes-dures (défaut) | cartes-douces | cartes-trait | cartes-aplat ── */
+.cartes-douces :is(.card, .art, .pop-box, .box-cta, .step-art), .cartes-douces .kz:not(.kz-dark):not(.kz-accent) .step {
+  border: 0; box-shadow: 0 22px 44px -22px color-mix(in srgb, var(--ink) 38%, transparent), 0 2px 8px color-mix(in srgb, var(--ink) 7%, transparent); }
+.cartes-douces .stack-f { border-top: 0; }
+.cartes-douces .seal { border: 0; background: color-mix(in srgb, var(--accent) 12%, var(--card)); }
+.cartes-trait :is(.card, .art, .pop-box, .box-cta, .step-art), .cartes-trait .kz:not(.kz-dark):not(.kz-accent) .step {
+  border: 1.5px solid var(--c-line, var(--line)); box-shadow: none; }
+.cartes-trait .stack-f { border-top-width: 1.5px; }
+.cartes-trait .seal { border-style: solid; border-width: 1.5px; background: none; }
+.cartes-aplat :is(.card, .art, .pop-box, .box-cta, .step-art), .cartes-aplat .kz:not(.kz-dark):not(.kz-accent) .step { border: 0; box-shadow: none; }
+.cartes-aplat .kz:not(.kz-dark):not(.kz-accent) :is(.card, .step) { background: color-mix(in srgb, var(--band) 86%, var(--accent)); }
+.cartes-aplat .stack-f { border-top: 0; }
+.cartes-aplat .seal { border: 0; background: color-mix(in srgb, var(--accent) 16%, var(--bg)); }
+.cartes-aplat .recap th, .cartes-aplat .recap td, .cartes-aplat .stack li { border-top-color: color-mix(in srgb, var(--ink) 22%, transparent); }
+/* les cartes de la bande foncée ou colorée gardent un fond clair, sans liseré blanc quand il n'y a pas de bord */
+:is(.cartes-douces, .cartes-aplat) :is(.kz-dark, .kz-accent) .pq > .card { border: 0; }
+
+/* ── AXE 3 · La barre du haut : barre-foncee (défaut) | barre-claire | barre-accent, + barre-lisere-fin | barre-sans-lisere ── */
+.barre-claire .top { background: var(--bg); color: var(--ink); border-bottom-color: var(--line); }
+.barre-claire .logo, .barre-claire .ask-mail { color: var(--ink); }
+.barre-claire .logo b { color: var(--cta); }
+.barre-claire .logo i { box-shadow: inset 0 0 0 4px var(--cta), inset 0 0 0 6px var(--bg); }
+.barre-claire .ask-q { color: var(--ink2); }
+.barre-claire .ask-mail { border-color: var(--ink); }
+.barre-accent .top { background: var(--band-accent); color: var(--on-accent); }
+.barre-accent .logo, .barre-accent .ask-mail, .barre-accent .ask-q { color: var(--on-accent); }
+.barre-accent .logo b { color: inherit; opacity: 0.78; }
+.barre-accent .ask-wa { background: #fff; color: #0b4d28; box-shadow: none; }
+.barre-accent .ask-wa svg path:first-child { fill: #137a40; }
+.barre-accent .ask-wa svg path + path { fill: #fff; }
+.barre-lisere-fin .top { border-bottom-width: 2px; }
+.barre-sans-lisere .top { border-bottom-width: 0; }
+
+/* ── AXE 4 · Le bouton : bouton-rectangle (défaut, suit --radius) | bouton-pilule | bouton-coupe, + bouton-plat | bouton-doux ── */
+.cta { font-family: var(--cta-font, var(--font-display)); font-weight: var(--cta-weight, var(--h-weight)); text-transform: var(--cta-case, var(--h-case)); }
+.cta .cta-sub { font-family: var(--font-body); font-weight: 600; text-transform: none; }
+.bouton-pilule :is(.cta, .btn, .go) { border-radius: 999px; }
+.bouton-plat .cta { border-color: transparent; box-shadow: none; }
+.bouton-plat .cta:active { transform: scale(0.98); box-shadow: none; }
+.bouton-doux .cta { border-color: transparent; box-shadow: 0 16px 30px -14px color-mix(in srgb, var(--cta-dk) 85%, transparent); }
+.bouton-doux .cta:active { transform: translateY(2px); box-shadow: 0 8px 16px -10px color-mix(in srgb, var(--cta-dk) 85%, transparent); }
+.bouton-coupe .cta { border: 0; border-radius: 0; padding-bottom: 21px; box-shadow: inset 0 -7px 0 var(--cta-dk);
+  clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px); }
+.bouton-coupe .cta:active { transform: translateY(3px); box-shadow: inset 0 -3px 0 var(--cta-dk); }
+
+/* ── AXE 5 · Le mot fort des titres : fort-couleur (défaut) | fort-souligne | fort-surligne ──
+   (la casse, la graisse et la taille des titres se règlent dans le thème : --h-case, --h-weight, --h-scale) */
+.fort-souligne .hero h1 .hl, .fort-surligne .hero h1 .hl { display: inline; }
+.fort-souligne .hl { color: inherit; text-decoration: underline; text-decoration-color: var(--hl); text-decoration-thickness: 0.08em; text-underline-offset: 0.07em; text-decoration-skip-ink: none; }
+.fort-surligne .hl { color: var(--gold-ink); background: var(--gold); padding: 0 0.14em; border-radius: calc(var(--radius) / 4); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+/* ── AXE 6 · Les joints (suite) : joint-biais | joint-pointes (en plus de joint-vagues, joint-crans, joint-droit) ── */
+.joint-biais .kz::after { height: clamp(22px, 3.4vw, 48px); background: linear-gradient(to bottom right, var(--band) 49.6%, transparent 50%); }
+.joint-pointes .kz::after { height: 13px; background: linear-gradient(135deg, var(--band) 25%, transparent 25.5%) -13px 0 / 26px 26px, linear-gradient(225deg, var(--band) 25%, transparent 25.5%) -13px 0 / 26px 26px; }
+.joint-biais .kz.kz-end::after, .joint-pointes .kz.kz-end::after { content: none; }
+
+/* ── AXE 7 · Le motif de fond des bandes .kz-motif : motif-aucun (défaut) | motif-vagues | motif-pois | motif-rayures | motif-grille ── */
+body { --motif-c: color-mix(in srgb, var(--ink) var(--motif-force, 5%), transparent); }
+.motif-vagues { --motif-o: 1; --motif: radial-gradient(circle at 50% 100%, transparent 0 10px, var(--motif-c) 10px 12px, transparent 12px 18px, var(--motif-c) 18px 20px, transparent 20px 26px, var(--motif-c) 26px 28px, transparent 28px) 0 0 / 56px 28px,
+  radial-gradient(circle at 50% 100%, transparent 0 10px, var(--motif-c) 10px 12px, transparent 12px 18px, var(--motif-c) 18px 20px, transparent 20px 26px, var(--motif-c) 26px 28px, transparent 28px) 28px 14px / 56px 28px; }
+.motif-pois { --motif-o: 1; --motif: radial-gradient(circle, var(--motif-c) 2.2px, transparent 2.8px) 0 0 / 22px 22px, radial-gradient(circle, var(--motif-c) 2.2px, transparent 2.8px) 11px 11px / 22px 22px; }
+.motif-rayures { --motif-o: 1; --motif: repeating-linear-gradient(135deg, var(--motif-c) 0 2px, transparent 2px 15px); }
+.motif-grille { --motif-o: 1; --motif: linear-gradient(var(--motif-c) 1.5px, transparent 1.5px) 0 0 / 30px 30px, linear-gradient(90deg, var(--motif-c) 1.5px, transparent 1.5px) 0 0 / 30px 30px; }
+.motif-aucun { --motif: none; }
+
+/* ── AXE 8 · « Comment ça marche » : etapes-ligne (défaut) | etapes-frise | etapes-zigzag ── */
+/* etapes-frise : une frise verticale, le numéro sur un fil, l'illustration à droite */
+.etapes-frise .steps { grid-template-columns: minmax(0, 1fr); gap: 0; max-width: 900px; margin-inline: auto; }
+.etapes-frise .step, .etapes-frise .kz:not(.kz-dark):not(.kz-accent) .step { grid-template-columns: 56px minmax(0, 1fr); grid-template-areas: "n h" "n p" "n art"; column-gap: 20px; row-gap: 8px;
+  padding: 0 0 clamp(30px, 4vw, 44px); border: 0; border-radius: 0; background: none; box-shadow: none; }
+.etapes-frise .step:last-child { padding-bottom: 0; }
+.etapes-frise .step .step-n { grid-area: n; align-self: start; font-size: 0; gap: 0; }
+.etapes-frise .step-n i { width: 56px; height: 56px; border-radius: 50%; font-size: 1.5rem; border: var(--bw) solid var(--band); position: relative; z-index: 1; }
+.etapes-frise .step::after { content: ""; position: absolute; left: 27px; top: 4px; bottom: 0; width: 2px; background: color-mix(in srgb, var(--fg) 30%, transparent); }
+.etapes-frise .step:last-child::after { content: none; }
+.etapes-frise .step + .step::before { content: none; }
+.etapes-frise .step h3 { grid-area: h; align-self: end; padding-top: 10px; font-size: calc(var(--h-scale) * 2rem); }
+.etapes-frise .step > p:not(.step-n) { grid-area: p; max-width: 34rem; }
+.etapes-frise .step-art { grid-area: art; max-width: 360px; margin-top: 8px; }
+@media (min-width: 760px) {
+  .etapes-frise .step, .etapes-frise .kz:not(.kz-dark):not(.kz-accent) .step { grid-template-columns: 56px minmax(0, 1fr) minmax(0, 300px); grid-template-areas: "n h art" "n p art"; grid-template-rows: auto 1fr; column-gap: 28px; }
+  .etapes-frise .step-art { margin-top: 0; align-self: start; }
+}
+/* etapes-zigzag : une étape par rangée, l'illustration en grand, une fois à gauche, une fois à droite */
+.etapes-zigzag .steps { grid-template-columns: minmax(0, 1fr); gap: clamp(34px, 5vw, 64px); max-width: 1000px; margin-inline: auto; }
+.etapes-zigzag .step, .etapes-zigzag .kz:not(.kz-dark):not(.kz-accent) .step { padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; }
+.etapes-zigzag .step + .step::before { content: none; }
+.etapes-zigzag .step h3 { font-size: calc(var(--h-scale) * 2.2rem); }
+.etapes-zigzag .step > p:not(.step-n) { font-size: 1.125rem; max-width: 30rem; }
+@media (min-width: 760px) {
+  .etapes-zigzag .step, .etapes-zigzag .kz:not(.kz-dark):not(.kz-accent) .step { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "art ." "art n" "art h" "art p" "art .."; grid-template-rows: 1fr auto auto auto 1fr; column-gap: clamp(28px, 5vw, 72px); }
+  .etapes-zigzag .step:nth-child(even), .etapes-zigzag .kz:not(.kz-dark):not(.kz-accent) .step:nth-child(even) { grid-template-areas: ". art" "n art" "h art" "p art" ".. art"; }
+  .etapes-zigzag .step-art { grid-area: art; }
+  .etapes-zigzag .step .step-n { grid-area: n; }
+  .etapes-zigzag .step h3 { grid-area: h; }
+  .etapes-zigzag .step > p:not(.step-n) { grid-area: p; }
+}
+
+/* ── AXE 9 · « Pour qui » : pq-colonnes (défaut) | pq-liste ── */
+/* pq-liste : pas de cartes, deux listes à grosses pastilles, l'une sous l'autre (côte à côte sur grand écran, séparées par un trait) */
+.pq-liste .pq > .card, :is(.cartes-douces, .cartes-trait, .cartes-aplat).pq-liste .pq > .card, .pq-liste .kz .pq > .card { padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; color: var(--fg); }
+.pq-liste .pq { gap: clamp(30px, 5vw, 72px); }
+.pq-liste .pq h3 { color: var(--h); font-size: calc(var(--h-scale) * 1.9rem); }
+.pq-liste .pq h3 i { display: none; }
+.pq-liste .pq ul { gap: 0; }
+.pq-liste .pq li { padding: 17px 0 17px 50px; border-top: 1.5px solid color-mix(in srgb, var(--fg) 24%, transparent); color: var(--fg); font-size: 1.125rem; font-weight: 600; line-height: 1.45; }
+.pq-liste .pq li:last-child { border-bottom: 1.5px solid color-mix(in srgb, var(--fg) 24%, transparent); }
+.pq-liste .pq li::before { top: 14px; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: #fff; font-size: 1rem; line-height: 1; }
+.pq-liste .pq-yes li::before { background: var(--ok); color: #fff; }
+.pq-liste .pq-no li::before { background: var(--no, var(--cta)); color: #fff; }
 
 /* ── Animations ───────────────────────────────────────────────────────────
    Règle d'or : sans JavaScript (ou en capture d'écran), TOUT est visible.
